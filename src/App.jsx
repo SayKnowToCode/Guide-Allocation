@@ -3,11 +3,12 @@ import TeamMembers from './components/TeamMembers';
 import AbstractForm from './components/AbstractForm';
 import PreferenceList from './components/PreferenceList';
 import EvaluationResults from './components/EvaluationResults';
+import EvaluationForm from './components/EvaluationForm';
 
 const App = () => {
   const [teamMembers, setTeamMembers] = useState([
-    { id: 1, name: 'Team Member 1' },
-    { id: 2, name: 'Team Member 2' },
+    { id: 1, name: 'Member 1' },
+    { id: 2, name: 'Member 2' },
     { id: 3, name: 'Team Leader', isLeader: true },
   ]);
 
@@ -47,6 +48,8 @@ const App = () => {
       <EvaluationResults
         evaluationResults={evaluationResults}
       />
+
+      <EvaluationForm />
     </div>
   );
 };
