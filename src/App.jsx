@@ -4,6 +4,7 @@ import AbstractForm from './components/AbstractForm';
 import PreferenceList from './components/PreferenceList';
 import EvaluationResults from './components/EvaluationResults';
 import EvaluationForm from './components/EvaluationForm';
+import Navbar from './utils/Navbar'
 
 const App = () => {
   const [teamMembers, setTeamMembers] = useState([
@@ -35,6 +36,9 @@ const App = () => {
   return (
     <div className="app">
       <h1>Student Dashboard</h1>
+      <nav>
+        <Navbar />
+      </nav>
       <TeamMembers teamMembers={teamMembers} />
       <AbstractForm
         isLeader={teamMembers.find((member) => member.isLeader)}
