@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import TeamMembers from './components/TeamMembers';
+import TeamMembers from './components/TeamMembers/TeamMembers';
 import AbstractForm from './components/AbstractForm';
 import PreferenceList from './components/PreferenceList';
 import EvaluationResults from './components/EvaluationResults';
 import EvaluationForm from './components/EvaluationForm';
-import Navbar from './utils/Navbar'
+import Navbar from './utils/Navbar/Navbar'
 
 const App = () => {
   const [teamMembers, setTeamMembers] = useState([
@@ -34,8 +34,8 @@ const App = () => {
   };
 
   return (
-    <div className="app">
-      <h1>Student Dashboard</h1>
+    <div className="app relative z-10">
+      <h1 className="z-10 relative text-3xl ml-8 py-3 text-white">Student Dashboard</h1>
       <nav>
         <Navbar />
       </nav>

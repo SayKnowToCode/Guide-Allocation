@@ -36,6 +36,7 @@
   margin-bottom: 10px;
   object-fit: cover; /* Ensures image covers the entire circle */
   object-position: center; /* Centers the image within the circle */
+  
 }
 
 .member-info {
