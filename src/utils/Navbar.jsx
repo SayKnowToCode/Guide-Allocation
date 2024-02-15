@@ -1,37 +1,26 @@
-// App.js
+// Navbar.js
 
-import React, { useState } from 'react';
-import Navbar from './Navbar';
-import Home from '../components/TeamMembers';
-import Post from '../components/AbstractForm';
-import Evaluate from '../components/EvaluationForm';
+import React from 'react';
 
-const App = () => {
-  const [activeTab, setActiveTab] = useState('home');
-
-  const handleTabChange = (tab) => {
-    setActiveTab(tab);
-  };
-
-  const handleLogout = () => {
-    // Perform logout actions
-    console.log('Logout');
-  };
-
+const Navbar = ({ activeTab, onTabChange, onLogout }) => {
   return (
-    <div className="app">
-      <Navbar
-        activeTab={activeTab}
-        onTabChange={handleTabChange}
-        onLogout={handleLogout}
-      />
-
-      {/* Content based on the active tab */}
-      {activeTab === 'home' && <Home />}
-      {activeTab === 'post' && <Post />}
-      {activeTab === 'evaluate' && <Evaluate />}
-    </div>
+    <nav className="navbar">
+      <ul>
+        <li className={activeTab === 'home' ? 'active' : ''}>
+          <button onClick={() => onTabChange('home')}>Home</button>
+        </li>
+        <li className={activeTab === 'post' ? 'active' : ''}>
+          <button onClick={() => onTabChange('post')}>Post</button>
+        </li>
+        <li className={activeTab === 'evaluate' ? 'active' : ''}>
+          <button onClick={() => onTabChange('evaluate')}>Evaluate</button>
+        </li>
+        <li className={activeTab === 'logout' ? 'active' : ''}>
+          <button onClick={onLogout}>Logout</button>
+        </li>
+      </ul>
+    </nav>
   );
 };
 
-export default App;
+export default Navbar;
