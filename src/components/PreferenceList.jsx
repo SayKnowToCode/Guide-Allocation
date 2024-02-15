@@ -1,6 +1,11 @@
 // PreferenceList.js
 
 import React, { useState } from 'react';
+// import "../index.css"
+// const styles={
+//   display:"flex",
+//   flexDirection:"column"
+// };
 
 const PreferenceList = ({ isLeader, onSelectPreference }) => {
   const [professorsPreference, setProfessorsPreference] = useState(['Reagef','aefaefae']);
@@ -13,9 +18,9 @@ const PreferenceList = ({ isLeader, onSelectPreference }) => {
   return (
     <div className="preference-list">
       <h2>Professors' Preference List</h2>
-      <ul>
+      <ul className="List">
         {professorsPreference.map((professor, index) => (
-          <li key={index}>{professor}</li>
+          <li className="MyList" key={index}>{professor}</li>
         ))}
       </ul>
       {isLeader && 
