@@ -6,22 +6,22 @@ import './Navbar.css'; // Import CSS file for styling
 
 const Navbar = ({ activeTab, onTabChange, onLogout }) => {
   return (
-    <nav className="navbar flex flex-col justify-start min-w-2/5 py-20 px-10 absolute top-0 left-0 text-white">
-      <ul className="flex flex-col gap-16 ">
-       {/* <li>
-          <h1 className="text-lg">Student Dashboard</h1>
-        </li>  */}
+    <nav className="navbar flex flex-col items-start justify-start min-w-2/5 absolute top-0 left-0 text-white">
+      <ul className="flex flex-col">
+        <li>
+          <h1 className="Dash z-10 relative text-3xl mt-5 ml-2 py-3 text-blue font-bold">Student Dashboard</h1>
+        </li>
         <li className={activeTab === 'home' ? 'active' : ''}>
-          <button className="mr-6  text-black hover:text-gray-300" onClick={() => onTabChange('home')}>Home</button>
+          <button className="mr-6 my-6 text-white" onClick={() => onTabChange('home')}>Home</button>
         </li>
         <li className={activeTab === 'post' ? 'active' : ''}>
-          <button className="mr-6  text-black hover:text-gray-300" onClick={() => onTabChange('post')}>Post</button>
+          <button className="mr-6 my-6 text-white" onClick={() => onTabChange('post')}>Post</button>
         </li>
         <li className={activeTab === 'evaluate' ? 'active' : ''}>
-          <button className="mr-6  text-black hover:text-gray-300" onClick={() => onTabChange('evaluate')}>Evaluate</button>
+          <button className="mr-6 my-6 text-white" onClick={() => onTabChange('evaluate')}>Evaluate</button>
         </li>
         <li className={activeTab === 'logout' ? 'active' : ''}>
-          <button className="mr-6 text-black hover:text-gray-300" onClick={onLogout}>Logout</button>
+          <button className="mr-6 my-6 text-white" onClick={onLogout}>Logout</button>
         </li>
       </ul>
     </nav>

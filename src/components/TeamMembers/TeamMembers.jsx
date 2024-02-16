@@ -5,7 +5,7 @@ import Image from '../../1.jpg'
 
 const TeamMembers = ({ teamMembers }) => {
   return (
-    <div className="team-members bg-gray-100 rounded-lg shadow-md p-8 max-w-3xl mx-auto mt-20">
+    <div className="team-members bg-gray-100 rounded-lg shadow-md p-8 max-w-3xl mx-96 mt-56">
       <h2 className="team-members-heading text-3xl text-center uppercase font-bold mb-6">Team Members</h2>
       <div className="team-members-list flex flex-wrap justify-center">
         {teamMembers.map((member) => (

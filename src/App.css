@@ -1,0 +1,44 @@
+/* .h1-container {
+    position: relative; /* Ensure positioning context */
+    /* z-index: 1; Lower z-index to allow navbar to appear on top */
+.Greet{
+    margin-top: 5vw;
+    margin-left: 24vw;
+}
+.Greet span {
+    opacity: 0;
+    animation: fadeInWord 0.5s ease forwards;
+    animation-fill-mode: forwards; /* Ensure the last frame of the animation is retained */
+  }
+  
+  @keyframes fadeInWord {
+    0% {
+      opacity: 0;
+    }
+    50% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  
+  /* Adjust animation delay for each word */
+  .word-0 {
+    animation-delay: 2s; /* Delay for the first word */
+  }
+  
+  .word-1 {
+    animation-delay: 4s; /* Delay for the second word */
+  }
+  
+  .word-2 {
+    animation-delay: 6s; /* Delay for the third word */
+  }
+  
+  .word-3 {
+    animation-delay: 8s; /* Delay for the fourth word */
+  }
+  
+  
+  
