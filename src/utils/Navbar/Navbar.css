@@ -1,37 +1,31 @@
-/* Navbar.css
-
 .navbar {
-    margin-top:30px;
     position: fixed;
     top: 0;
-    right: 0;
-    background-color: #333; /* Change background color as desired */
-    /* } */
-    
-    /*.navbar ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    }
-    
-    .navbar ul li {
-    display: inline-block;
-    }
-    
-    .navbar ul li button {
-    display: block;
-    padding: 10px 20px;
-    color: #fff; /* Change text color as desired */
-    /*text-decoration: none;
-    border: none;
-    background: transparent;
+    left: 0;
+    width: 20vw;
+    background-image: linear-gradient(90deg, #0048BD, #44a7fd);
+    height: 100vh;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'Nunito', sans-serif;
+    box-shadow: 0 0 10px rgba(24, 92, 186, 1.5);
+    border-top-right-radius: 50px;
+  }
+  
+  .navbar ul li button {
+    list-style: none;
+    font-size: 1.5vw; /* Adjust font size using vw units */
+    margin-right: 1.667vw;
+    transition: color 0.3s, text-decoration 1s;
     cursor: pointer;
-    }
-    
-    .navbar ul li button:hover {
-    background-color: #555; /* Change background color on hover as desired */
-    /*}
-    
-   /* .navbar ul li.active button {
-    background-color: #555; /* Change background color for active tab as desired */
-    /*} */
+  }
+  
+  .navbar ul li button:hover {
+    text-decoration: underline;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    border-radius: 8px;
+    font-weight: bold;
+    color: rgb(228, 90, 159);
+  }
+  
