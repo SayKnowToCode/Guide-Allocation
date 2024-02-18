@@ -15,22 +15,22 @@ const Navbar = ({ activeTab, onTabChange, onLogout }) => {
       <ul className="flex flex-row">
         <li className={activeTab === 'home' ? 'active' : ''}>
           <button className="mr-6 my-6" onClick={() => onTabChange('home')} style={{ display: 'flex', alignItems: 'center' }}>
-            {<FaHome style={{ marginRight: '0.5em' }} />} Home
+            <FaHome style={{ marginRight: '0.5em' }} /> Home
           </button>
         </li>
         <li className={activeTab === 'post' ? 'active' : ''}>
-          <button className="mr-6 my-6" onClick={() => onTabChange('home')} style={{ display: 'flex', alignItems: 'center' }}>
-            {<GoProjectRoadmap style={{ marginRight: '0.5em' }} />}Submissions
+          <button className="mr-6 my-6" onClick={() => onTabChange('post')} style={{ display: 'flex', alignItems: 'center' }}>
+            <GoProjectRoadmap style={{ marginRight: '0.5em' }} />Submissions
           </button>
         </li>
         <li className={activeTab === 'evaluate' ? 'active' : ''}>
-          <button className="mr-6 my-6" onClick={() => onTabChange('home')} style={{ display: 'flex', alignItems: 'center' }}>
-            {<LuClipboardCheck style={{ marginRight: '0.5em' }} />}Evaluate
+          <button className="mr-6 my-6" onClick={() => onTabChange('evaluate')} style={{ display: 'flex', alignItems: 'center' }}>
+            <LuClipboardCheck style={{ marginRight: '0.5em' }} />Evaluate
           </button>
         </li>
         <li className={activeTab === 'logout' ? 'active' : ''}>
-          <button className="mr-6 my-6" onClick={() => onTabChange('home')} style={{ display: 'flex', alignItems: 'center' }}>
-            {<FiLogOut style={{ marginRight: '0.5em' }} />}Logout
+          <button className="mr-6 my-6" onClick={onLogout} style={{ display: 'flex', alignItems: 'center' }}>
+            <FiLogOut style={{ marginRight: '0.5em' }} />Logout
           </button>
         </li>
       </ul>
@@ -39,4 +39,3 @@ const Navbar = ({ activeTab, onTabChange, onLogout }) => {
 };
 
 export default Navbar;
-

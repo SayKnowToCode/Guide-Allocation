@@ -1,27 +1,29 @@
+/* Navbar.css */
+
 .navbar {
     display: flex;
-    justify-content: flex-end; /* Spread items evenly along the main axis */
-    align-items: center ; /* Center items vertically */
+    justify-content: flex-end; 
+    align-items: center ; 
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%; /* Full width */
-    height: 10vh; /* Adjust height as needed */
+    width: 100%; 
+    height: 10vh; 
     font-family: 'Nunito', sans-serif;
-  }
-  
-  .navbar ul {
+}
+
+.navbar ul {
     display: flex;
     gap: 16px;
-    padding: 0; /* Remove default padding */
-    margin: 0; /* Remove default margin */
-  }
-  
-  .navbar ul li {
+    padding: 0; 
+    margin: 0; 
+}
+
+.navbar ul li {
     list-style: none;
-  }
-  
-  .navbar ul li button {
+}
+
+.navbar ul li button {
     font-size: 1.5vw;
     cursor: pointer;
     white-space: nowrap;
@@ -29,22 +31,14 @@
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-weight: 500;
     font-size: medium;
-    transition: color 0.3s; /* Add transition property for default state */
-  }
-  
-  .navbar ul li button:hover {
+    transition: color 0.3s, box-shadow 0.3s; /* Added box-shadow transition */
+}
+
+.navbar ul li button:hover {
     text-decoration: underline;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
     border-radius: 8px;
     color: rgb(54, 155, 210);
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    transition: color 0.3s; /* Add transition property for hover state */
-  }
-  
-    
-  .Dash {
-    white-space: nowrap;
-    font-size: 2vw;
-  }
-  
+}
