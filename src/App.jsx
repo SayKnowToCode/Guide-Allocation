@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import TeamMembers from './components/TeamMembers/TeamMembers';
+import PhaseList from './components/phaseList/PhaseList';
+
 import "./App.css"
 // import AbstractForm from './components/AbstractForm';
 // import PreferenceList from './components/PreferenceList';
@@ -39,13 +41,14 @@ const App = () => {
       {/* <div className="flex-grow">
       <h1 className="z-10 relative text-3xl ml-8 py-3 text-blue">Student Dashboard</h1>
       </div> */}
-      <h1 className="Greet z-10 relative text-3xl py-3 ml-96 text-blue">Welcome to Guest allocator</h1>
+      <h1 className="title z-10 relative">Student Dashboard</h1>
       <div className="flex items-center">
       <nav className='mr-8'>
         <Navbar />
       </nav>
       </div>
       <TeamMembers teamMembers={teamMembers} />
+      <PhaseList/>
       {/* <AbstractForm
         isLeader={teamMembers.find((member) => member.isLeader)}
         onPostAbstract={handlePostAbstract}

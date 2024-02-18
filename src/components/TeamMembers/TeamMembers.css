@@ -1,65 +1,80 @@
-.team-members {
-  font-family: Arial, sans-serif;
-  position:relative;
-  background-color: #f9f9f9;
-  padding: 5vw; /* Responsive padding using vw units */
-  border-radius: 8px;
-  box-shadow: 0 0 2vw rgba(0, 0, 0, 0.1); /* Responsive box shadow using vw units */
-  max-width: 80vw; /* Adjust as needed */
-  margin: 0 auto;
+ .team-members {
+   font-family: Arial, sans-serif;
+   position: relative;
+   background-color: #f9f9f9;
+   padding: 2rem;
+   border-radius: 8px;
+   box-shadow: 0 0 2vw rgba(0, 0, 0, 0.1);
+   max-width: 48rem;
+   margin: 4.17vw 17vw;
+   transition: margin-left 0.3s ease;
+ }
+
+ @media (max-width: 1061px) {
+  .team-members-heading {
+    font-size: 3vw; 
+  }
+
+  .member-name {
+    font-size: 2vw; 
+  }
 }
 
+@media (max-width: 768px) {
+  .team-members {
+    margin-left: 20vw;
+  }
+
+  .team-members-heading {
+    font-size: 2.5vw; 
+  }
+
+  .member-name {
+    font-size: 1.8vw;
+  }
+}
+
+/*
 .team-members-heading {
-  font-size: 4vw; /* Responsive font size using vw units */
+  font-size: 4vw;
   color: #333;
-  margin-bottom: 2vw; /* Responsive margin using vw units */
+  margin-bottom: 2vw;
   text-align: center;
   text-transform: uppercase;
 }
 
 .team-members-list {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+ 
 }
 
 .team-member-item {
-  margin: 2vw; /* Responsive margin using vw units */
+  margin: 10px;
   text-align: center;
+  
 }
+*/
+ .member-image {
+   border-radius: 50%;
+   object-fit: cover;
+   object-position: center;
+ }
 
-.member-image {
-  width: 15vw; /* Responsive width using vw units */
-  height: 15vw; /* Responsive height using vw units */
-  border-radius: 50%; /* Makes image circular */
-  margin-bottom: 2vw; /* Responsive margin using vw units */
-  object-fit: cover; /* Ensures image covers the entire circle */
-  object-position: center; /* Centers the image within the circle */
-}
+ .member-info {
+   margin-bottom: 1vw;
+ }
 
-.member-info {
-  margin-bottom: 1vw; /* Responsive margin using vw units */
-}
-
-.member-name {
-  font-size: 1.6vw; /* Responsive font size using vw units */
+ /* .member-name {
+  font-size: 1.6vw;
   font-weight: bold;
-}
+} */
 
-.member-designation {
-  font-size: 1.2vw; /* Responsive font size using vw units */
-  color: #666;
-}
+ .member-designation {
+   font-size: 0.5vw;
+   color: #666;
+ }
 
-.leader-tag {
-  font-size: 1.2vw; /* Responsive font size using vw units */
-  color: #fff;
-  background-color: #007bff;
-  border-radius: 0.4vw; /* Responsive border radius using vw units */
-  padding: 0.3vw 0.8vw; /* Responsive padding using vw units */
-  position: absolute;
-  top: 1vw; /* Responsive top position using vw units */
-  left: 50%;
-  transform: translateX(-50%);
-}
 
+
+ .team-members {
+   margin: 4.17vw 17vw;
+ }

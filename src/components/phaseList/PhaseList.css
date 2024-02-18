@@ -1,0 +1,38 @@
+.phase-container {
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    position: absolute;
+    background-color:#070c1d;
+    width: 25%;
+    height:80%;
+    top: 0;
+    right: 0;
+    margin-top: 10rem;
+    margin-right: 2rem;
+    box-shadow: 0 2px 4px rgb(159, 6, 59 ,1.2);
+  }
+  
+  .phase-item {
+    font-size:1.5625rem;
+    padding: 0.75rem 1.5rem;
+    margin:2.1rem auto;
+    border-radius: 0.5rem;
+    color: white;
+    width: 60%;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(227, 236, 99, 0.5);
+  }
+  
+  .phase-highlight {
+    background: linear-gradient(to right, #161205 0%, #826203 40%);
+  }
+  
+  .shadow {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .phase-item:hover {
+    transform: translateY(-3px);
+  }
+ 
