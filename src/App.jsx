@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import TeamMembers from './components/TeamMembers/TeamMembers';
 import PhaseList from './components/phaseList/PhaseList';
 import ProjectAbstract from './components/Abstract/Abstract';
+import Login from './components/LoginPage/LoginPage';
 import "./App.css"
 import Navbar from './utils/Navbar/Navbar'
 
@@ -46,6 +47,7 @@ const App = () => {
       <TeamMembers teamMembers={teamMembers} />
       <PhaseList/>
       <ProjectAbstract/>
+      
       {/* <AbstractForm
         isLeader={teamMembers.find((member) => member.isLeader)}
         onPostAbstract={handlePostAbstract}

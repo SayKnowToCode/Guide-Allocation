@@ -5,6 +5,7 @@ import { GoProjectRoadmap } from "react-icons/go";
 import { LuClipboardCheck } from "react-icons/lu";
 import { FiLogOut } from "react-icons/fi";
 import React from 'react';
+// import Login from "../../components/LoginPage/LoginPage";
 import "../../output.css"
 import './Navbar.css'; // Import CSS file for styling
 
@@ -19,7 +20,7 @@ const Navbar = ({ activeTab, onTabChange, onLogout }) => {
           </button>
         </li>
         <li className={activeTab === 'post' ? 'active' : ''}>
-          <button className="mr-6 my-6" onClick={() => onTabChange('post')} style={{ display: 'flex', alignItems: 'center' }}>
+          <button className="mr-6 my-6 whitespace-nowrap" onClick={() => onTabChange('Login')} style={{ display: 'flex', alignItems: 'center' }}>
             <GoProjectRoadmap style={{ marginRight: '0.5em' }} />Submissions
           </button>
         </li>

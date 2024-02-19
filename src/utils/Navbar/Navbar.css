@@ -1,17 +1,15 @@
-/* Navbar.css */
-
 .navbar {
     display: flex;
     justify-content: flex-end; 
     align-items: center ; 
     position: fixed;
+    z-index: 10;
     top: 0;
     left: 0;
     width: 100%; 
     height: 10vh; 
     font-family: 'Nunito', sans-serif;
 }
-
 .navbar ul {
     display: flex;
     gap: 16px;
@@ -19,11 +17,25 @@
     margin: 0; 
 }
 
-.navbar ul li {
-    list-style: none;
-}
 
 .navbar ul li button {
+    font-size: 1.5vw;
+    z-index: 10;
+    cursor: pointer;
+    white-space: nowrap;
+    color: white;
+    font-weight: 500;
+    font-size: medium;
+    transition: color 0.3s, box-shadow 0.3s; /* Added box-shadow transition */
+}
+.navbar ul li button:hover {
+    text-decoration: underline;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    border-radius: 8px;
+    color: rgb(10, 124, 186);
+}
+.navbar ul li a {
     font-size: 1.5vw;
     cursor: pointer;
     white-space: nowrap;
@@ -31,10 +43,9 @@
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-weight: 500;
     font-size: medium;
-    transition: color 0.3s, box-shadow 0.3s; /* Added box-shadow transition */
+    transition: color 0.3s, box-shadow 0.3s; 
 }
-
-.navbar ul li button:hover {
+.navbar ul li a:hover {
     text-decoration: underline;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);

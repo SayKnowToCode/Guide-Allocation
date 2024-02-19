@@ -6,6 +6,8 @@
 }
 .Abstract-Container {
   display: flex;
+  background: transparent;
+  backdrop-filter: blur(10px);
   flex-direction: column; 
   padding:2vw;
   margin-right:500px;
