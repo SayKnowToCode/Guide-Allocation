@@ -5,6 +5,7 @@ import "./App.css"
 // import PreferenceList from './components/PreferenceList';
 // import EvaluationResults from './components/EvaluationResults';
 // import EvaluationForm from './components/EvaluationForm';
+import PhaseList from './components/PhaseList';
 import Navbar from './utils/Navbar/Navbar'
 
 const App = () => {
@@ -45,7 +46,9 @@ const App = () => {
         <Navbar />
       </nav>
       </div>
+      <PhaseList />
       <TeamMembers teamMembers={teamMembers} />
+      
       {/* <AbstractForm
         isLeader={teamMembers.find((member) => member.isLeader)}
         onPostAbstract={handlePostAbstract}
@@ -60,6 +63,7 @@ const App = () => {
       />
 
       <EvaluationForm /> */}
+      
     </div>
   );
 };
