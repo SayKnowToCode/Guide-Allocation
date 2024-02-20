@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
-import TeamMembers from './components/TeamMembers/TeamMembers';
-import PhaseList from './components/phaseList/PhaseList';
-import ProjectAbstract from './components/Abstract/Abstract';
-import Login from './components/LoginPage/LoginPage';
-import "./App.css"
-import Navbar from './utils/Navbar/Navbar'
+import TeamMembers from '../TeamMembers/TeamMembers';
+import PhaseList from '../PhaseList/PhaseList';
+import ProjectAbstract from '../Abstract/Abstract';
+import "./StudentDashboard.css"
+import Navbar from '../../utils/Navbar/Navbar'
 
 const App = () => {
   const [teamMembers, setTeamMembers] = useState([

@@ -6,7 +6,6 @@ import { LuClipboardCheck } from "react-icons/lu";
 import { FiLogOut } from "react-icons/fi";
 import React from 'react';
 // import Login from "../../components/LoginPage/LoginPage";
-import "../../output.css"
 import './Navbar.css'; // Import CSS file for styling
 
 const Navbar = ({ activeTab, onTabChange, onLogout }) => {
