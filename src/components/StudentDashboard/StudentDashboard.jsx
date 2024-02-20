@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import TeamMembers from '../TeamMembers/TeamMembers';
-import PhaseList from '../PhaseList/PhaseList';
+import PhaseList from '../phaseList/PhaseList';
 import ProjectAbstract from '../Abstract/Abstract';
 import "./StudentDashboard.css"
 import Navbar from '../../utils/Navbar/Navbar'

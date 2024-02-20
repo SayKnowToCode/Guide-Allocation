@@ -12,20 +12,20 @@ const LoginPage = () => {
     }
 
     return (
-        <div class="form-container">
+        <div className="form-container">
             <p className='h2'>Login</p>
             <form className="form" onSubmit={handleSubmit}>
-                <div className="input-group">
-                    <label for="username">Teamname</label>
-                    <input type="text" name="username" id="username" placeholder="" />
+                <div className="inputContainer">
+                    <input required="required" id="inputField" placeholder="Teamname" type="text" />
+                    <label className="usernameLabel" for="inputField">Teamname</label>
                 </div>
-                <div className="input-group">
-                    <label for="username">Team-ID</label>
-                    <input type="text" name="username" id="username" placeholder="" />
+                <div className="inputContainer">
+                    <input required="required" id="inputField" placeholder="TeamID" type="text" />
+                    <label className="usernameLabel" for="inputField">TeamID</label>
                 </div>
-                <div className="input-group">
-                    <label for="password">Password</label>
-                    <input type="password" name="password" id="password" placeholder="" />
+                <div className="inputContainer">
+                    <input required="required" id="inputField" placeholder="Password" type="password" />
+                    <label className="usernameLabel" for="inputField">Password</label>
                     <div className="forgot">
                         <p><Link to='/register'>Forgot Password ?</Link></p>
                     </div>
