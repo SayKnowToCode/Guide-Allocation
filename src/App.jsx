@@ -1,11 +1,9 @@
 import React, { useState } from 'react';
 import TeamMembers from './components/TeamMembers/TeamMembers';
+import PhaseList from './components/phaseList/PhaseList';
+import ProjectAbstract from './components/Abstract/Abstract';
+import Login from './components/LoginPage/LoginPage';
 import "./App.css"
-// import AbstractForm from './components/AbstractForm';
-// import PreferenceList from './components/PreferenceList';
-// import EvaluationResults from './components/EvaluationResults';
-// import EvaluationForm from './components/EvaluationForm';
-import PhaseList from './components/PhaseList';
 import Navbar from './utils/Navbar/Navbar'
 
 const App = () => {
@@ -40,7 +38,7 @@ const App = () => {
       {/* <div className="flex-grow">
       <h1 className="z-10 relative text-3xl ml-8 py-3 text-blue">Student Dashboard</h1>
       </div> */}
-      <h1 className="Greet z-10 relative text-3xl py-3 ml-96 text-blue">Welcome to Guest allocator</h1>
+      <h1 className="title z-10 relative">Student Dashboard</h1>
       <div className="flex items-center">
       <nav className='mr-8'>
         <Navbar />
@@ -48,6 +46,8 @@ const App = () => {
       </div>
       <PhaseList />
       <TeamMembers teamMembers={teamMembers} />
+      <PhaseList/>
+      <ProjectAbstract/>
       
       {/* <AbstractForm
         isLeader={teamMembers.find((member) => member.isLeader)}

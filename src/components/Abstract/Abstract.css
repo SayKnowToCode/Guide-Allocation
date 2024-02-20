@@ -1,0 +1,18 @@
+
+.abstract{
+    font-size: 25px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color:rgb(150, 218, 209)
+}
+.Abstract-Container {
+  display: flex;
+  background: transparent;
+  backdrop-filter: blur(10px);
+  flex-direction: column; 
+  padding:2vw;
+  margin-right:500px;
+  border: 2px solid white; 
+}
+.AbsPara{
+    padding-top: 0.5vw;
+}
