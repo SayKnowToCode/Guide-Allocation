@@ -17,6 +17,7 @@ const ProjectAbstract = ({ abstract, projectId }) => {
                 <div>
                     <p className='text-white AbsPara'>{truncatedAbstract}</p>
                     <a href="#" className='text-white AbsPara' onClick={handleReadMoreClick}>Read More</a>
+
                 </div>
             ) : (
                 <p className='text-white AbsPara'>Please Fill The Abstract Form <a href="#">here</a></p>

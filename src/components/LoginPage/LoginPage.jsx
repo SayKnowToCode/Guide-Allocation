@@ -17,7 +17,7 @@ const LoginForm = () => {
             password
         })
 
-        localStorage.setItem('teamData',JSON.stringify(response))
+        localStorage.setItem('teamData',JSON.stringify(response.data))
         navigate('/studentDashboard')
     }
     catch (err)

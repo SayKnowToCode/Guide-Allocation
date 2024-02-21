@@ -5,10 +5,17 @@ import { GoProjectRoadmap } from "react-icons/go";
 import { LuClipboardCheck } from "react-icons/lu";
 import { FiLogOut } from "react-icons/fi";
 import React from 'react';
-// import Login from "../../components/LoginPage/LoginPage";
 import './Navbar.css'; // Import CSS file for styling
+import { useNavigate } from "react-router-dom";
 
-const Navbar = ({ activeTab, onTabChange, onLogout }) => {
+const Navbar = ({activeTab,onTabChange}) => {
+
+  const navigate = useNavigate()
+
+  const onLogout = () => {
+    localStorage.removeItem('teamData');
+    navigate('/');
+  }
 
   return (
     <nav className="navbar min-w-2/5 absolute top-0 left-0">
