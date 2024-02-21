@@ -7,8 +7,9 @@ import { FiLogOut } from "react-icons/fi";
 import React from 'react';
 import './Navbar.css'; // Import CSS file for styling
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
-const Navbar = ({activeTab,onTabChange}) => {
+const Navbar = ({onTabChange}) => {
 
   const navigate = useNavigate()
 
@@ -20,22 +21,24 @@ const Navbar = ({activeTab,onTabChange}) => {
   return (
     <nav className="navbar min-w-2/5 absolute top-0 left-0">
       <ul className="flex flex-row">
-        <li className={activeTab === 'home' ? 'active' : ''}>
-          <button className="mr-6 my-6" onClick={() => onTabChange('home')} style={{ display: 'flex', alignItems: 'center' }}>
+        <li className=''>
+          <button className="mr-6 my-6"  style={{ display: 'flex', alignItems: 'center' }}>
             <FaHome style={{ marginRight: '0.5em' }} /> Home
           </button>
         </li>
-        <li className={activeTab === 'post' ? 'active' : ''}>
-          <button className="mr-6 my-6 whitespace-nowrap" onClick={() => onTabChange('Login')} style={{ display: 'flex', alignItems: 'center' }}>
+        <li className=''>
+          <button className="mr-6 my-6 whitespace-nowrap" style={{ display: 'flex', alignItems: 'center' }}>
             <GoProjectRoadmap style={{ marginRight: '0.5em' }} />Submissions
           </button>
         </li>
-        <li className={activeTab === 'evaluate' ? 'active' : ''}>
-          <button className="mr-6 my-6" onClick={() => onTabChange('evaluate')} style={{ display: 'flex', alignItems: 'center' }}>
-            <LuClipboardCheck style={{ marginRight: '0.5em' }} />Evaluate
-          </button>
+        <li className=''>
+          <Link to='/preference'>
+            <button className="mr-6 my-6" style={{ display: 'flex', alignItems: 'center' }}>
+              <LuClipboardCheck style={{ marginRight: '0.5em' }} /> Preference List
+            </button>
+          </Link>
         </li>
-        <li className={activeTab === 'logout' ? 'active' : ''}>
+        <li className=''>
           <button className="mr-6 my-6" onClick={onLogout} style={{ display: 'flex', alignItems: 'center' }}>
             <FiLogOut style={{ marginRight: '0.5em' }} />Logout
           </button>

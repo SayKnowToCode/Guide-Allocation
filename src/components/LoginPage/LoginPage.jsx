@@ -3,9 +3,12 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import './LoginPage.css';
+
 const LoginForm = () => {
     const [teamName, setTeamName] = useState('');
+    const [facultyName, setFacultyName] = useState('');
     const [password, setPassword] = useState('');
+    const [role,setRole] = useState('student');
     const navigate = useNavigate();
 
     const handleSubmit = async (e) => {
@@ -14,7 +17,9 @@ const LoginForm = () => {
         try {
             const response = await axios.post('http://localhost:3500/login', {
                 teamName,
-                password
+                facultyName,
+                password,
+                role
             })
 
             localStorage.setItem('teamData', JSON.stringify(response.data))
@@ -25,20 +30,39 @@ const LoginForm = () => {
         }
     };
 
+    const handleClickOnStudent = () => {
+      console.log('here student');
+      if(role !== 'student')
+      {
+        setRole('student')
+      }
+    }
+
+    const handleClickOnFaculty = () => {
+      console.log('here faculty');
+      if(role !== 'faculty')
+      {
+        setRole('faculty')
+      }
+    }
+
     return (
         <div className="form-container text-white">
             <p className='h2'>Login</p>
+
             <div className='option flex gap-16'>
-                <button className='button'>
+                <button className='button' onClick={handleClickOnStudent}>
                     <span>Student</span>
                 </button>
-                <button className='button'>
+                <button className='button' onClick={handleClickOnFaculty}>
                     <span>Faculty</span>
                 </button>
             </div>
+
             <form className="form" onSubmit={handleSubmit}>
                 <div className="inputContainer">
-                    <input
+
+                    { role === 'student' && ( <> <input
                         type="text"
                         name="teamName"
                         id="inputField"
@@ -47,7 +71,19 @@ const LoginForm = () => {
                         onChange={(e) => setTeamName(e.target.value)}
 
                     />
-                    <label className='usernameLabel' htmlFor="inputField">Teamname</label>
+                    <label className='usernameLabel' htmlFor="inputField">Team Name</label> </> ) }
+
+                    {role === 'faculty' && ( <> <input
+                        type="text"
+                        name="facultyName"
+                        id="inputField"
+                        placeholder=""
+                        value={facultyName}
+                        onChange={(e) => setFacultyName(e.target.value)}
+
+                    />
+                    <label className='usernameLabel' htmlFor="inputField">Faculty Name</label> </>)}
+
                 </div>
                 <div className="inputContainer">
                     <input

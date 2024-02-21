@@ -1,40 +1,42 @@
-// PreferenceList.js
+import React, { useState,useEffect } from 'react';
+import axios from 'axios';
 
-import React, { useState } from 'react';
-// import "../index.css"
-// const styles={
-//   display:"flex",
-//   flexDirection:"column"
-// };
+const PreferenceList = () => {
 
-const PreferenceList = ({ isLeader, onSelectPreference }) => {
-  const [professorsPreference, setProfessorsPreference] = useState(['Reagef','aefaefae']);
-  const [professorName,setProfessorName] = useState('');
+  const [profList,setProfList] = useState([])
 
-  const handleSelectPreference = () => {
-    setProfessorsPreference([...professorsPreference,professorName])
-  };
+  const requestProf = (name) => {
+    // Write this logic tmrw 
+  }
+
+  useEffect(() => {
+
+    const getProfList = async () => {
+    try {
+      const response = await axios.get('http://localhost:3500/profList');
+      console.log(response.data);
+      setProfList(response.data);
+    }catch(error)
+    {
+      console.log(error.response.data);
+    }
+    }
+
+    getProfList();
+
+  },[])
 
   return (
     <div className="preference-list">
-      <h2>Professors' Preference List</h2>
-      <ul className="List">
-        {professorsPreference.map((professor, index) => (
-          <li className="MyList" key={index}>{professor}</li>
-        ))}
-      </ul>
-      {isLeader && 
-      (
+      {profList.map((prof) => {
+        return (
         <>
-          <input
-            type="text"
-            value={professorName}
-            onChange={(e) => setProfessorName(e.target.value)}
-            placeholder="Enter professors' names"
-          />
-          <button onClick={handleSelectPreference}>Select Preference</button>
+          <p key={prof._id} style={{color:'white'}}>{prof.name}</p>
+          <button style={{color:'white'}} onClick={requestProf(prof.name)}> Request </button>
         </>
-      )}
+        )
+      })}
+      
     </div>
   );
 };
