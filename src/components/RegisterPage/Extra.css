@@ -1,0 +1,87 @@
+.home-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 2vh; /* Adjust margin for spacing */
+  }
+  
+  
+.home-title p {
+    cursor: pointer;
+    position: relative;
+    display: inline-block;
+    font-size: 3rem;
+    background: linear-gradient(to bottom, #fffcfc, #ece8e8 60%, #050505 60%, #100f0f 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    background-repeat: no-repeat;
+    transition: background 0.2s ease-out;
+    white-space: nowrap;
+  }
+  
+.home-title span {
+    position: relative;
+  }
+  
+.home-title span:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 15px;
+    background: #e1d3d3;
+    bottom: 9px;
+    transition: all 0.2s ease-out;
+  }
+  
+.home-title p:hover {
+    background-position: 0 11px;
+  }
+  
+.home-title span:hover:before {
+    transform: translateY(10px)
+  }
+
+
+  .inputGroup {
+    font-family: 'Segoe UI', sans-serif;
+    margin: 1em 0 1em 0;
+    margin-bottom: 8vh;
+   width:100%;
+    position: relative;
+  }
+  
+  .inputGroup input {
+    font-size: 100%;
+    padding: 0.8em;
+    outline: none;
+    border: 2px solid rgb(200, 200, 200);
+    background-color: transparent;
+    border-radius: 20px;
+    width: 100%;
+  }
+  
+  .inputGroup label {
+    font-size: 100%;
+    position: absolute;
+    left: 0;
+    padding: 0.8em;
+    margin-left: 0.5em;
+    pointer-events: none;
+    transition: all 0.3s ease;
+    color: rgb(100, 100, 100);
+  }
+  
+  .inputGroup :is(input:focus, input:valid)~label {
+    transform: translateY(-50%) scale(.9);
+    margin: 0em;
+    border-radius: 10px;
+    margin-left: 1.3em;
+    padding: 0.4em;
+    background-color: #e8e8e8;
+  }
+  
+  .inputGroup :is(input:focus, input:valid) {
+    border-color: rgb(150, 150, 200);
+  }
