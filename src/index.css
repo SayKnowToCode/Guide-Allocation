@@ -1,3 +1,6 @@
 @tailwind base;
 @tailwind components;
+input {
+    color : black;
+}
 @tailwind utilities;

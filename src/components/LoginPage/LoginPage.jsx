@@ -1,44 +1,72 @@
-// Login.js
-import React from 'react';
-import './LoginPage.css'; // Import the CSS file for styling
-import { Link, useNavigate } from 'react-router-dom';
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
-const LoginPage = () => {
+const LoginForm = () => {
+  const [teamName, setTeamName] = useState('');
+  const [password, setPassword] = useState('');
+  const navigate = useNavigate();
 
-    const navigate = useNavigate()
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    // Handle form submission logic here
+    try {
+        const response = await axios.post('http://localhost:3500/login', {
+            teamName,
+            password
+        })
 
-    const handleSubmit = () => {
+        localStorage.setItem('teamData',JSON.stringify(response))
         navigate('/studentDashboard')
     }
+    catch (err)
+    {
+        console.log(err.response.data);
+    }
+  };
 
-    return (
-        <div class="form-container">
-            <p className='h2'>Login</p>
-            <form className="form" onSubmit={handleSubmit}>
-                <div className="input-group">
-                    <label for="username">Teamname</label>
-                    <input type="text" name="username" id="username" placeholder="" />
-                </div>
-                <div className="input-group">
-                    <label for="username">Team-ID</label>
-                    <input type="text" name="username" id="username" placeholder="" />
-                </div>
-                <div className="input-group">
-                    <label for="password">Password</label>
-                    <input type="password" name="password" id="password" placeholder="" />
-                    <div className="forgot">
-                        <p><Link to='/register'>Forgot Password ?</Link></p>
-                    </div>
-                </div>
-                <div>
-                    <button type="submit" className="sign">Sign in</button>
-                </div>
-            </form>
-            <p className="signup">Don't have an account?
-                <Link to='/register'>Sign up</Link>
-            </p>
+  return (
+    <div className="form-container text-white">
+      <p className='h2'>Login</p>
+      <form className="form" onSubmit={handleSubmit}>
+        <div className="input-group">
+          <label htmlFor="teamName">Teamname</label>
+          <input
+            type="text"
+            name="teamName"
+            id="teamName"
+            placeholder=""
+            value={teamName}
+            onChange={(e) => setTeamName(e.target.value)}
+          />
         </div>
-    );
+        <div className="input-group">
+          <label htmlFor="password">Password</label>
+          <input
+            type="password"
+            name="password"
+            id="password"
+            placeholder=""
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+          <div className="forgot">
+            <p>
+              <Link to='/register'>Forgot Password?</Link>
+            </p>
+          </div>
+        </div>
+        <div>
+          <button type="submit" className="sign">Sign in</button>
+        </div>
+      </form>
+      <p className="signup">
+        Don't have an account?
+        <Link to='/register'>Sign up</Link>
+      </p>
+    </div>
+  );
 };
 
-export default LoginPage;
+export default LoginForm;
