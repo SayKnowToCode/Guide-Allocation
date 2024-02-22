@@ -3,7 +3,7 @@ import { Route,Routes } from 'react-router-dom'
 import RegisterPage from './components/RegisterPage/RegisterPage'
 import LoginPage from './components/LoginPage/LoginPage'
 import StudentDashboard from './components/StudentDashboard/StudentDashboard'
-import PreferenceList from './components/PreferenceList';
+import PreferenceList from './components/PreferenceList/PreferenceList';
 
 // IMP !!!!!!!!!!!!!!!! 
 // Need to Create Outlet Route for Navbar

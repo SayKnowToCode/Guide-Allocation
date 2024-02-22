@@ -1,4 +1,9 @@
 
+.MainDiv{
+    background-image: url('../../182428240217.jpg');
+    background-size:cover ;
+    background-repeat: no-repeat; 
+}
 .Register-Container{
     max-width: 50%;
     width:50%;
@@ -9,7 +14,7 @@
     padding: 3vw; 
     border: 2px solid rgb(151, 237, 94); 
     border-radius: 20px; 
-    backdrop-filter: blur(10px); 
+    backdrop-filter: blur(40px); 
     box-shadow: 0 0 20px rgb(172, 231, 94); 
     display: flex; 
     flex-direction: column; 

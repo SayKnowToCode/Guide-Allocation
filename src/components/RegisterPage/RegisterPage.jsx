@@ -60,6 +60,7 @@ const RegisterPage = () => {
   };
 
   return (
+    <div className='MainDiv'>
     <div className='text-white Register-Container'>
       <div className='home-title'>
         <span><p>Welcome To The Site</p></span>
@@ -231,6 +232,7 @@ const RegisterPage = () => {
             <button className="reg" type="submit">Register</button>
           </div>
       </form>
+    </div>
     </div>
   );
 };
