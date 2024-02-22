@@ -34,7 +34,7 @@
       margin-bottom: 14%;
   }
   
-  #inputField {
+  .inputField {
     border: 2px solid white;
     background-color: transparent;
     border-radius: 30px;
@@ -46,7 +46,7 @@
     transition-duration: .3s;
     font-family: Whitney, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
   }
-  #inputField::placeholder{
+  .inputField::placeholder{
     color: rgb(235, 222, 198);
   }
   
@@ -62,15 +62,15 @@
     opacity: 0;
   }
   
-  #inputField:focus ~ .usernameLabel,
-  #inputField:valid ~ .usernameLabel {
+  .inputField:focus ~ .usernameLabel,
+  .inputField:valid ~ .usernameLabel {
     transform: translateX(4px);
     opacity: 1;
   }
   
   
-  #inputField:focus,
-  #inputField:valid {
+  .inputField:focus,
+  .inputField:valid {
     background-color: #ddd;
     transition-duration: .3s;
   }

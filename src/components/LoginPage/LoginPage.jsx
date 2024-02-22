@@ -71,36 +71,40 @@ const LoginForm = ({setFaculties}) => {
                     { role === 'student' && ( <> <input
                         type="text"
                         name="teamName"
-                        id="inputField"
+                        className='inputField'
+                        id="inputField1"
                         placeholder=""
                         value={teamName}
                         onChange={(e) => setTeamName(e.target.value)}
 
                     />
-                    <label className='usernameLabel' htmlFor="inputField">Team Name</label> </> ) }
+                    <label className='usernameLabel' htmlFor="inputField1">Team Name</label> </> ) }
 
                     {role === 'faculty' && ( <> <input
                         type="text"
                         name="facultyName"
-                        id="inputField"
+                        className='inputField'
+                        id="inputField2"
                         placeholder=""
                         value={facultyName}
                         onChange={(e) => setFacultyName(e.target.value)}
 
                     />
-                    <label className='usernameLabel' htmlFor="inputField">Faculty Name</label> </>)}
+                    <label className='usernameLabel' htmlFor="inputField2">Faculty Name</label> </>)}
 
                 </div>
                 <div className="inputContainer">
                     <input
                         type="password"
                         name="password"
-                        id="inputField"
+                        className='inputField'
+                        id="inputField3"
                         placeholder=""
+                        autoComplete='off'
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
                     />
-                    <label className="usernameLabel" htmlFor="inputField">Password</label>
+                    <label className="usernameLabel" htmlFor="inputField3">Password</label>
                     <div className="forgot">
                         <p>
                             <Link to='/register'>Forgot Password?</Link>
