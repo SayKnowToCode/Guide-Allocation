@@ -22,8 +22,15 @@ const LoginForm = () => {
                 role
             })
 
-            localStorage.setItem('teamData', JSON.stringify(response.data))
-            navigate('/studentDashboard')
+            if(role === 'student')
+            {    localStorage.setItem('teamData', JSON.stringify(response.data))
+                navigate('/studentDashboard')
+            }
+            else
+            {
+                localStorage.setItem('facultyData', JSON.stringify(response.data))
+                navigate('/facultyDashboard')
+            }
         }
         catch (err) {
             console.log(err.response.data);
