@@ -10,7 +10,7 @@ const PreferenceList = () => {
 
   const requestProf = async (facultyName) => {
       try {
-        const response = await axios.put('http://localhost:3500/sendGuideRequest',{
+        await axios.put('http://localhost:3500/sendGuideRequest',{
             facultyName,
             teamName
         })

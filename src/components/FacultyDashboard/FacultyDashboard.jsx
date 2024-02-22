@@ -60,6 +60,16 @@ const FacultyDashboard = () => {
                 </div>
             )
         })}
+
+        <br />
+
+        {facultyData.acceptedTeams.length > 0 && (facultyData.acceptedTeams).map((team) => {
+            return ( 
+                <div key={team}>
+                    <p>{team}</p>
+                </div>
+            )
+        })}
         
     </div>
   )
