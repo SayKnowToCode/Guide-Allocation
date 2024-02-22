@@ -1,5 +1,5 @@
 import React from 'react'
-
+import './FacultyDashboard.css'
 const FacultyDashboard = () => {
 
     const facultyData = JSON.parse(localStorage.getItem('facultyData'));
