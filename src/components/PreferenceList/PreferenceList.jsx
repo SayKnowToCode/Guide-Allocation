@@ -13,7 +13,9 @@ const PreferenceList = () => {
         const response = await axios.put('http://localhost:3500/sendGuideRequest',{
             facultyName,
             teamName
-        }) 
+        })
+        
+        
       }
       catch(error)
       {
@@ -55,7 +57,7 @@ const PreferenceList = () => {
               })}
             </div>
             <div>
-              <button  onClick={requestProf(prof.name)}> Request </button>
+              <button onClick={() => requestProf(prof.name)}> Request </button>
             </div>
             <br />
             <br />
