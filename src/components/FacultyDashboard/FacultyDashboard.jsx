@@ -1,15 +1,9 @@
-import React,{useState,useEffect} from 'react'
+import React,{useState} from 'react'
 import axios from 'axios';
 
-const FacultyDashboard = ({faculties}) => {
+const FacultyDashboard = () => {
 
-    // const [facultyData,setFacultyData] = useState();
     const [facultyData,setFacultyData] = useState(JSON.parse(localStorage.getItem('facultyData')))
-
-    // useEffect(() => {
-    //     setFacultyData(JSON.parse(localStorage.getItem('facultyData')));
-    //     console.log(typeof facultyData);   
-    // },[])
 
     const handleAccept = async (teamName) => {
 

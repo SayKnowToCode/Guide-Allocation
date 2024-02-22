@@ -57,7 +57,7 @@ const PreferenceList = () => {
                 })}
               </div>
               <div>
-                <button onClick={requestProf(prof.name)}> Request </button>
+                <button onClick={() => requestProf(prof.name)}> Request </button>
               </div>
             </div>
           )
