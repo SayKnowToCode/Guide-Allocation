@@ -1,11 +1,47 @@
-import React from 'react'
-import './FacultyDashboard.css'
-const FacultyDashboard = () => {
+import React,{useState,useEffect} from 'react'
+import axios from 'axios';
 
-    const facultyData = JSON.parse(localStorage.getItem('facultyData'));
+const FacultyDashboard = ({faculties}) => {
+
+    // const [facultyData,setFacultyData] = useState();
+    const [facultyData,setFacultyData] = useState(JSON.parse(localStorage.getItem('facultyData')))
+
+    // useEffect(() => {
+    //     setFacultyData(JSON.parse(localStorage.getItem('facultyData')));
+    //     console.log(typeof facultyData);   
+    // },[])
+
+    const handleAccept = async (teamName) => {
+
+        try {
+            const response = await axios.post('http://localhost:3500/acceptByGuide',{
+                teamName,
+                facultyName : facultyData.name
+            })
+            localStorage.setItem('facultyData',JSON.stringify(response.data))
+            setFacultyData(response.data)
+
+        } catch (error) {
+            console.log(error.message);
+        }
+    }
+
+    const handleReject = async (teamName) => {
+        try {
+            const response = await axios.post('http://localhost:3500/rejectByGuide',{
+                teamName,
+                facultyName : facultyData.name
+            })
+            localStorage.setItem('facultyData',JSON.stringify(response.data))
+            setFacultyData(response.data)
+        } catch (error) {
+            console.log(error.response.data);
+        }
+    }
 
   return (
     <div className='bg-white'>
+
         <div>FacultyDashboard</div>
         <div>{facultyData.name}</div>
         <div>{facultyData.email}</div>
@@ -15,13 +51,21 @@ const FacultyDashboard = () => {
 
         <br />
 
-        {(facultyData.domains).map((domain) => {
-            return <p key={facultyData._id} >{domain}</p>
+        {(facultyData.domains).map((domain,index) => {
+            return <p key={index}>{domain}</p>
         })} 
 
         <br />
 
-        <p>{facultyData.teams.length}</p>
+        {facultyData.teams.length > 0 && (facultyData.teams).map((team) => {
+            return ( 
+                <div key={team}>
+                    <p>{team} 
+                    <button onClick={() => handleAccept(team)}>Accept</button> 
+                    <button onClick={() => handleReject(team)}>Reject</button> </p>
+                </div>
+            )
+        })}
         
     </div>
   )

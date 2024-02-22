@@ -4,7 +4,7 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import './LoginPage.css';
 
-const LoginForm = () => {
+const LoginForm = ({setFaculties}) => {
     const [teamName, setTeamName] = useState('');
     const [facultyName, setFacultyName] = useState('');
     const [password, setPassword] = useState('');
@@ -28,6 +28,7 @@ const LoginForm = () => {
             }
             else
             {
+                setFaculties(response.data);
                 localStorage.setItem('facultyData', JSON.stringify(response.data))
                 navigate('/facultyDashboard')
             }
@@ -38,7 +39,6 @@ const LoginForm = () => {
     };
 
     const handleClickOnStudent = () => {
-      console.log('here student');
       if(role !== 'student')
       {
         setRole('student')
@@ -46,7 +46,6 @@ const LoginForm = () => {
     }
 
     const handleClickOnFaculty = () => {
-      console.log('here faculty');
       if(role !== 'faculty')
       {
         setRole('faculty')

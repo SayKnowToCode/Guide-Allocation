@@ -9,15 +9,18 @@ const PreferenceList = () => {
   const teamName = teamData.teamName
 
   const requestProf = async (facultyName) => {
-    try {
-      const response = await axios.post('http://localhost:3500/sendGuideRequest', {
-        facultyName,
-        teamName
-      })
-    }
-    catch (error) {
-      console.log(error.response.data);
-    }
+      try {
+        const response = await axios.put('http://localhost:3500/sendGuideRequest',{
+            facultyName,
+            teamName
+        })
+        
+        
+      }
+      catch(error)
+      {
+        console.log(error.response.data);
+      }
   }
 
   useEffect(() => {
