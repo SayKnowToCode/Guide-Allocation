@@ -38,30 +38,28 @@ const PreferenceList = () => {
 
   return (
     <div className="preference-list">
-      {profList.map((prof) => {
-        return (
-          <div key={prof._id} className='Professor'>
-            <div>
-              <p style={{ color: 'white' }}>{prof.name}</p>
+      <div className="Professor-Container">
+        {profList.map((prof) => {
+          return (
+            <div key={prof._id} className='Professor'>
+              <div>
+                <p style={{ color: 'white' }}>{prof.name}</p>
+              </div>
+              <div>{prof.email}</div>
+              <div>{prof.department}</div>
+              <div>{prof.designation}</div>
+              <div>
+                {(prof.domains).map((domain, index) => {
+                  return <p key={index}>{domain}</p>
+                })}
+              </div>
+              <div>
+                <button onClick={requestProf(prof.name)}> Request </button>
+              </div>
             </div>
-            <hr />
-            <div>{prof.email}</div>
-            <div>{prof.department}</div>
-            <div>{prof.designation}</div>
-            <div>
-              {(prof.domains).map((domain, index) => {
-                return <p key={index}>{domain}</p>
-              })}
-            </div>
-            <div>
-              <button  onClick={requestProf(prof.name)}> Request </button>
-            </div>
-            <br />
-            <br />
-          </div>
-        )
-      })}
-
+          )
+        })}
+      </div>
     </div>
   );
 };

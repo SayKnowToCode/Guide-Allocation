@@ -2,5 +2,21 @@
     color:white;
     display:flex;
     gap: 10px;
-    margin:2vh;
+    border-bottom: 2px solid white;
+    border-right: 2px solid white;
+    justify-content: space-evenly;
+}
+.Professor-Container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-left: 2px solid white;
+    margin:6vh;
+    border: 2px solid white;
+}
+.Professor div{
+    width:100%; 
+    padding: 1.5vw 0;
+    padding-left: 1vw;
+    border-right: 0.1px solid rgb(132, 128, 128);
 }
