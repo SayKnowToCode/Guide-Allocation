@@ -1,7 +1,7 @@
 
 .MainDiv{
-    background-image: url('../../182428240217.jpg');
-    background-size:cover ;
+    background-image: url('../../BackGround.jpg');
+    background-size:100% 100% ;
     background-repeat: no-repeat; 
 }
 .Register-Container{
@@ -12,16 +12,16 @@
     /* background-color: rgb(232, 227, 146); */
     position: relative;
     padding: 3vw; 
-    border: 2px solid rgb(151, 237, 94); 
+    border: 2px solid rgb(206, 188, 132); 
     border-radius: 20px; 
     backdrop-filter: blur(40px); 
-    box-shadow: 0 0 20px rgb(172, 231, 94); 
+    box-shadow: 0 0 20px rgb(206, 188, 132); 
     display: flex; 
     flex-direction: column; 
     justify-content: center; 
 
 }
-.Register-Container {
+/* .Register-Container {
     max-width: 50%;
     width: 50%;
     height: 100%;
@@ -35,8 +35,8 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    overflow-wrap: break-word; /* Ensures that long words break and do not overflow */
-  }
+    overflow-wrap: break-word;
+}*/
   
   @media screen and (max-width: 768px) {
     .Register-Container {

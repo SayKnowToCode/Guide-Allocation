@@ -61,123 +61,123 @@ const RegisterPage = () => {
 
   return (
     <div className='MainDiv'>
-    <div className='text-white Register-Container'>
-      <div className='home-title'>
-        <span><p>Welcome To The Site</p></span>
-      </div>
-      <h2 className='Heading'>Team Registration</h2>
-      <form className='Form' onSubmit={handleSubmit}>
-        {/* Team Name */}
-        <div className='inputGroup'>
-          <input
-            type="text"
-            id="teamName"
-            name="teamName"
-            value={formData.teamName}
-            onChange={handleChange}
-            required
-            autoComplete='off'
-          />
-          <label htmlFor="teamName">Team Name:</label>
+      <div className='text-white Register-Container'>
+        <div className='home-title'>
+          <span><p>Welcome To The Site</p></span>
         </div>
-        {/* Leader Information */}
-        <div className='teamName'>
+        <h2 className='Heading'>Team Registration</h2>
+        <form className='Form' onSubmit={handleSubmit}>
+          {/* Team Name */}
           <div className='inputGroup'>
             <input
               type="text"
-              id="leaderName"
-              name="leaderName"
-              value={formData.leaderName}
+              id="teamName"
+              name="teamName"
+              value={formData.teamName}
               onChange={handleChange}
               required
               autoComplete='off'
             />
-            <label htmlFor="leaderName">Leader Name:</label>
+            <label htmlFor="teamName">Team Name:</label>
           </div>
-          <div className='inputGroup'>
-            <input
-              type="text"
-              id="leaderUID"
-              name="leaderUID"
-              value={formData.leaderUID}
-              onChange={handleChange}
-              required
-              autoComplete='off'
-            />
-            <label htmlFor="leaderUID">Leader UID:</label>
+          {/* Leader Information */}
+          <div className='teamName'>
+            <div className='inputGroup'>
+              <input
+                type="text"
+                id="leaderName"
+                name="leaderName"
+                value={formData.leaderName}
+                onChange={handleChange}
+                required
+                autoComplete='off'
+              />
+              <label htmlFor="leaderName">Leader Name:</label>
+            </div>
+            <div className='inputGroup'>
+              <input
+                type="text"
+                id="leaderUID"
+                name="leaderUID"
+                value={formData.leaderUID}
+                onChange={handleChange}
+                required
+                autoComplete='off'
+              />
+              <label htmlFor="leaderUID">Leader UID:</label>
+            </div>
+            <div className='inputGroup'>
+              <input
+                type="email"
+                id="leaderEmail"
+                name="leaderEmail"
+                value={formData.leaderEmail}
+                onChange={handleChange}
+                required
+                autoComplete='off'
+              />
+              <label htmlFor="leaderEmail">Leader SPIT Email:</label>
+            </div>
           </div>
-          <div className='inputGroup'>
-            <input
-              type="email"
-              id="leaderEmail"
-              name="leaderEmail"
-              value={formData.leaderEmail}
-              onChange={handleChange}
-              required
-              autoComplete='off'
-            />
-            <label htmlFor="leaderEmail">Leader SPIT Email:</label>
+          <div className='teamName'>
+            {/* Member 1 Information */}
+            <div className='inputGroup'>
+              <input
+                type="text"
+                id="member1Name"
+                name="member1Name"
+                value={formData.member1Name}
+                onChange={handleChange}
+                required
+                autoComplete='off'
+              />
+              <label htmlFor="member1Name">Member 1 Name:</label>
+            </div>
+            <div className='inputGroup'>
+              <input
+                type="text"
+                id="member1UID"
+                name="member1UID"
+                value={formData.member1UID}
+                onChange={handleChange}
+                required
+                autoComplete='off'
+              />
+              <label htmlFor="member1UID">Member 1 UID:</label>
+            </div>
+            <div className='inputGroup'>
+              <input
+                type="email"
+                id="member1Email"
+                name="member1Email"
+                value={formData.member1Email}
+                onChange={handleChange}
+                required
+                autoComplete='off'
+              />
+              <label htmlFor="member1Email">Member 1 SPIT Email:</label>
+            </div>
           </div>
-        </div>
-        <div className='teamName'>
-          {/* Member 1 Information */}
-          <div className='inputGroup'>
-            <input
-              type="text"
-              id="member1Name"
-              name="member1Name"
-              value={formData.member1Name}
-              onChange={handleChange}
-              required
-              autoComplete='off'
-            />
-            <label htmlFor="member1Name">Member 1 Name:</label>
-          </div>
-          <div className='inputGroup'>
-            <input
-              type="text"
-              id="member1UID"
-              name="member1UID"
-              value={formData.member1UID}
-              onChange={handleChange}
-              required
-              autoComplete='off'
-            />
-            <label htmlFor="member1UID">Member 1 UID:</label>
-          </div>
-          <div className='inputGroup'>
-            <input
-              type="email"
-              id="member1Email"
-              name="member1Email"
-              value={formData.member1Email}
-              onChange={handleChange}
-              required
-              autoComplete='off'
-            />
-            <label htmlFor="member1Email">Member 1 SPIT Email:</label>
-          </div>
-        </div>
-        <div className='teamName'>
-          {/* Member 2 Information */}
-          <div className='inputGroup'>
-            <input
-              type="text"
-              id="member2Name"
-              name="member2Name"
-              value={formData.member2Name}
-              onChange={handleChange}
-              required
-              autoComplete='off'
-            />
-            <label htmlFor="member2Name">Member 2 Name:</label>
+          <div className='teamName'>
+            {/* Member 2 Information */}
+            <div className='inputGroup'>
+              <input
+                type="text"
+                id="member2Name"
+                name="member2Name"
+                value={formData.member2Name}
+                onChange={handleChange}
+                required
+                autoComplete='off'
+              />
+              <label htmlFor="member2Name">Member 2 Name:</label>
             </div>
             <div className='inputGroup'>
               <input
                 type="text"
                 id="member2UID"
                 name="member2UID"
-                value={formData.member2UID} 
+                value={formData.member2UID}
                 onChange={handleChange}
                 required
                 autoComplete='off'
@@ -231,8 +231,8 @@ const RegisterPage = () => {
             {/* Submit Button */}
             <button className="reg" type="submit">Register</button>
           </div>
-      </form>
-    </div>
+        </form>
+      </div>
     </div>
   );
 };
