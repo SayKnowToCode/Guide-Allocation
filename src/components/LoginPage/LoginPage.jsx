@@ -2,32 +2,35 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import './LoginPage.css';
+// import './LoginPage.css';
 
-const LoginForm = ({setFaculties}) => {
+const LoginForm = ({ setFaculties }) => {
     const [teamName, setTeamName] = useState('');
+    const [email, setEmail] = useState('');
     const [facultyName, setFacultyName] = useState('');
     const [password, setPassword] = useState('');
-    const [role,setRole] = useState('student');
+    const [role, setRole] = useState('student');
     const navigate = useNavigate();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         // Handle form submission logic here
         try {
-            const response = await axios.post('http://localhost:3500/login', {
-                teamName,
-                facultyName,
-                password,
-                role
+            const response = await axios.get('http://localhost:3500/login', {
+                params: {
+                    teamName: teamName,
+                    email: email,
+                    facultyName: facultyName,
+                    password: password,
+                    role: role
+                }
             })
 
-            if(role === 'student')
-            {    localStorage.setItem('teamData', JSON.stringify(response.data))
+            if (role === 'student') {
+                localStorage.setItem('teamData', JSON.stringify(response.data))
                 navigate('/studentDashboard')
             }
-            else
-            {
+            else {
                 setFaculties(response.data);
                 localStorage.setItem('facultyData', JSON.stringify(response.data))
                 navigate('/facultyDashboard')
@@ -39,21 +42,19 @@ const LoginForm = ({setFaculties}) => {
     };
 
     const handleClickOnStudent = () => {
-      if(role !== 'student')
-      {
-        setRole('student')
-      }
+        if (role !== 'student') {
+            setRole('student')
+        }
     }
 
     const handleClickOnFaculty = () => {
-      if(role !== 'faculty')
-      {
-        setRole('faculty')
-      }
+        if (role !== 'faculty') {
+            setRole('faculty')
+        }
     }
 
     return (
-        <div className="form-container text-white">
+        <div className="form-container ">
             <p className='h2'>Login</p>
 
             <div className='option flex gap-16'>
@@ -68,29 +69,43 @@ const LoginForm = ({setFaculties}) => {
             <form className="form" onSubmit={handleSubmit}>
                 <div className="inputContainer">
 
-                    { role === 'student' && ( <> <input
-                        type="text"
-                        name="teamName"
-                        className='inputField'
-                        id="inputField1"
-                        placeholder=""
-                        value={teamName}
-                        onChange={(e) => setTeamName(e.target.value)}
+                    {role === 'student' &&
+                        (<>
+                            <input
+                                type="text"
+                                name="teamName"
+                                className='inputField'
+                                placeholder=""
+                                required
+                                value={teamName}
+                                onChange={(e) => setTeamName(e.target.value)}
+                            />
+                            <label className='usernameLabel'>Team Name</label> <br />
 
-                    />
-                    <label className='usernameLabel' htmlFor="inputField1">Team Name</label> </> ) }
+                            <input
+                                type="text"
+                                name="email"
+                                className='inputField'
+                                placeholder=""
+                                required
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)}
+                            />
+                            <label className='usernameLabel'>Email</label>
+                        </>)
+                    }
 
-                    {role === 'faculty' && ( <> <input
+                    {role === 'faculty' && (<> <input
                         type="text"
                         name="facultyName"
                         className='inputField'
-                        id="inputField2"
                         placeholder=""
+                        required
                         value={facultyName}
                         onChange={(e) => setFacultyName(e.target.value)}
 
                     />
-                    <label className='usernameLabel' htmlFor="inputField2">Faculty Name</label> </>)}
+                        <label className='usernameLabel' >Faculty Name</label> </>)}
 
                 </div>
                 <div className="inputContainer">
@@ -98,13 +113,13 @@ const LoginForm = ({setFaculties}) => {
                         type="password"
                         name="password"
                         className='inputField'
-                        id="inputField3"
                         placeholder=""
+                        required
                         autoComplete='off'
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
                     />
-                    <label className="usernameLabel" htmlFor="inputField3">Password</label>
+                    <label className="usernameLabel">Password</label>
                     <div className="forgot">
                         <p>
                             <Link to='/register'>Forgot Password?</Link>

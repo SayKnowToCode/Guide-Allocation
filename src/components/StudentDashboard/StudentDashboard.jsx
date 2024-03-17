@@ -12,18 +12,18 @@ const StudentDashboard = () => {
 
   return (
     <div className="relative z-10">
-      
-      <h1 className="title z-10 relative">Student Dashboard</h1>
+
+      <h1 >Student Dashboard</h1>
       <div className="flex items-center">
-      <nav className='mr-8'>
-        <Navbar />
-      </nav>
+        <nav className='mr-8'>
+          <Navbar />
+        </nav>
       </div>
       <PhaseList />
       <TeamMembers teamMembers={teamMembers} />
-      <PhaseList/>
-      <ProjectAbstract/>
-      
+      <PhaseList />
+      <ProjectAbstract />
+
     </div>
   );
 };

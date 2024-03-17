@@ -3,12 +3,12 @@ import Image from '../../1.jpg';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import './FacultyDashboard.css'
+
 const FacultyDashboard = () => {
 
     const [facultyData, setFacultyData] = useState(JSON.parse(localStorage.getItem('facultyData')))
 
     const handleAccept = async (teamName) => {
-
         try {
             const response = await axios.post('http://localhost:3500/acceptByGuide', {
                 teamName,
