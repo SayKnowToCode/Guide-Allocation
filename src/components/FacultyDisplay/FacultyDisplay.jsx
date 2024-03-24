@@ -4,8 +4,10 @@ const facultydisplay = () => {
   return (
     <div className="single-row-container">
       <div className="sr-no">Sr.No</div>
-      <div className="faculty-name">facultyname</div>
+      <div className="faculty-name">Email</div>
+      <div className="department">Department</div>
       <div className="designation">designation</div>
+      <div className="designation">Domain</div>
       <button className="request-button">Request</button>
     </div>
   );

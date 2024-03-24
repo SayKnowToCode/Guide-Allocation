@@ -1,19 +1,33 @@
 import React from 'react';
 import { Link, Outlet } from 'react-router-dom';
-
+import './RegisterPage.css'
 function RegisterPage() {
   return (
-    <div>
-
-      <h1>Register Page</h1>
+    <div className='Register-Container'>
+      <div className="reg-div">
+      <h1 className='reg-head'>Register Here</h1>
+      <div className='Reg-Buttons'>
       <Link to="/register/team">
-        <button type="button">Team Registeration</button>
+        <button type="button" className='btnreg border-animation'>Team Registeration</button>
       </Link>
-      <hr />
       <Link to="/register/user">
-        <button type="button">User Registeration</button>
+        <button type="button" className='btnreg border-animation'>User Registeration</button>
       </Link>
+      </div>
       <Outlet />
+      </div>
+      <ul class="bg1-bubbles">
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
     </div>
   );
 }
