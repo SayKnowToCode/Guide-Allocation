@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-// import './LoginPage.css';
+import './LoginPage.css'
+import { MdDoubleArrow } from "react-icons/md";
 
 const LoginForm = ({ setFaculties }) => {
     const [teamName, setTeamName] = useState('');
@@ -11,6 +12,8 @@ const LoginForm = ({ setFaculties }) => {
     const [password, setPassword] = useState('');
     const [role, setRole] = useState('student');
     const navigate = useNavigate();
+    const [formVisible, setFormVisible] = useState(true);
+    const [formSuccess, setFormSuccess] = useState(false);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -39,6 +42,10 @@ const LoginForm = ({ setFaculties }) => {
         catch (err) {
             console.log(err.response.data);
         }
+        setFormVisible(false);
+        setTimeout(() => {
+            setFormSuccess(true);
+        }, 500);
     };
 
     const handleClickOnStudent = () => {
@@ -54,86 +61,103 @@ const LoginForm = ({ setFaculties }) => {
     }
 
     return (
-        <div className="form-container ">
-            <p className='h2'>Login</p>
+        <div className={`wrapper ${formSuccess ? 'form-success' : ''}`}>
+            <div className="container">
+                {/* <p className='h2'>Login</p> */}
+                <h1>Welcome</h1>
 
-            <div className='option flex gap-16'>
-                <button className='button' onClick={handleClickOnStudent}>
-                    <span>Student</span>
-                </button>
-                <button className='button' onClick={handleClickOnFaculty}>
-                    <span>Faculty</span>
-                </button>
-            </div>
+                {formVisible && (
+                    <form className="form" onSubmit={handleSubmit}>
+                        <div className='option'>
+                            <button className='button' onClick={handleClickOnStudent}>
+                                <span className='flex '>Student<MdDoubleArrow className='mt-1' /></span>
+                            </button>
+                            <button className='button' onClick={handleClickOnFaculty}>
+                                <span className='flex justify-center '>Faculty <MdDoubleArrow className='mt-1'/></span>
+                            </button>
+                        </div>
+                        <div className="inputContainer">
 
-            <form className="form" onSubmit={handleSubmit}>
-                <div className="inputContainer">
+                            {role === 'student' &&
+                                (<>
+                                    <input
+                                        type="text"
+                                        name="teamName"
+                                        className='inputField'
+                                        placeholder="teamname"
+                                        required
+                                        value={teamName}
+                                        onChange={(e) => setTeamName(e.target.value)}
+                                    />
+                                    {/* <label className='usernameLabel'>Team Name</label> <br /> */}
 
-                    {role === 'student' &&
-                        (<>
-                            <input
+                                    <input
+                                        type="text"
+                                        name="email"
+                                        className='inputField'
+                                        placeholder="email"
+                                        required
+                                        value={email}
+                                        onChange={(e) => setEmail(e.target.value)}
+                                    />
+                                    {/* <label className='usernameLabel'>Email</label> */}
+                                </>)
+                            }
+
+                            {role === 'faculty' && (<> <input
                                 type="text"
-                                name="teamName"
+                                name="facultyName"
                                 className='inputField'
-                                placeholder=""
+                                placeholder="facuty name"
                                 required
-                                value={teamName}
-                                onChange={(e) => setTeamName(e.target.value)}
-                            />
-                            <label className='usernameLabel'>Team Name</label> <br />
+                                value={facultyName}
+                                onChange={(e) => setFacultyName(e.target.value)}
 
+                            />
+                                {/* <label className='usernameLabel' >Faculty Name</label> */}
+                            </>)}
+
+                        </div>
+                        <div className="inputContainer">
                             <input
-                                type="text"
-                                name="email"
+                                type="password"
+                                name="password"
                                 className='inputField'
-                                placeholder=""
+                                placeholder="password"
                                 required
-                                value={email}
-                                onChange={(e) => setEmail(e.target.value)}
+                                autoComplete='off'
+                                value={password}
+                                onChange={(e) => setPassword(e.target.value)}
                             />
-                            <label className='usernameLabel'>Email</label>
-                        </>)
-                    }
-
-                    {role === 'faculty' && (<> <input
-                        type="text"
-                        name="facultyName"
-                        className='inputField'
-                        placeholder=""
-                        required
-                        value={facultyName}
-                        onChange={(e) => setFacultyName(e.target.value)}
-
-                    />
-                        <label className='usernameLabel' >Faculty Name</label> </>)}
-
-                </div>
-                <div className="inputContainer">
-                    <input
-                        type="password"
-                        name="password"
-                        className='inputField'
-                        placeholder=""
-                        required
-                        autoComplete='off'
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
-                    />
-                    <label className="usernameLabel">Password</label>
-                    <div className="forgot">
-                        <p>
-                            <Link to='/register'>Forgot Password?</Link>
+                            {/* <label className="usernameLabel">Password</label> */}
+                            <div className="forgot">
+                                <p>
+                                    <Link to='/register'>Forgot Password?</Link>
+                                </p>
+                            </div>
+                        </div>
+                        <div>
+                            <button type="submit" className="sign">Log in</button>
+                        </div>
+                        <p className="signup">
+                            Don't have an account?
+                            <Link className="Register" to='/register'>Register</Link>
                         </p>
-                    </div>
-                </div>
-                <div>
-                    <button type="submit" className="sign">Log in</button>
-                </div>
-            </form>
-            <p className="signup">
-                Don't have an account?
-                <Link className="Register" to='/register'>Register</Link>
-            </p>
+                    </form>
+                )}
+                <ul class="bg-bubbles">
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
+            </div>
         </div>
     );
 };
