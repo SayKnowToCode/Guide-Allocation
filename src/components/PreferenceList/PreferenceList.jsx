@@ -2,26 +2,34 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './PreferenceList.css'
 
-const PreferenceList = () => {
+const PreferenceList = ({ socket }) => {
 
   const [profList, setProfList] = useState([])
   const teamData = JSON.parse(localStorage.getItem('teamData'));
   const teamName = teamData.teamName
+  const [status, setStatus] = useState('')
 
   const requestProf = async (facultyName) => {
-      try {
-        const response  = await axios.put('http://localhost:3500/sendGuideRequest',{
-            facultyName,
-            teamName
-        })
-        console.log(response.data.message);
-        
-      }
-      catch(error)
-      {
-        console.log(error.response.data);
-      }
+    try {
+      const response = await axios.put('http://localhost:3500/sendGuideRequest', {
+        facultyName,
+        teamName
+      })
+      console.log(response.data.message);
+      setStatus('Request Sent');
+    }
+    catch (error) {
+      console.log(error.response.data);
+      setStatus('Request Failed');
+    }
   }
+
+  // useEffect(() => {
+  //   socket.on(`${teamName}`, (data) => {
+  //     console.log(data);
+  //     console.log(data.name);
+  //   })
+  // }, [socket])
 
   useEffect(() => {
 
@@ -57,7 +65,9 @@ const PreferenceList = () => {
                 })}
               </div>
               <div>
-                <button onClick={() => requestProf(prof.name)}> Request </button>
+                {status === ''
+                  ? <button onClick={() => requestProf(prof.name)}> Request </button>
+                  : status}
               </div>
             </div>
           )

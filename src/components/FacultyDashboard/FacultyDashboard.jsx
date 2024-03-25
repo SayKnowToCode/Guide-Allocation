@@ -1,12 +1,19 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Image from '../../1.jpg';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import './FacultyDashboard.css'
 
-const FacultyDashboard = () => {
+const FacultyDashboard = ({ socket }) => {
 
-    const [facultyData, setFacultyData] = useState(JSON.parse(localStorage.getItem('facultyData')))
+    const [facultyData, setFacultyData] = useState(JSON.parse(localStorage.getItem('facultyData')));
+
+    useEffect(() => {
+        socket.on(`RequestFor${facultyData.name}`, (data) => {
+            setFacultyData(data);
+            localStorage.setItem('facultyData', JSON.stringify(data))
+        })
+    }, [socket])
 
     const handleAccept = async (teamName) => {
         try {
@@ -41,7 +48,7 @@ const FacultyDashboard = () => {
             <div className="navbar2-container">
                 <div className="navbar2">
                     <div className="home mr-0">
-                        <img className='MyImg' src={Image} alt="" />    
+                        <img className='MyImg' src={Image} alt="" />
                     </div>
                     <div className="home2 aka">
                         <Link>Home</Link>
