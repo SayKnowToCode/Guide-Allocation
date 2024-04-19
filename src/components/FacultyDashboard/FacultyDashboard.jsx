@@ -9,6 +9,10 @@ const FacultyDashboard = ({ socket }) => {
     const [facultyData, setFacultyData] = useState(JSON.parse(localStorage.getItem('facultyData')));
 
     useEffect(() => {
+        setFacultyData(JSON.parse(localStorage.getItem('facultyData')))
+    }, [])
+
+    useEffect(() => {
         socket.on(`RequestFor${facultyData.name}`, (data) => {
             setFacultyData(data);
             localStorage.setItem('facultyData', JSON.stringify(data))

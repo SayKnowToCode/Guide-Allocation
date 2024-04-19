@@ -7,6 +7,8 @@ import FacultyDashboard from './components/FacultyDashboard/FacultyDashboard';
 import PreferenceList from './components/PreferenceList/PreferenceList';
 import TeamRegisteration from './components/RegisterPage/TeamRegisteration/TeamRegisteration';
 import UserRegisteration from './components/RegisterPage/UserRegisteration/UserRegisteration';
+import EvaluationForm from './components/EvaluationForm/EvaluationForm';
+import PDF from './components/pdfUpload';
 
 import io from 'socket.io-client';
 const socket = io.connect("http://localhost:3500");
@@ -16,11 +18,10 @@ const socket = io.connect("http://localhost:3500");
 
 const App = () => {
 
-  const [faculties, setFaculties] = useState([])
-
   return (
     <Routes>
-      <Route path='/' element={<LoginPage setFaculties={setFaculties} />} />
+
+      <Route path='/' element={<LoginPage />} />
 
       <Route path='/register'>
         <Route index element={<RegisterPage />} />
@@ -29,9 +30,12 @@ const App = () => {
       </Route>
 
 
-      <Route path='/studentDashboard' element={<StudentDashboard />} />
-      <Route path='/facultyDashboard' element={<FacultyDashboard socket={socket} faculties={faculties} setFaculties={setFaculties} />} />
+      <Route path='/studentDashboard' element={<StudentDashboard socket={socket} />} />
+      <Route path='/facultyDashboard' element={<FacultyDashboard socket={socket} />} />
+      <Route path='/facultyEvaluation' element={<EvaluationForm socket={socket} />} />
       <Route path='/preference' element={<PreferenceList socket={socket} />} />
+      {/* <Route path='/upload' element={<PDF />} /> */}
+
     </Routes>
   );
 };

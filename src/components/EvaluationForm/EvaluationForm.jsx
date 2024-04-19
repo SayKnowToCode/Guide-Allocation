@@ -1,6 +1,7 @@
 // EvaluationForm.js
 
 import React, { useState } from 'react';
+import './EvaluationForm.css';
 
 const EvaluationForm = ({ onSubmit }) => {
   const [marksPhase1, setMarksPhase1] = useState('');

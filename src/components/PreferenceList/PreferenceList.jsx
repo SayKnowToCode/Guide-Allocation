@@ -7,7 +7,7 @@ const PreferenceList = ({ socket }) => {
   const [profList, setProfList] = useState([])
   const teamData = JSON.parse(localStorage.getItem('teamData'));
   const teamName = teamData.teamName
-  const [status, setStatus] = useState('')
+  const [reqProfs, setReqProfs] = useState(teamData.guides)
 
   const requestProf = async (facultyName) => {
     try {
@@ -16,11 +16,12 @@ const PreferenceList = ({ socket }) => {
         teamName
       })
       console.log(response.data.message);
-      setStatus('Request Sent');
+      setReqProfs([...reqProfs, facultyName]);
+      teamData.guides = [...teamData.guides, facultyName];
+      localStorage.setItem('teamData', JSON.stringify(teamData));
     }
     catch (error) {
       console.log(error.response.data);
-      setStatus('Request Failed');
     }
   }
 
@@ -65,9 +66,7 @@ const PreferenceList = ({ socket }) => {
                 })}
               </div>
               <div>
-                {status === ''
-                  ? <button onClick={() => requestProf(prof.name)}> Request </button>
-                  : status}
+                {reqProfs.includes(prof.name) ? <button disabled> Requested </button> : <button onClick={() => requestProf(prof.name)}> Request </button>}
               </div>
             </div>
           )

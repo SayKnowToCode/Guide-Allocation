@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import './LoginPage.css'
 import { MdDoubleArrow } from "react-icons/md";
 
-const LoginForm = ({ setFaculties }) => {
+const LoginForm = () => {
     const [teamName, setTeamName] = useState('');
     const [email, setEmail] = useState('');
     const [facultyName, setFacultyName] = useState('');
@@ -34,7 +34,6 @@ const LoginForm = ({ setFaculties }) => {
                 navigate('/studentDashboard')
             }
             else {
-                setFaculties(response.data);
                 localStorage.setItem('facultyData', JSON.stringify(response.data))
                 navigate('/facultyDashboard')
             }
@@ -49,15 +48,11 @@ const LoginForm = ({ setFaculties }) => {
     };
 
     const handleClickOnStudent = () => {
-        if (role !== 'student') {
-            setRole('student')
-        }
+        setRole('student')
     }
 
     const handleClickOnFaculty = () => {
-        if (role !== 'faculty') {
-            setRole('faculty')
-        }
+        setRole('faculty')
     }
 
     return (
@@ -73,7 +68,7 @@ const LoginForm = ({ setFaculties }) => {
                                 <span className='flex '>Student<MdDoubleArrow className='mt-1' /></span>
                             </button>
                             <button className='button' onClick={handleClickOnFaculty}>
-                                <span className='flex justify-center '>Faculty <MdDoubleArrow className='mt-1'/></span>
+                                <span className='flex justify-center '>Faculty <MdDoubleArrow className='mt-1' /></span>
                             </button>
                         </div>
                         <div className="inputContainer">
