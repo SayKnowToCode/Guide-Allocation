@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import Image from '../../1.jpg';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import './FacultyDashboard.css'
@@ -14,6 +13,13 @@ const FacultyDashboard = ({ socket }) => {
 
     useEffect(() => {
         socket.on(`RequestFor${facultyData.name}`, (data) => {
+            setFacultyData(data);
+            localStorage.setItem('facultyData', JSON.stringify(data))
+        })
+
+        socket.on(`expertGuideFor${facultyData.name}`, (data) => {
+            console.log("Here");
+            console.log(data);
             setFacultyData(data);
             localStorage.setItem('facultyData', JSON.stringify(data))
         })
@@ -87,7 +93,7 @@ const FacultyDashboard = ({ socket }) => {
 
             <br />
 
-            {facultyData.teams.length > 0 && (facultyData.teams).map((team) => {
+            {facultyData.teams && facultyData.teams.length > 0 && (facultyData.teams).map((team) => {
                 return (
                     <div key={team}>
                         <p>{team}
@@ -99,10 +105,29 @@ const FacultyDashboard = ({ socket }) => {
 
             <br />
 
-            {facultyData.acceptedTeams.length > 0 && (facultyData.acceptedTeams).map((team) => {
+            {facultyData.acceptedTeams && facultyData.acceptedTeams.length > 0 && (facultyData.acceptedTeams).map((team) => {
                 return (
                     <div key={team}>
-                        <p>{team}</p>
+                        <Link to={`/evaluation/${team}`}> <p>{team}</p></Link>
+                    </div>
+                )
+            })}
+
+            <br />
+
+            {facultyData.teamsAllocatedByMe && facultyData.teamsAllocatedByMe.length > 0 && (facultyData.teamsAllocatedByMe).map((team) => {
+                return (
+                    <div key={team}>
+                        <p>{team.teamName} allocated to {team.allocatedTo} </p>
+                    </div>
+                )
+            })}
+            <br />
+
+            {facultyData.teamsAllocatedToMe && facultyData.teamsAllocatedToMe.length > 0 && (facultyData.teamsAllocatedToMe).map((team) => {
+                return (
+                    <div key={team}>
+                        <p>{team.teamName} allocated by {team.allocatedBy} </p>
                     </div>
                 )
             })}

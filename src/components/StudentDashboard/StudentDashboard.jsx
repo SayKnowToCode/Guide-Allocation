@@ -15,7 +15,14 @@ const StudentDashboard = ({ socket }) => {
       setTeamData(data);
       localStorage.setItem('teamData', JSON.stringify(data))
     })
-  }, [socket])
+
+    socket.on(`expertGuideFor${teamData.teamName}`, (data) => {
+      console.log("Here");
+      console.log(data);
+      setTeamData(data);
+      localStorage.setItem('teamData', JSON.stringify(data))
+    })
+  }, [socket, teamData.teamName])
 
   useEffect(() => {
     setTeamData(JSON.parse(localStorage.getItem('teamData')))
@@ -47,6 +54,7 @@ const StudentDashboard = ({ socket }) => {
       </div>
 
       <div className='mt-5'>{teamData.acceptedGuide !== '' ? <p> {teamData.acceptedGuide} has accepted your request</p> : 'Empty'}</div>
+      <div className='mt-5'>{teamData.expertAllocated ? <p> {teamData.expertAllocated} is your expert</p> : 'Empty'}</div>
 
 
 

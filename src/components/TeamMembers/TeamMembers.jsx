@@ -1,6 +1,5 @@
 // TeamMembers.js
 import React from 'react';
-import Image from '../../1.jpg'
 import './TeamMembers.css'
 // import './TeamMembers.css'; // Import the CSS file
 
@@ -19,7 +18,7 @@ const TeamMembers = ({ teamMembers }) => {
             <div className="member-info">
               <p className="member-name text-lg font-bold">{member.name}</p>
             </div>
-           
+
           </div>
         ))}
       </div>
