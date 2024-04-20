@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 
 const FileUpload = () => {
     const [file, setFile] = useState(null);
@@ -7,39 +8,32 @@ const FileUpload = () => {
         setFile(e.target.files[0]);
     };
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        if (file) {
-            const formData = new FormData();
-            formData.append('file', file);
+    const handleSubmit = async () => {
+        const formData = new FormData();
+        formData.append('file', file);
+        formData.append('facultyName', 'Dr. Kailas Devadkar')
+        formData.append('teamName', 'Dev Wiz')
 
-            // You can perform additional actions here, like sending the form data to your server using fetch or axios.
-            // Example: 
-            // fetch('your-upload-url', {
-            //   method: 'POST',
-            //   body: formData
-            // })
-            // .then(response => response.json())
-            // .then(data => {
-            //   // Handle response from server
-            // })
-            // .catch(error => {
-            //   // Handle error
-            // });
+        try {
+            const response = await axios.post('http://localhost:3500/upload', formData, {
+                headers: {
+                    'Content-Type': 'multipart/form-data'
+                },
+            });
+            console.log('File uploaded successfully');
 
-            console.log('File uploaded:', file);
-        } else {
-            console.log('No file selected');
+        } catch (error) {
+            console.error('Error uploading file:', error);
         }
     };
+
+
 
     return (
         <div>
             <h2>Upload PDF</h2>
-            <form onSubmit={handleSubmit}>
-                <input type="file" onChange={handleFileChange} accept=".pdf" />
-                <button type="submit">Upload</button>
-            </form>
+            <input type="file" onChange={handleFileChange} />
+            <button onClick={handleSubmit}>Upload</button>
         </div>
     );
 };
