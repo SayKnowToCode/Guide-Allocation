@@ -4,6 +4,7 @@ import PhaseList from '../PhaseList/PhaseList';
 import ProjectAbstract from '../Abstract/Abstract';
 import "./StudentDashboard.css"
 import Navbar from '../../utils/Navbar/Navbar'
+import PDFUpload from '../pdfUpload';
 
 const StudentDashboard = ({ socket }) => {
 
@@ -78,6 +79,9 @@ const StudentDashboard = ({ socket }) => {
         <p>Marks by External : {teamData.phase3 ? <span>{teamData.phase3.marksByExternal}</span> : 'Not graded'}</p>
       </div>
 
+      <div>
+        <PDFUpload />
+      </div>
 
     </div>
   );

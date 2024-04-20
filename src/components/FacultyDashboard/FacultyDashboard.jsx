@@ -6,6 +6,7 @@ import './FacultyDashboard.css'
 const FacultyDashboard = ({ socket }) => {
 
     const [facultyData, setFacultyData] = useState(JSON.parse(localStorage.getItem('facultyData')));
+    const [filename, setFilename] = useState('');
 
     useEffect(() => {
         setFacultyData(JSON.parse(localStorage.getItem('facultyData')))
@@ -23,7 +24,16 @@ const FacultyDashboard = ({ socket }) => {
             setFacultyData(data);
             localStorage.setItem('facultyData', JSON.stringify(data))
         })
-    }, [socket])
+
+        socket.on(`fileUploadedFor${facultyData.name}`, (data) => {
+            console.log(data.fileName);
+            setFilename(data.fileName);
+        }, [socket])
+    })
+
+    const handleViewFile = () => {
+        window.open(`http://localhost:3500/uploads/${filename}`, '_blank');
+    };
 
     const handleAccept = async (teamName) => {
         try {
@@ -129,8 +139,16 @@ const FacultyDashboard = ({ socket }) => {
                     </div>
                 )
             })}
+            <br />
+            {filename && (
+                <div>
+                    <button onClick={handleViewFile}>View File</button>
+                    <p>Filename: {filename}</p>
+                </div>
+            )}
         </div>
     )
 }
+
 
 export default FacultyDashboard
