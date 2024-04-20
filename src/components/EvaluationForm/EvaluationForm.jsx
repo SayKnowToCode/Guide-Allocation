@@ -4,12 +4,14 @@ import { useParams } from 'react-router-dom';
 import axios from 'axios';
 
 const EvaluationForm = () => {
-  const { teamName } = useParams();
+  const { teamName, role } = useParams();
   const [marksPhase1, setMarksPhase1] = useState('');
   const [marksPhase2, setMarksPhase2] = useState('');
   const [marksPhase3, setMarksPhase3] = useState('');
   const [selectedFaculty, setSelectedFaculty] = useState('');
   const facultyName = JSON.parse(localStorage.getItem('facultyData')).name;
+  const teamsAllocatedByMe = JSON.parse(localStorage.getItem('facultyData')).teamsAllocatedByMe;
+  const teamNames = teamsAllocatedByMe.map(team => team.teamName);
 
   const facultyList = [
     "Dr. Prasenjit Bhavathankar",
@@ -60,29 +62,62 @@ const EvaluationForm = () => {
 
   };
 
-  const handleSubmitPhase1 = (e) => {
-    e.preventDefault();
-    // Perform any validation if needed
-
-    // Package the evaluation data and pass it to the parent component
-
-  }
-
-  const handleSubmitPhase2 = async (e) => {
+  const handlePhaseSubmit = async (e, phase) => {
     e.preventDefault();
 
-    // Perform any validation if needed
-
-    // Package the evaluation data and pass it to the parent component
-
-  }
-
-  const handleSubmitPhase3 = (e) => {
-    e.preventDefault();
-    // Perform any validation if needed
-
-    // Package the evaluation data and pass it to the parent component
-
+    switch (phase) {
+      case 1:
+        try {
+          const response = await axios.post('http://localhost:3500/evaluation', {
+            teamName,
+            marks: Number(marksPhase1),
+            phase: Number(phase),
+            role,
+            facultyName
+          });
+          console.log(response.data);
+          localStorage.setItem('facultyData', JSON.stringify(response.data));
+        }
+        catch (error) {
+          console.log(error.message);
+        }
+        break;
+      case 2:
+        try {
+          const response = await axios.post('http://localhost:3500/evaluation', {
+            teamName,
+            marks: Number(marksPhase2),
+            phase: Number(phase),
+            role,
+            facultyName
+          });
+          console.log("Here");
+          console.log(response.data);
+          localStorage.setItem('facultyData', JSON.stringify(response.data));
+        }
+        catch (error) {
+          console.log(error.message);
+        }
+        break;
+      case 3:
+        try {
+          const response = await axios.post('http://localhost:3500/evaluation', {
+            teamName,
+            marks: Number(marksPhase3),
+            phase: Number(phase),
+            role,
+            facultyName
+          });
+          console.log(response.data);
+          localStorage.setItem('facultyData', JSON.stringify(response.data));
+        }
+        catch (error) {
+          console.log(error.message);
+        }
+        break;
+      default:
+        break;
+    }
   }
 
   return (
@@ -99,7 +134,7 @@ const EvaluationForm = () => {
             value={marksPhase1}
             onChange={(e) => setMarksPhase1(e.target.value)}
           />
-          <button onClick={handleSubmitPhase1}>Submit</button>
+          <button onClick={(e) => handlePhaseSubmit(e, 1)}>Submit</button>
         </label>
       </div>
       <div>
@@ -110,7 +145,7 @@ const EvaluationForm = () => {
             value={marksPhase2}
             onChange={(e) => setMarksPhase2(e.target.value)}
           />
-          <button onClick={handleSubmitPhase2}>Submit</button>
+          <button onClick={(e) => handlePhaseSubmit(e, 2)}>Submit</button>
         </label>
       </div>
       <div>
@@ -121,26 +156,30 @@ const EvaluationForm = () => {
             value={marksPhase3}
             onChange={(e) => setMarksPhase3(e.target.value)}
           />
-          <button onClick={handleSubmitPhase3}>Submit</button>
+          <button onClick={(e) => handlePhaseSubmit(e, 3)}>Submit</button>
         </label>
       </div>
-      <div>
-        <label>
-          Select Faculty:
-          <input
-            type="text"
-            value={selectedFaculty}
-            onChange={(e) => setSelectedFaculty(e.target.value)}
-            list="facultyList"
-          />
-          <datalist id="facultyList">
-            {filteredFacultyList.map((faculty, index) => (
-              <option key={index} value={faculty} />
-            ))}
-          </datalist>
-        </label>
-        <button onClick={handleSubmitFaculty}>Submit</button>
-      </div>
+      {teamNames.includes(teamName) ?
+        <div>
+          <p>Team already allocated to {teamsAllocatedByMe.find(team => team.teamName === teamName).allocatedTo} </p>
+        </div>
+        : <div> {role === 'guide' && <div>
+          <label>
+            Select Faculty:
+            <input
+              type="text"
+              value={selectedFaculty}
+              onChange={(e) => setSelectedFaculty(e.target.value)}
+              list="facultyList"
+            />
+            <datalist id="facultyList">
+              {filteredFacultyList.map((faculty, index) => (
+                <option key={index} value={faculty} />
+              ))}
+            </datalist>
+          </label>
+          <button onClick={handleSubmitFaculty}>Submit</button>
+        </div>} </div>}
     </div>
   );
 };

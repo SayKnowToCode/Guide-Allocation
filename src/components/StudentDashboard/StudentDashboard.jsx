@@ -17,7 +17,11 @@ const StudentDashboard = ({ socket }) => {
     })
 
     socket.on(`expertGuideFor${teamData.teamName}`, (data) => {
-      console.log("Here");
+      setTeamData(data);
+      localStorage.setItem('teamData', JSON.stringify(data))
+    })
+
+    socket.on(`EvaluationFor${teamData.teamName}`, (data) => {
       console.log(data);
       setTeamData(data);
       localStorage.setItem('teamData', JSON.stringify(data))
@@ -56,6 +60,23 @@ const StudentDashboard = ({ socket }) => {
       <div className='mt-5'>{teamData.acceptedGuide !== '' ? <p> {teamData.acceptedGuide} has accepted your request</p> : 'Empty'}</div>
       <div className='mt-5'>{teamData.expertAllocated ? <p> {teamData.expertAllocated} is your expert</p> : 'Empty'}</div>
 
+      <div className='my-5'>
+        <p>Phase 1</p>
+        <p>Marks by Guide : {teamData.phase1.marksByGuide && <span>{teamData.phase1.marksByGuide}</span>}</p>
+        <p>Marks by External : {teamData.phase1.marksByExternal && <span>{teamData.phase1.marksByExternal}</span>}</p>
+      </div>
+
+      <div className='my-5'>
+        <p>Phase 2</p>
+        <p>Marks by Guide : {teamData.phase2 ? <span>{teamData.phase2.marksByGuide}</span> : 'Not Graded'}</p>
+        <p>Marks by External : {teamData.phase2 ? <span>{teamData.phase2.marksByExternal}</span> : 'Not Graded'}</p>
+      </div>
+
+      <div className='my-5'>
+        <p>Phase 3</p>
+        <p>Marks by Guide : {teamData.phase3 ? <span>{teamData.phase3.marksByGuide}</span> : 'Not graded'}</p>
+        <p>Marks by External : {teamData.phase3 ? <span>{teamData.phase3.marksByExternal}</span> : 'Not graded'}</p>
+      </div>
 
 
     </div>

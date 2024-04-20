@@ -32,7 +32,7 @@ const App = () => {
 
       <Route path='/studentDashboard' element={<StudentDashboard socket={socket} />} />
       <Route path='/facultyDashboard' element={<FacultyDashboard socket={socket} />} />
-      <Route path='/evaluation/:teamName' element={<EvaluationForm socket={socket} />} />
+      <Route path='/evaluation/:teamName/:role' element={<EvaluationForm socket={socket} />} />
       <Route path='/preference' element={<PreferenceList socket={socket} />} />
       {/* <Route path='/upload' element={<PDF />} /> */}
 
