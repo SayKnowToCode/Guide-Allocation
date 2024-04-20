@@ -57,9 +57,6 @@ const FacultyDashboard = ({ socket }) => {
 
             <div className="navbar2-container">
                 <div className="navbar2">
-                    <div className="home mr-0">
-                        <img className='MyImg' src={Image} alt="" />
-                    </div>
                     <div className="home2 aka">
                         <Link>Home</Link>
                     </div>
@@ -98,7 +95,8 @@ const FacultyDashboard = ({ socket }) => {
                     <div key={team}>
                         <p>{team}
                             <button onClick={() => handleAccept(team)}>Accept</button>
-                            <button onClick={() => handleReject(team)}>Reject</button> </p>
+                            <button onClick={() => handleReject(team)}>Reject</button>
+                        </p>
                     </div>
                 )
             })}
@@ -107,8 +105,8 @@ const FacultyDashboard = ({ socket }) => {
 
             {facultyData.acceptedTeams && facultyData.acceptedTeams.length > 0 && (facultyData.acceptedTeams).map((team) => {
                 return (
-                    <div key={team}>
-                        <Link to={`/evaluation/${team}`}> <p>{team}</p></Link>
+                    <div key={team.teamName}>
+                        <Link to={`/evaluation/${team.teamName}/guide`}> <p>{team.teamName}</p></Link>
                     </div>
                 )
             })}
@@ -117,7 +115,7 @@ const FacultyDashboard = ({ socket }) => {
 
             {facultyData.teamsAllocatedByMe && facultyData.teamsAllocatedByMe.length > 0 && (facultyData.teamsAllocatedByMe).map((team) => {
                 return (
-                    <div key={team}>
+                    <div key={team.teamName}>
                         <p>{team.teamName} allocated to {team.allocatedTo} </p>
                     </div>
                 )
@@ -126,8 +124,8 @@ const FacultyDashboard = ({ socket }) => {
 
             {facultyData.teamsAllocatedToMe && facultyData.teamsAllocatedToMe.length > 0 && (facultyData.teamsAllocatedToMe).map((team) => {
                 return (
-                    <div key={team}>
-                        <p>{team.teamName} allocated by {team.allocatedBy} </p>
+                    <div key={team.teamName}>
+                        <Link to={`/evaluation/${team.teamName}/expert`}><p>{team.teamName} allocated by {team.allocatedBy} </p></Link>
                     </div>
                 )
             })}
