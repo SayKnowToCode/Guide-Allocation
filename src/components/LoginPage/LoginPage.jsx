@@ -140,7 +140,7 @@ const LoginForm = () => {
                         </p>
                     </form>
                 )}
-                <ul class="bg-bubbles">
+                <ul className="bg-bubbles">
                     <li></li>
                     <li></li>
                     <li></li>

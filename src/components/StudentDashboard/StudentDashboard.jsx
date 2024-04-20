@@ -31,7 +31,7 @@ const StudentDashboard = ({ socket }) => {
   return (
     <div className="relative z-10">
 
-      <h1 >Student Dashboard</h1>
+      <h1 className='title'>Student Dashboard</h1>
       <div className="flex items-center">
         <nav className='mr-8'>
           <Navbar />

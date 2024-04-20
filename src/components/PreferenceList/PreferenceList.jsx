@@ -49,28 +49,38 @@ const PreferenceList = ({ socket }) => {
   }, [])
 
   return (
-    <div className="preference-list">
-      <div className="Professor-Container">
-        {profList.map((prof) => {
-          return (
-            <div key={prof._id} className='Professor'>
-              <div>
-                <p style={{ color: 'white' }}>{prof.name}</p>
-              </div>
-              <div>{prof.email}</div>
-              <div>{prof.department}</div>
-              <div>{prof.designation}</div>
-              <div>
-                {(prof.domains).map((domain, index) => {
-                  return <p key={index}>{domain}</p>
-                })}
-              </div>
-              <div>
-                {reqProfs.includes(prof.name) ? <button disabled> Requested </button> : <button onClick={() => requestProf(prof.name)}> Request </button>}
-              </div>
-            </div>
-          )
-        })}
+    <div className='Pref-Main'>
+      <div className="preference-list">
+        <table className="table">
+          <thead>
+            <tr>
+              <th className="th">Name</th>
+              <th className="th">Email</th>
+              <th className="th">Department</th>
+              <th className="th">Designation</th>
+              <th className="th">Domains</th>
+              <th className="th">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            {profList.map((prof) => (
+              <tr key={prof._id} className="tr">
+                <td className="td">{prof.name}</td>
+                <td className="td">{prof.email}</td>
+                <td className="td">{prof.department}</td>
+                <td className="td">{prof.designation}</td>
+                <td className="td">{prof.domains.join(', ')}</td>
+                <td className="td">
+                  {reqProfs.includes(prof.name) ? (
+                    <button className="button button-disabled" disabled>Requested</button>
+                  ) : (
+                    <button className="button" onClick={() => requestProf(prof.name)}>Request</button>
+                  )}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       </div>
     </div>
   );

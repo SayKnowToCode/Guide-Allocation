@@ -4,5 +4,13 @@
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-weight: bold;
     font-size: 40px;
-    color: white;
+    color: black;
   }
+  .student-dash-main{
+    width: 100%;
+    height: 100%;
+    background-color: #496989;
+  }
+ .title-studash{
+  color: #DFD0B8;
+ }
