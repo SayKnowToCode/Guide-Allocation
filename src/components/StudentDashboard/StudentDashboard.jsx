@@ -33,7 +33,7 @@ const StudentDashboard = ({ socket }) => {
   }, [])
 
   return (
-    <div className="relative z-10 student-dash-main">
+    <div className="relative student-dash-main">
 
       <h1 className='title-studash'>Student Dashboard</h1>
       <div className="flex items-center">
@@ -44,7 +44,7 @@ const StudentDashboard = ({ socket }) => {
       <PhaseList />
       <TeamMembers teamMembers={teamMembers} />
       <PhaseList />
-      <ProjectAbstract />
+
 
 
 
