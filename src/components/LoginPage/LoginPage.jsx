@@ -64,10 +64,10 @@ const LoginForm = () => {
                 {formVisible && (
                     <form className="form" onSubmit={handleSubmit}>
                         <div className='option'>
-                            <button className='button' onClick={handleClickOnStudent}>
+                            <button className='button-login' onClick={handleClickOnStudent}>
                                 <span className='flex '>Student<MdDoubleArrow className='mt-1' /></span>
                             </button>
-                            <button className='button' onClick={handleClickOnFaculty}>
+                            <button className='button-login' onClick={handleClickOnFaculty}>
                                 <span className='flex justify-center '>Faculty <MdDoubleArrow className='mt-1' /></span>
                             </button>
                         </div>

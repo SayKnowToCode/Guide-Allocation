@@ -20,30 +20,31 @@ const Navbar = ({onTabChange}) => {
 
   return (
     <nav className="navbar min-w-2/5 absolute top-0 left-0">
-      <ul className="flex flex-row">
-        <li className=''>
-          <button className="mr-6 my-6"  style={{ display: 'flex', alignItems: 'center' }}>
+      <div className="flex flex-row navbar-anim">
+        {/* <li className=''> */}
+          <div className="mr-6 my-6 "  style={{ display: 'flex', alignItems: 'center' }}>
             <FaHome style={{ marginRight: '0.5em' }} /> Home
-          </button>
-        </li>
-        <li className=''>
-          <button className="mr-6 my-6 whitespace-nowrap" style={{ display: 'flex', alignItems: 'center' }}>
+          </div>
+        {/* </li> */}
+        {/* <li className=''> */}
+          <div className="mr-6 my-6 whitespace-nowrap" style={{ display: 'flex', alignItems: 'center' }}>
             <GoProjectRoadmap style={{ marginRight: '0.5em' }} />Submissions
-          </button>
-        </li>
-        <li className=''>
+          </div>
+        {/* </li> */}
+        {/* <li className=''> */}
           <Link to='/preference'>
-            <button className="mr-6 my-6" style={{ display: 'flex', alignItems: 'center' }}>
+            <div className="mr-6 my-6" style={{ display: 'flex', alignItems: 'center' }}>
               <LuClipboardCheck style={{ marginRight: '0.5em' }} /> Preference List
-            </button>
+            </div>
           </Link>
-        </li>
-        <li className=''>
-          <button className="mr-6 my-6" onClick={onLogout} style={{ display: 'flex', alignItems: 'center' }}>
+        {/* </li> */}
+        {/* <li className=''> */}
+          <div className="mr-6 my-6" onClick={onLogout} style={{ display: 'flex', alignItems: 'center' }}>
             <FiLogOut style={{ marginRight: '0.5em' }} />Logout
-          </button>
-        </li>
-      </ul>
+          </div>
+        {/* </li> */}
+      <div class="animation start-home"></div>
+      </div>
     </nav>
   );
 };
