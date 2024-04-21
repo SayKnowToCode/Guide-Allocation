@@ -1,36 +1,72 @@
 
 .preference-list {
     width: 100vw; 
-    height: calc(100vh - 48px); /* Adjusted for button height */
-    background-color: #4682A9;
-    overflow-x: hidden; /* Prevents horizontal scrollbar */
-    overflow-y: auto; /* Enables vertical scrollbar if needed */
+    height: calc(100vh - 48px); 
+    background-color: #d1c470;
+    overflow-x: hidden; 
+    overflow-y: auto; 
   }
-  
+  .professor-name{
+    color: #393406; 
+    font-family: 'Trocchi', serif; 
+    font-size: 1.5rem; 
+    font-weight: normal; 
+    /* line-height: 48px;  */
+    margin: 0;
+  }
+  .professor-row{
+    display: flex;
+    justify-content: space-between;
+    border-left: 2px solid white;
+    margin:6vh;
+    
+    border: 2px solid white;
+}
+.professor-row div{
+    width:100%; 
+    padding: 1.5vw 0;
+    padding-left: 1vw;
+}
   .table {
-    width: 100%;
-    border-collapse: collapse;
+    width: 90%;
+    border: 2px solid black;
+    margin: 10vh auto;
   }
-  
-  .th, .td {
+  .prof-data{
+    margin-left: 4vh;
+  }
+  .th{
     padding: 12px 15px;
     text-align: left;
     color: black;
+    width: 100%;
   }
-  
+  .td{
+    padding: 12px 15px;
+    text-align:start;
+    color: black;
+  }
+  .prof-domains{
+    white-space: inherit;
+    word-wrap: break-word;
+  }
+  .tr{
+    display: flex;
+    width: 100%;
+  }
   .th {
     background-color: #333;
     color: black;
   }
   
-  .tr:nth-child(even) {
+  /* .tr:nth-child(even) {
     background-color: #f2f2f2;
   }
   
   .tr:hover {
     background-color: #ddd;
   }
-  
+   */
   .button {
     padding: 8px 12px;
     background-color: #007bff;

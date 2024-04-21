@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './PreferenceList.css'
-
+import ProfessorRow from './professorrow';
 const PreferenceList = ({ socket }) => {
 
   const [profList, setProfList] = useState([])
@@ -25,62 +25,49 @@ const PreferenceList = ({ socket }) => {
     }
   }
 
-  // useEffect(() => {
-  //   socket.on(`${teamName}`, (data) => {
-  //     console.log(data);
-  //     console.log(data.name);
-  //   })
-  // }, [socket])
+  const getProfList = async () => {
+    try {
+      const response = await axios.get('http://localhost:3500/profList');
+      console.log(response.data);
+      setProfList(response.data);
+    } catch (error) {
+      console.log(error.response.data);
+    }
+  }
 
   useEffect(() => {
+    socket.on(`GuideFull`, (data) => {
+      console.log(data);
+      getProfList();
+    })
+  }, [socket])
 
-    const getProfList = async () => {
-      try {
-        const response = await axios.get('http://localhost:3500/profList');
-        console.log(response.data);
-        setProfList(response.data);
-      } catch (error) {
-        console.log(error.response.data);
-      }
-    }
-
+  useEffect(() => {
     getProfList();
-
   }, [])
 
   return (
     <div className='Pref-Main'>
       <div className="preference-list">
-        <table className="table">
-          <thead>
-            <tr>
-              <th className="th">Name</th>
-              <th className="th">Email</th>
-              <th className="th">Department</th>
-              <th className="th">Designation</th>
-              <th className="th">Domains</th>
-              <th className="th">Action</th>
-            </tr>
-          </thead>
-          <tbody>
+        <div className="table">
+          <div className="tr">
+            <div className="th">Professor Details</div>
+            {/* <div className="th">Department</div> */}
+            <div className="th">Domains</div>
+            <div className="th">Action</div>
+          </div>
+          <div className="tbody">
             {profList.map((prof) => (
-              <tr key={prof._id} className="tr">
-                <td className="td">{prof.name}</td>
-                <td className="td">{prof.email}</td>
-                <td className="td">{prof.department}</td>
-                <td className="td">{prof.designation}</td>
-                <td className="td">{prof.domains.join(', ')}</td>
-                <td className="td">
-                  {reqProfs.includes(prof.name) ? (
-                    <button className="button button-disabled" disabled>Requested</button>
-                  ) : (
-                    <button className="button" onClick={() => requestProf(prof.name)}>Request</button>
-                  )}
-                </td>
-              </tr>
+              <ProfessorRow
+                key={prof._id}
+                professor={prof}
+                isRequested={reqProfs.includes(prof.name)}
+                onRequestProf={requestProf}
+                className="professor-row"
+              />
             ))}
-          </tbody>
-        </table>
+          </div>
+        </div>
       </div>
     </div>
   );
