@@ -9,7 +9,7 @@ const TeamMembers = ({ teamMembers }) => {
       <h2 className="team-members-heading text-3xl text-center uppercase font-bold mb-12">Team Members</h2>
       <div className="flex justify-center team-members-list">
         {teamMembers.map((member) => (
-          <div className="member-info">
+          <div key={member.name} className="member-info">
             <p className="member-name text-lg font-bold">{member.name}</p>
           </div>
         ))}

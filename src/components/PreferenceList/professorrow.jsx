@@ -1,7 +1,9 @@
 // ProfessorRow.js
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import './PreferenceList.css';
 
 const ProfessorRow = ({ professor, isRequested, onRequestProf }) => {
+
     return (
         <div className="professor-row">
             <div className="professor-details">
@@ -10,18 +12,16 @@ const ProfessorRow = ({ professor, isRequested, onRequestProf }) => {
                 <p className='prof-data'>{professor.designation}</p>
                 <p className='prof-data'>{professor.department}</p>
             </div>
-            {/* <div className="professor-department">
-                <p>{professor.department}</p>
-            </div> */}
             <div className="professor-domains">
                 {professor.domains.map(domain => <p key={domain}>{domain}</p>)}
             </div>
             <div className="professor-action">
-                {isRequested ? (
-                    <button className="button button-disabled" disabled>Requested</button>
-                ) : (
-                    <button className="button" onClick={() => onRequestProf(professor.name)}>Request</button>
-                )}
+                {professor.count === 0
+                    ? <button className="button button-disabled" disabled>Slot Full</button>
+                    : isRequested
+                        ? <button className="button button-disabled" disabled>Requested</button>
+                        : <button className="button" onClick={() => onRequestProf(professor.name)}>Request</button>
+                }
             </div>
         </div>
     );

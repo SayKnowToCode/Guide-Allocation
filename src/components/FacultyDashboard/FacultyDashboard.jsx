@@ -19,8 +19,6 @@ const FacultyDashboard = ({ socket }) => {
         })
 
         socket.on(`expertGuideFor${facultyData.name}`, (data) => {
-            console.log("Here");
-            console.log(data);
             setFacultyData(data);
             localStorage.setItem('facultyData', JSON.stringify(data))
         })
@@ -28,8 +26,15 @@ const FacultyDashboard = ({ socket }) => {
         socket.on(`fileUploadedFor${facultyData.name}`, (data) => {
             console.log(data.fileName);
             setFilename(data.fileName);
-        }, [socket])
-    })
+        })
+
+        socket.on(`TeamAcceptedFor${facultyData.name}`, (data) => {
+            console.log("Here");
+            console.log(data);
+            setFacultyData(data);
+            localStorage.setItem('facultyData', JSON.stringify(data))
+        })
+    }, [facultyData.name, socket])
 
     const handleViewFile = () => {
         window.open(`http://localhost:3500/uploads/${filename}`, '_blank');

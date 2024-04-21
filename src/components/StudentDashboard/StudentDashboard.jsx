@@ -63,8 +63,8 @@ const StudentDashboard = ({ socket }) => {
 
       <div className='my-5'>
         <p>Phase 1</p>
-        <p>Marks by Guide : {teamData.phase1.marksByGuide && <span>{teamData.phase1.marksByGuide}</span>}</p>
-        <p>Marks by External : {teamData.phase1.marksByExternal && <span>{teamData.phase1.marksByExternal}</span>}</p>
+        <p>Marks by Guide : {teamData.phase1 ? <span>{teamData.phase1.marksByGuide}</span> : 'Not Graded'}</p>
+        <p>Marks by External : {teamData.phase1 ? <span>{teamData.phase1.marksByExternal}</span> : 'Not Graded'}</p>
       </div>
 
       <div className='my-5'>
