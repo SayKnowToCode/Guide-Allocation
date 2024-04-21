@@ -1,61 +1,61 @@
 @import url(https://fonts.googleapis.com/css?family=Khula:700);
 
 .teamreg-container {
-    inset: 0;
-    height: 100vh;
-    width: 100vw;
-    background: linear-gradient(to top left, #50a3a2 0%, #201658 100%);
-    background: linear-gradient(to bottom right, #50a3a2 0%, #201658 100%);
-    position: absolute;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
+  inset: 0;
+  height: 100vh;
+  width: 100vw;
+  background: linear-gradient(to top left, #50a3a2 0%, #201658 100%);
+  background: linear-gradient(to bottom right, #50a3a2 0%, #201658 100%);
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
 }
 
 .disclaimer {
-    font-family: Khula;
-    font-size: 1em;
-    text-align: center;
-    margin-bottom: 2vw ;
-    margin-top: 2vw ;
+  font-family: Khula;
+  font-size: 1em;
+  text-align: center;
+  margin-bottom: 2vw;
+  margin-top: 2vw;
 }
 
 .teamreg-inside {
-    position: relative;
-    z-index: 2;
-    width: 25%;
-    margin: auto;
-    margin-top: 8vh;
-    text-align: center;
-    backdrop-filter: blur(12px);
-    box-shadow: 5px 5px 10px 0 rgba(0, 0, 0, 0.5);
+  position: relative;
+  z-index: 2;
+  width: 25%;
+  margin: auto;
+  margin-top: 8vh;
+  text-align: center;
+  backdrop-filter: blur(12px);
+  box-shadow: 5px 5px 10px 0 rgba(0, 0, 0, 0.5);
 }
 
 .teamreg-inside input {
-    border: none;
-    display: flex;
-    border-bottom: 2px solid #D1D1D4;
-    background: none;
-    padding: 10px;
-    padding-left: 24px;
-    font-weight: 700;
-    width: 90%;
-    transition: .2s;
-    margin: auto;
-    margin-bottom: 1.5vh;
+  border: none;
+  display: flex;
+  border-bottom: 2px solid #d1d1d4;
+  background: none;
+  padding: 10px;
+  padding-left: 24px;
+  font-weight: 700;
+  width: 90%;
+  transition: 0.2s;
+  margin: auto;
+  margin-bottom: 1.5vh;
 }
 .teamreg-inside input::placeholder {
-    font-size: smaller;
-    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    margin:0;
+  font-size: smaller;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  margin: 0;
 }
 
 .teamreg-inside input:active,
 .teamreg-inside input:focus,
 .teamreg-inside input:hover {
-    outline: none;
-    border-bottom-color: #6A679E;
+  outline: none;
+  border-bottom-color: #6a679e;
 }
 
 /* .teamreg-inside input {
@@ -87,19 +87,19 @@
   } */
 
 .next {
-    background-color: white;
-    border: 0;
-    padding: 1vh 3vw;
-    color: #8678d7;
-    border-radius: 3px;
-    width: 60vw;
-    max-width: 300px;
-    cursor: pointer;
-    font-size: 3vh;
-    transition-duration: 0.25s;
-    margin-top: 2vh;
+  background-color: white;
+  border: 0;
+  padding: 1vh 3vw;
+  color: #8678d7;
+  border-radius: 3px;
+  width: 60vw;
+  max-width: 300px;
+  cursor: pointer;
+  font-size: 3vh;
+  transition-duration: 0.25s;
+  margin-top: 2vh;
 }
 
 .next:hover {
-    background-color: #f5f7f9;
+  background-color: #f5f7f9;
 }

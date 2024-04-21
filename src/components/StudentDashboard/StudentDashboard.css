@@ -1,9 +1,13 @@
 @import url("https://fonts.googleapis.com/css2?family=Jersey+15&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
 
 .student-dash-main {
-  width: 100%;
-  height: 100%;
-  background-color: #e4c59e;
+  width: 100vw;
+  height: 100vh;
+  /* background-image: url("./image.png");
+  background-repeat: no-repeat;
+  background-size: 100% 100%; */
+  background-color: papayawhip;
+  color: black;
 }
 
 .title-studash {
@@ -17,4 +21,16 @@
   position: fixed;
   margin-left: 2vh;
   margin-top: 2vh;
+}
+.image-Container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("image.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  clip-path: circle(52% at 89% 50%);
 }
