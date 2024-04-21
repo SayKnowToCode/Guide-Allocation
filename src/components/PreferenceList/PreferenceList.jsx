@@ -52,7 +52,6 @@ const PreferenceList = ({ socket }) => {
         <div className="table">
           <div className="tr">
             <div className="th">Professor Details</div>
-            {/* <div className="th">Department</div> */}
             <div className="th">Domains</div>
             <div className="th">Action</div>
           </div>

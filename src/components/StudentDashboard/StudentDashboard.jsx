@@ -10,6 +10,7 @@ const StudentDashboard = ({ socket }) => {
 
   const [teamData, setTeamData] = useState(JSON.parse(localStorage.getItem('teamData')));
   const teamMembers = teamData.membersList
+  const teamName = teamData.teamName
 
   useEffect(() => {
     socket.on(`AcceptFor${teamData.teamName}`, (data) => {
@@ -42,13 +43,13 @@ const StudentDashboard = ({ socket }) => {
         </nav>
       </div>
       {/* <PhaseList /> */}
-      <TeamMembers teamMembers={teamMembers} />
+      <TeamMembers teamMembers={teamMembers} teamName={teamName} />
       {/* <PhaseList /> */}
 
 
 
 
-      <div className='mt-5' >{teamData.guides.map((guide) => {
+      <div className='scrollable-div mt-5' >{teamData.guides.map((guide) => {
         return (
           <div key={guide} className='guide'>
             <p>{guide}</p>

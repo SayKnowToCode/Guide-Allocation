@@ -21,3 +21,10 @@
   background-position: center;
   clip-path: circle(52% at 89% 50%);
 }
+
+.scrollable-div{
+  min-height: 0px;
+  max-height: 50px;
+  overflow-y: scroll;
+  /* scroll-behavior: auto; */
+}
