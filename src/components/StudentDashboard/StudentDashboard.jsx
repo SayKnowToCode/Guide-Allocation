@@ -34,11 +34,10 @@ const StudentDashboard = ({ socket }) => {
   }, [])
 
   return (
-    <div className="relative student-dash-main">
+    <div className="student-dash-main">
       <div className='image-Container'></div>
-      <h1 className='title-studash'>Student Dashboard</h1>
       <div className="flex items-center">
-        <nav className='mr-8'>
+        <nav>
           <Navbar />
         </nav>
       </div>
@@ -79,9 +78,9 @@ const StudentDashboard = ({ socket }) => {
         <p>Marks by External : {teamData.phase3 ? <span>{teamData.phase3.marksByExternal}</span> : 'Not graded'}</p>
       </div>
 
-      <div>
+      {/* <div>
         <PDFUpload />
-      </div>
+      </div> */}
 
     </div>
   );

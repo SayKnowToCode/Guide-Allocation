@@ -9,19 +9,6 @@
   background-color: papayawhip;
   color: black;
 }
-
-.title-studash {
-  margin: 0 2rem;
-  color: black;
-  font-family: "Roboto", sans-serif;
-  font-weight: 900;
-  font-size: 1.5rem;
-  font-style: normal;
-  z-index: 10;
-  position: fixed;
-  margin-left: 2vh;
-  margin-top: 2vh;
-}
 .image-Container {
   position: absolute;
   top: 0;
