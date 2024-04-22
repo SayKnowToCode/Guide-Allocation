@@ -5,12 +5,14 @@ import LoginPage from './components/LoginPage/LoginPage'
 import StudentDashboard from './components/StudentDashboard/StudentDashboard'
 import FacultyDashboard from './components/FacultyDashboard/FacultyDashboard';
 import PreferenceList from './components/PreferenceList/PreferenceList';
+import Submission from './components/Submission/Submission';
 import TeamRegisteration from './components/RegisterPage/TeamRegisteration/TeamRegisteration';
 import UserRegisteration from './components/RegisterPage/UserRegisteration/UserRegisteration';
 import EvaluationForm from './components/EvaluationForm/EvaluationForm';
 // import PDF from './components/pdfUpload';
 
 import io from 'socket.io-client';
+
 const socket = io.connect("http://localhost:3500");
 
 // IMP !!!!!!!!!!!!!!!! 
@@ -34,6 +36,7 @@ const App = () => {
       <Route path='/facultyDashboard' element={<FacultyDashboard socket={socket} />} />
       <Route path='/evaluation/:teamName/:role' element={<EvaluationForm socket={socket} />} />
       <Route path='/preference' element={<PreferenceList socket={socket} />} />
+      <Route path='/submission' element={<Submission socket={socket} />} />
       {/* <Route path='/upload' element={<PDF />} /> */}
 
     </Routes>

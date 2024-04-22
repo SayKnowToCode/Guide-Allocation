@@ -1,0 +1,57 @@
+/* SubmissionPage.css */
+
+.submission-page {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Style for the main title */
+.title {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #333; /* Dark grey color */
+}
+
+/* Style for each container */
+.container {
+  background-color: peachpuff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+/* Style for the table and file input container */
+.sub-container {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+
+/* Style for each phase table */
+.phase-table {
+  flex: 1;
+  margin-right: 20px;
+}
+
+/* Style for file input */
+.file-input {
+  margin-top: 10px;
+}
+
+/* Style for submit button */
+.submit-button {
+  display: block;
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.submit-button:hover {
+  background-color: #0056b3;
+}
