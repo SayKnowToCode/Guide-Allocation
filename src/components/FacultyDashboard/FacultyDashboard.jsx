@@ -70,40 +70,46 @@ const FacultyDashboard = ({ socket }) => {
     return (
         <div className="Faculty-Dashboard">
 
-            <div className="navbar2-container">
-                <div className="navbar2">
-                    <div className="home2 aka">
-                        <Link>Home</Link>
+            <header className="head-area1">
+                <div className="header-container1">
+                    <div class="logo-nav1">
+                        <h1><span>Faculty</span>Dashboard</h1>
                     </div>
-                    <div className="home2">
-                        <Link>Notifications</Link>
+                    <div className="menu3">
+                        <div className="menu2">
+                            <div className="active">
+                                <p><Link>Home</Link></p>
+                            </div>
+                            <div className="">
+                                <p><Link>Notifications</Link></p>
+                            </div>
+                            <div className="">
+                                <p><Link>Expert</Link></p>
+                            </div>
+                            <div className="">
+                                <p><Link>Evaluation</Link></p>
+                            </div>
+                            <div className="">
+                                <p><Link>LogOut</Link></p>
+                            </div>
+                        </div>
                     </div>
-                    <div className="home2">
-                        <Link>Expert</Link>
-                    </div>
-                    <div className="home2">
-                        <Link>Evaluation</Link>
-                    </div>
-                    <div className="home2">
-                        <Link>LogOut</Link>
-                    </div>
-
                 </div>
-            </div>
-            <h2>FacultyDashboard</h2>
-            <div>{facultyData.name}</div>
-            <div>{facultyData.email}</div>
+            </header>
+            <div className='faculty-name'>{facultyData.name}</div>
+            {/* <div>{facultyData.email}</div> */}
             <div>{facultyData.department}</div>
             <div>{facultyData.designation}</div>
-            <div>{facultyData.count}</div>
+            <div className='faculty-img'></div>
+            {/* <div>{facultyData.count}</div> */}
 
-            <br />
+            {/* <br />
 
             {(facultyData.domains).map((domain, index) => {
                 return <p key={index}>{domain}</p>
             })}
 
-            <br />
+            <br /> */}
 
             {facultyData.teams && facultyData.teams.length > 0 && (facultyData.teams).map((team) => {
                 return (

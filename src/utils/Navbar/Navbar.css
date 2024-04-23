@@ -4,7 +4,7 @@
   padding: 0px 30px;
   z-index: 111;
   border-bottom: #909090ad;
-  overflow-x: hidden; /* Prevent horizontal overflow */
+  overflow-x: hidden;
 }
 
 .header-container {

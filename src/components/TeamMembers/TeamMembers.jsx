@@ -5,12 +5,12 @@ import './TeamMembers.css'
 
 const TeamMembers = ({ teamMembers, teamName }) => {
   return (
-    <div className="team-members rounded-lg p-8 max-w-3xl">
-      <h2 className="team-members-heading text-3xl text-center uppercase font-bold mb-12">{teamName}</h2>
-      <div className="flex justify-center team-members-list">
+    <div className="team-members">
+      <h2 className="team-members-heading">Team Members</h2>
+      <div className="team-members-list">
         {teamMembers.map((member) => (
           <div key={member.name} className="member-info">
-            <p className="member-name text-lg font-bold">{member.name}</p>
+            <p className="member-name">{member.name}</p>
           </div>
         ))}
       </div>

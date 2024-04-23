@@ -1,20 +1,93 @@
-.Faculty-Dashboard{
-    width:100%;
-    height:100%;
-    background-color: black;
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap');
+
+.Faculty-Dashboard {
+    width: 100%;
+    height: 100vh;
+    color: black;
+    /* background-image: linear-gradient(to right, #064c92 60%, #ebd180 50%); */
 }
-.aka{
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-.home2{
-    right: 0;
-}
-.MyImg{
-    width: 3%;
-    height: auto;
-}
-.navbar2{
-    display: flex;
-}
+.head-area1 {
+    
+    width: 100vw;
+    padding: 0px 30px;
+    z-index: 111;
+    border-bottom: #909090ad;
+    overflow-x: hidden;
+    
+  }
+  
+  .faculty-img{
+    background-image: url('./image.png');
+    height: 70%;
+    width: 45%;
+    margi:0;
+    margin-right: 2vw;
+    background-size: 100% 100%;
+    float: right;
+  }
+  .logo-nav1 {
+    float: left;
+    padding: 5px 0;
+  }
+  
+  .logo-nav1 h1 {
+    color: #030303;
+    font-size: 25px;
+    font-weight: 600;
+    /* padding: 15px; */
+  }
+  
+  .logo-nav1 span {
+    color: #ff4a44;
+  }
+  
+  .menu3 {
+    float: right;
+  }
+  
+  .menu2 div {
+    display: inline-block;
+    margin: 0px 5px;
+  }
+  .header-container1 {
+    width: 100%;
+    margin: auto;
+    /* display: table; */
+    
+  }
+  
+  .menu2 div p {
+    color: #030303;
+    position: relative;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 500;
+    letter-spacing: 1px;
+    padding: 15px 10px;
+    transition: 0.5s;
+  }
+  
+  .menu2 p:hover,
+  .menu2 .active {
+    color: #ff4a44;
+  }
+  
+  .menu2 div p:after {
+    content: "";
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    background: #ff4a44;
+    bottom: 0px;
+    left: 0;
+    transition: all 0.5s;
+  }
+  
+  .menu2 div p:hover:after {
+    width: 100%;
+  }
+  
+  .menu2 div .active:after {
+    width: 100%;
+  }
+  

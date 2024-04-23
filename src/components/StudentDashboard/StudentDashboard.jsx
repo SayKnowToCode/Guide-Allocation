@@ -61,7 +61,7 @@ const StudentDashboard = ({ socket }) => {
       <div className='mt-5'>{teamData.acceptedGuide !== '' ? <p> {teamData.acceptedGuide} has accepted your request</p> : 'Empty'}</div>
       <div className='mt-5'>{teamData.expertAllocated ? <p> {teamData.expertAllocated} is your expert</p> : 'Empty'}</div>
 
-      <div className='my-5'>
+      {/* <div className='my-5'>
         <p>Phase 1</p>
         <p>Marks by Guide : {teamData.phase1 ? <span>{teamData.phase1.marksByGuide}</span> : 'Not Graded'}</p>
         <p>Marks by External : {teamData.phase1 ? <span>{teamData.phase1.marksByExternal}</span> : 'Not Graded'}</p>
