@@ -49,12 +49,6 @@ const PreferenceList = ({ socket }) => {
   return (
     <div className='Pref-Main'>
       <div className="preference-list">
-        <div className="table">
-          <div className="tr">
-            <div className="th">Professor Details</div>
-            <div className="th">Domains</div>
-            <div className="th">Action</div>
-          </div>
           <div className="tbody">
             {profList.map((prof) => (
               <ProfessorRow
@@ -66,9 +60,6 @@ const PreferenceList = ({ socket }) => {
                 socket={socket}
               />
             ))}
-            <div><PhaseList/></div>
-
-          </div>
         </div>
       </div>
     </div>
