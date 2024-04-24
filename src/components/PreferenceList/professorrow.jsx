@@ -34,4 +34,5 @@ const ProfessorRow = ({ professor, isRequested, onRequestProf }) => {
     );
 };
 
+
 export default ProfessorRow;

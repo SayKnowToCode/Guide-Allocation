@@ -7,14 +7,14 @@
 }
 
 /* Style for the main title */
-.title {
+.submi-title {
   font-size: 24px;
   margin-bottom: 20px;
   color: #333; /* Dark grey color */
 }
 
 /* Style for each container */
-.container {
+.submi-container {
   background-color: peachpuff;
   border: 1px solid #ddd;
   border-radius: 8px;

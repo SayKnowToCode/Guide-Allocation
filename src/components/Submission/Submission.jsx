@@ -63,10 +63,10 @@ const Submission = () => {
 
     return (
         <div className="submission-page">
-            <h1 className="title">Submission Page</h1>
+            <h1 className="submi-title">Submission Page</h1>
 
             {/* Weekly Report Container */}
-            <div className="container">
+            <div className="submi-container">
                 <h2>Weekly Report</h2>
                 <div className="sub-container">
                     <table className="phase-table file-table">
@@ -77,7 +77,7 @@ const Submission = () => {
             </div>
 
             {/* Phase Tables Container */}
-            <div className="container">
+            <div className="submi-container">
                 <h2>Phase Tables</h2>
                 <div className="sub-container">
                     <div className="phase-table">
@@ -111,7 +111,7 @@ const Submission = () => {
             </div>
 
             {/* Case Study Container */}
-            <div className="container">
+            <div className="submi-container">
                 <h2>Case Study</h2>
                 <div className="sub-container">
                     <table className="phase-table file-table">
@@ -122,7 +122,7 @@ const Submission = () => {
             </div>
 
             {/* Presentation Container */}
-            <div className="container">
+            <div className="submi-container">
                 <h2>Presentation</h2>
                 <div className="sub-container">
                     <table className="phase-table file-table">

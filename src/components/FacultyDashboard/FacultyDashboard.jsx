@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import './FacultyDashboard.css'
+// import './FaculyDashboard1.css'
 
 const FacultyDashboard = ({ socket }) => {
 
@@ -69,8 +70,45 @@ const FacultyDashboard = ({ socket }) => {
 
     return (
         <div className="Faculty-Dashboard">
+            <div className='main-college'>
+                <div className='college'>
+                    <div className='college-logo'></div>
+                    <div className='college-details'>
+                        <p className='college-in'>Bhartiya Vidhya Bhavan's</p>
+                        <p className='college-name'>Sardar Patel Institute of Technology</p>
+                        <p className='college-in'>Autonomous institute Affiliated to Mumbai University</p>
+                    </div>
+                    <header className="head-area1">
+                <div className="header-container1">
+                    {/* <div class="logo-nav1">
+                        <h1><span>Faculty</span>Dashboard</h1>
+                    </div> */}
+                    <div className="menu3">
+                        <div className="menu2">
+                            <div className="active">
+                                <p><Link>Home</Link></p>
+                            </div>
+                            <div className="">
+                                <p><Link>Notifications</Link></p>
+                            </div>
+                            <div className="">
+                                <p><Link>Expert</Link></p>
+                            </div>
+                            <div className="">
+                                <p><Link>Evaluation</Link></p>
+                            </div>
+                            <div className="">
+                                <p><Link>LogOut</Link></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+                </div>
+                
+            </div>
 
-            <header className="head-area1">
+            {/* <header className="head-area1">
                 <div className="header-container1">
                     <div class="logo-nav1">
                         <h1><span>Faculty</span>Dashboard</h1>
@@ -95,12 +133,12 @@ const FacultyDashboard = ({ socket }) => {
                         </div>
                     </div>
                 </div>
-            </header>
-            <div className='faculty-name'>{facultyData.name}</div>
+            </header> */}
+            <div className='faculty-name'><div>{facultyData.name}</div><p>({facultyData.designation})</p></div>
             {/* <div>{facultyData.email}</div> */}
             <div>{facultyData.department}</div>
-            <div>{facultyData.designation}</div>
-            <div className='faculty-img'></div>
+            {/* <div>{facultyData.designation}</div> */}
+            {/* <div className='faculty-img'></div> */}
             {/* <div>{facultyData.count}</div> */}
 
             {/* <br />

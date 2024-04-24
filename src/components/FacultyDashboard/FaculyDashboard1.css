@@ -1,0 +1,76 @@
+/* .faculty-name {
+    font-family: 'Merriweather', serif;
+    font-size: 24px;
+    font-weight: 700;
+    margin-top: 20px;
+}
+
+.faculty-info {
+    font-family: 'Merriweather', serif;
+    font-size: 18px;
+    margin-top: 10px;
+}
+.team-container {
+    margin-top: 20px;
+}
+
+.team {
+    margin-bottom: 10px;
+}
+
+.team-name {
+    font-family: 'Merriweather', serif;
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.team-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.team-buttons button {
+    padding: 8px 15px;
+    font-family: 'Merriweather', serif;
+    font-size: 16px;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+}
+
+.team-buttons button.accept {
+    background-color: #28a745;
+    color: white;
+}
+
+.team-buttons button.reject {
+    background-color: #dc3545;
+    color: white;
+}
+.accepted-teams-container {
+    margin-top: 20px;
+}
+
+.accepted-team {
+    margin-bottom: 10px;
+}
+
+.accepted-team-name {
+    font-family: 'Merriweather', serif;
+    font-size: 18px;
+    font-weight: 600;
+}
+.allocated-teams-container {
+    margin-top: 20px;
+}
+
+.allocated-team {
+    margin-bottom: 10px;
+}
+
+.allocated-team-name {
+    font-family: 'Merriweather', serif;
+    font-size: 18px;
+    font-weight: 600;
+} */

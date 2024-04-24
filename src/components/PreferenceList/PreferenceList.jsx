@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './PreferenceList.css'
 import ProfessorRow from './professorrow';
-
+import PhaseList from '../PhaseList/PhaseList';
 const PreferenceList = ({ socket }) => {
 
   const [profList, setProfList] = useState([])
@@ -66,6 +66,8 @@ const PreferenceList = ({ socket }) => {
                 socket={socket}
               />
             ))}
+            <div><PhaseList/></div>
+
           </div>
         </div>
       </div>
