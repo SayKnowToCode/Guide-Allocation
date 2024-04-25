@@ -10,7 +10,7 @@ const EvaluationForm = () => {
   const [marksPhase3, setMarksPhase3] = useState('');
   const [selectedFaculty, setSelectedFaculty] = useState('');
   const facultyName = JSON.parse(localStorage.getItem('facultyData')).name;
-  const teamsAllocatedByMe = JSON.parse(localStorage.getItem('facultyData')).teamsAllocatedByMe;
+  const [teamsAllocatedByMe, setTeamsAllocatedByMe] = useState(JSON.parse(localStorage.getItem('facultyData')).teamsAllocatedByMe);
   const teamNames = teamsAllocatedByMe.map(team => team.teamName);
 
   const facultyList = [
@@ -55,6 +55,7 @@ const EvaluationForm = () => {
         selectedFaculty
       })
       console.log(response.data);
+      setTeamsAllocatedByMe(response.data.teamsAllocatedByMe);
       localStorage.setItem('facultyData', JSON.stringify(response.data));
     } catch (error) {
       console.log(error.message);

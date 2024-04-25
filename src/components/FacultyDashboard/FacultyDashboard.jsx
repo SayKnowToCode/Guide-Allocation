@@ -1,22 +1,47 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-import './FacultyDashboard.css'
-// import './FaculyDashboard1.css'
+import './FacultyDashboard.css';
 
 const FacultyDashboard = ({ socket }) => {
 
     const [facultyData, setFacultyData] = useState(JSON.parse(localStorage.getItem('facultyData')));
     const [filename, setFilename] = useState('');
+    const [teamData, setTeamData] = useState([]);
+
+    const fetchTeamDataForAllTeams = async () => {
+        try {
+            // Array to store all promises for fetching team data
+            const promises = facultyData.teams.map(async (teamName) => {
+                const response = await axios.get(`http://localhost:3500/getTeam`, {
+                    params: {
+                        teamName
+                    }
+                });
+                return response.data;
+            });
+            // Wait for all promises to resolve
+            const teamDataArray = await Promise.all(promises);
+            const unwrappedTeamDataArray = teamDataArray.flat();
+            setTeamData(unwrappedTeamDataArray);
+        } catch (error) {
+            console.log(error.message);
+        }
+    };
 
     useEffect(() => {
         setFacultyData(JSON.parse(localStorage.getItem('facultyData')))
     }, [])
 
     useEffect(() => {
+        fetchTeamDataForAllTeams();
+    }, [facultyData])
+
+    useEffect(() => {
         socket.on(`RequestFor${facultyData.name}`, (data) => {
-            setFacultyData(data);
+            setFacultyData(data.guide);
             localStorage.setItem('facultyData', JSON.stringify(data))
+            setTeamData([...teamData, data.team]);
         })
 
         socket.on(`expertGuideFor${facultyData.name}`, (data) => {
@@ -79,33 +104,33 @@ const FacultyDashboard = ({ socket }) => {
                         <p className='college-in'>Autonomous institute Affiliated to Mumbai University</p>
                     </div>
                     <header className="head-area1">
-                <div className="header-container1">
-                    {/* <div class="logo-nav1">
+                        <div className="header-container1">
+                            {/* <div class="logo-nav1">
                         <h1><span>Faculty</span>Dashboard</h1>
                     </div> */}
-                    <div className="menu3">
-                        <div className="menu2">
-                            <div className="active">
-                                <p><Link>Home</Link></p>
-                            </div>
-                            <div className="">
-                                <p><Link>Notifications</Link></p>
-                            </div>
-                            <div className="">
-                                <p><Link>Expert</Link></p>
-                            </div>
-                            <div className="">
-                                <p><Link>Evaluation</Link></p>
-                            </div>
-                            <div className="">
-                                <p><Link>LogOut</Link></p>
+                            <div className="menu3">
+                                <div className="menu2">
+                                    <div className="active">
+                                        <p><Link>Home</Link></p>
+                                    </div>
+                                    <div className="">
+                                        <p><Link>Notifications</Link></p>
+                                    </div>
+                                    <div className="">
+                                        <p><Link>Expert</Link></p>
+                                    </div>
+                                    <div className="">
+                                        <p><Link>Evaluation</Link></p>
+                                    </div>
+                                    <div className="">
+                                        <p><Link>LogOut</Link></p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    </header>
                 </div>
-            </header>
-                </div>
-                
+
             </div>
 
             {/* <header className="head-area1">
@@ -195,6 +220,31 @@ const FacultyDashboard = ({ socket }) => {
                     <p>Filename: {filename}</p>
                 </div>
             )}
+            {teamData && teamData.length > 0 && teamData.map((team) => {
+                return (
+                    <div key={team.teamName}>
+                        <p>Hello</p>
+                        <p>{team.teamName}</p>
+                        {team.membersList.map((member) => {
+                            return (
+                                <div key={member}>
+                                    <span>{member.name}  </span>
+                                    <span>{member.email} </span>
+                                    <span>{member.branch} </span>
+                                    <span>{member.UID} </span>
+                                    {member.isTeamLeader && <span>Team Leader</span>}
+                                </div>
+                            )
+                        }
+                        )}
+                        <p>
+                            <button onClick={() => handleAccept(team.teamName)}>Accept</button>
+                            <button onClick={() => handleReject(team.teamName)}>Reject</button>
+                        </p>
+                    </div>
+                )
+            })
+            }
         </div>
     )
 }
