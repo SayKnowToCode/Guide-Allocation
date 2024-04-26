@@ -4,8 +4,8 @@
   /* background-image: url("./image.png");
   background-repeat: no-repeat;*/
   background-size: 100% 100%;
-  background-color: papayawhip;
-  color: black;
+  background-image: radial-gradient(circle at top left, #64CCC5 0%, #1F4172 100%);
+  color: rgb(243, 243, 243);  
 }
 
 .image-Container {
@@ -26,4 +26,121 @@
   max-height: 50px;
   overflow-y: scroll;
   /* scroll-behavior: auto; */
+}
+.main-college1{
+  width: 100vw;
+  /* background-color: #102C57; */
+  /* position: fixed; */
+    opacity: 0.8; 
+    /* background-color:#0E46A3; */
+    background: linear-gradient(to top  , rgba(8, 8, 8, 0), rgba(39, 34, 47, 0.5)); 
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+ 
+}
+
+.college1{  
+  margin-left: 6vh;
+  padding: 10px 0;
+  display: flex;
+  color:#391a08;
+  gap: 10px;
+  
+}
+.college-name{
+  font-family: HelveticaNeue-Light, "Helvetica Neue Light", "Helvetica Neue", sans-serif;
+  font-size: 25px;
+  font-weight:  400;
+  line-height:  normal;
+}
+.college-in{
+  font-size: small;
+}
+.college-logo {
+  background-image: url("./image.png");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  width: 7%; 
+}
+.college-details {
+  display: flex;
+  flex-direction: column;
+}
+.logo-nav1 {
+  float: left;
+  padding: 5px 0;
+}
+
+.logo-nav1 h1 {
+  color: #110f0f;
+  font-size: 25px;
+  font-weight: 600;
+  /* padding: 15px; */
+}
+
+.logo-nav1 span {
+  color: #ff4a44;
+}
+
+.menu4 {
+  float: right;
+}
+
+.menu5 div {
+  display: inline-block;
+  /* margin: 0px 5px; */
+}
+.header-container2 {
+  width: 100%;
+  margin: auto;
+  /* display: table; */
+  
+}
+.head-area2 {
+    
+  width: fit-content;
+  /* padding: 0px 30px; */
+  margin-left:18% ;
+  z-index: 111;
+  border-bottom: #909090ad;
+  overflow-x: hidden;
+  /* color: #78D6C6;  */
+  
+}
+
+.menu5 div p {
+  color: #78D6C6;
+  position: relative;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: 200;
+  letter-spacing: 1px;
+  padding: 20px 10px;
+  transition: 0.5s;
+}
+
+.menu5 p:hover,.active {
+  color: #ff4a44;
+}
+
+.menu5 div p:after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  background: #ff4a44;
+  bottom: 0px;
+  left: 0;
+  transition: all 0.5s;
+}
+
+.menu5 div p:hover:after {
+  width: 100%;
+}
+
+.menu5 p:hover,
+.menu5.active {
+    color: #ff4a44;
+}
+.guide-expert{
+  margin-left: 11vw;
 }

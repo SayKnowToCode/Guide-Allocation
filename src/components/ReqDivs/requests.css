@@ -1,0 +1,28 @@
+/* NotificationBox.css */
+.notification-box {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    max-width: 300px;
+    overflow: hidden;
+  }
+  
+  .notification-container {
+    margin-left: 60%;
+    margin-top: -20%;
+  }
+  
+  .notification {
+    padding: 8px;
+    margin-bottom: 8px;
+    border-radius: 5px;
+    background-color: #f0f0f0;
+  }
+  
+  .no-notification {
+    padding: 8px;
+    border-radius: 5px;
+    background-color: #f0f0f0;
+    color: #888;
+  }
+  

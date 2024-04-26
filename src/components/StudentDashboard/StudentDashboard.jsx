@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import TeamMembers from '../TeamMembers/TeamMembers';
-import PhaseList from '../PhaseList/PhaseList';
-import ProjectAbstract from '../Abstract/Abstract';
+import { Link } from 'react-router-dom';
 import "./StudentDashboard.css"
-import Navbar from '../../utils/Navbar/Navbar'
 import PDFUpload from '../pdfUpload';
+import NotificationBox from '../ReqDivs/requests';
 
 const StudentDashboard = ({ socket }) => {
 
@@ -36,19 +35,45 @@ const StudentDashboard = ({ socket }) => {
 
   return (
     <div className="student-dash-main">
-      <div className='image-Container'></div>
-      <div className="flex items-center">
-        <nav>
-          <Navbar />
-        </nav>
+      <div className='main-college1'>
+        <div className='college1'>
+          <div className='college-logo'></div>
+          <div className='college-details'>
+            <p className='college-in'>Bhartiya Vidhya Bhavan's</p>
+            <p className='college-name'>Sardar Patel Institute of Technology</p>
+            <p className='college-in'>Autonomous institute Affiliated to Mumbai University</p>
+          </div>
+          <header className="head-area2">
+            <div className="header-container2">
+              {/* <div class="logo-nav1">
+                        <h1><span>Faculty</span>Dashboard</h1>
+                    </div> */}
+              <div className="menu4">
+                <div className="menu5">
+                  <div className="active">
+                    <p><Link>Home</Link></p>
+                  </div>
+                  <div className="">
+                    <p><Link to='/submission'>submissions</Link></p>
+                  </div>
+                  <div className="">
+                    <p><Link to='/preference'>Preference List</Link></p>
+                  </div>
+                  <div className="">
+                    <p><Link>LogOut</Link></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </header>
+        </div>
+
       </div>
-      {/* <PhaseList /> */}
       <TeamMembers teamMembers={teamMembers} teamName={teamName} />
-      {/* <PhaseList /> */}
-
-
-
-
+      <div className='guide-expert'>
+        <div className='mt-5'>{teamData.acceptedGuide !== '' ? <p> {teamData.acceptedGuide} has accepted your request</p> : 'Empty'}</div>
+        <div className='mt-5'>{teamData.expertAllocated ? <p> {teamData.expertAllocated} is your expert</p> : 'Empty'}</div>
+      </div>
       <div className='scrollable-div mt-5' >{teamData.guides.map((guide) => {
         return (
           <div key={guide} className='guide'>
@@ -58,10 +83,10 @@ const StudentDashboard = ({ socket }) => {
       })}
       </div>
 
-      <div className='mt-5'>{teamData.acceptedGuide !== '' ? <p> {teamData.acceptedGuide} has accepted your request</p> : 'Empty'}</div>
-      <div className='mt-5'>{teamData.expertAllocated ? <p> {teamData.expertAllocated} is your expert</p> : 'Empty'}</div>
+      {/* <div className='mt-5'>{teamData.acceptedGuide !== '' ? <p> {teamData.acceptedGuide} has accepted your request</p> : 'Empty'}</div>
+      <div className='mt-5'>{teamData.expertAllocated ? <p> {teamData.expertAllocated} is your expert</p> : 'Empty'}</div> */}
 
-      <div className='my-5'>
+      {/* <div className='my-5'>
         <p>Phase 1</p>
         <p>Marks by Guide : {teamData.phase1 ? <span>{teamData.phase1.marksByGuide}</span> : 'Not Graded'}</p>
         <p>Marks by External : {teamData.phase1 ? <span>{teamData.phase1.marksByExternal}</span> : 'Not Graded'}</p>
@@ -77,12 +102,12 @@ const StudentDashboard = ({ socket }) => {
         <p>Phase 3</p>
         <p>Marks by Guide : {teamData.phase3 ? <span>{teamData.phase3.marksByGuide}</span> : 'Not graded'}</p>
         <p>Marks by External : {teamData.phase3 ? <span>{teamData.phase3.marksByExternal}</span> : 'Not graded'}</p>
-      </div>
+      </div> */}
 
       {/* <div>
         <PDFUpload />
       </div> */}
-
+      <div className='relative'><NotificationBox /></div>
     </div>
   );
 };

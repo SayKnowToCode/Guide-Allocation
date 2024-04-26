@@ -159,9 +159,9 @@ const FacultyDashboard = ({ socket }) => {
                     </div>
                 </div>
             </header> */}
-            <div className='faculty-name'><div>{facultyData.name}</div><p>({facultyData.designation})</p></div>
+            <div className='faculty-name'><div>{facultyData.name}</div><p>({facultyData.designation})</p><p>    {facultyData.department})</p></div>
             {/* <div>{facultyData.email}</div> */}
-            <div>{facultyData.department}</div>
+            {/* <div>{facultyData.department}</div> */}
             {/* <div>{facultyData.designation}</div> */}
             {/* <div className='faculty-img'></div> */}
             {/* <div>{facultyData.count}</div> */}

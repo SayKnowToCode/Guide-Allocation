@@ -1,6 +1,6 @@
 // ProfessorRow.js
 import React, { useEffect, useState } from 'react';
-import './PreferenceList.css';
+// import './PreferenceList.css';
 import './professorrow.css'
 const ProfessorRow = ({ professor, isRequested, onRequestProf }) => {
 

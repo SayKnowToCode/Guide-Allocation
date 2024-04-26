@@ -6,7 +6,7 @@ import './TeamMembers.css'
 const TeamMembers = ({ teamMembers, teamName }) => {
   return (
     <div className="team-members">
-      <h2 className="team-members-heading">Team Members</h2>
+      <h2 className="team-members-heading">{teamName}</h2>
       <div className="team-members-list">
         {teamMembers.map((member) => (
           <div key={member.name} className="member-info">

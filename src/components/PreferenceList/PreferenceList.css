@@ -1,14 +1,17 @@
-.Pref-Main{
-    background-color: #d1c470;
-    width: 100%;
-    height: 100%;
-}
-.preference-list {
-    width: 100vw; 
-    height: calc(100vh - 48px); 
+.Pref-Main {
+    background-color: #FEFAF6;
+    width: 100vw;
+    height: 100vh;
     overflow-x: hidden; 
-    overflow-y: auto; 
-  }
+}
+
+.preference-list {
+    margin: 8vh auto;
+    width: calc(100% - 40px);
+    height: calc(100% - 48px);
+    overflow-y: auto;
+}
+
   .professor-name{
     color: #393406; 
     font-family: 'Trocchi', serif; 
