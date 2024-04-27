@@ -1,0 +1,78 @@
+.rubric {
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 20px;
+  margin: 20px auto;
+  width: 75%;
+  height: 50vh;
+  background-color: rgb(238, 226, 238);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.criteria {
+  font-weight: bold;
+}
+
+h1 {
+  color: chocolate;
+  font-weight: 900;
+}
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th {
+  color: black;
+}
+td {
+  border: 1px solid #b7b4b4;
+  text-align: center;
+  padding: 8px;
+  color: black;
+}
+
+/* th {
+  background-color: #f2f2f2;
+  color: black;
+} */
+
+input[type="radio"] {
+  transform: scale(1.5);
+  margin-right: 5px;
+}
+
+input[type="radio"]:checked {
+  outline: 2px solid #007bff;
+}
+
+p {
+  margin-top: 10px;
+  font-weight: bold;
+}
+button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+p {
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 10px;
+}
+.mark {
+  color: black;
+}
