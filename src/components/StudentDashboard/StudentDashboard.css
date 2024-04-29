@@ -4,7 +4,7 @@
   /* background-image: url("./image.png");
   background-repeat: no-repeat;*/
   background-size: 100% 100%;
-  background-image: radial-gradient(circle at top left, #64CCC5 0%, #1F4172 100%);
+  background-image: radial-gradient(circle at top left, #000000  0%, #000000 100%);
   color: rgb(243, 243, 243);  
 }
 
@@ -33,7 +33,7 @@
   /* position: fixed; */
     opacity: 0.8; 
     /* background-color:#0E46A3; */
-    background: linear-gradient(to top  , rgba(8, 8, 8, 0), rgba(39, 34, 47, 0.5)); 
+    background: linear-gradient(to top , #025464 0% , #45577d 50%); 
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
  
 }
@@ -42,7 +42,7 @@
   margin-left: 6vh;
   padding: 10px 0;
   display: flex;
-  color:#391a08;
+  color:#efe9e6;
   gap: 10px;
   
 }
@@ -108,7 +108,7 @@
 }
 
 .menu5 div p {
-  color: #78D6C6;
+  color: #e9edec;
   position: relative;
   text-decoration: none;
   text-transform: uppercase;

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './PreferenceList.css'
 import ProfessorRow from './professorrow';
-import PhaseList from '../PhaseList/PhaseList';
+import Search from '../ReqDivs/requests';
 const PreferenceList = ({ socket }) => {
 
   const [profList, setProfList] = useState([])
@@ -48,6 +48,9 @@ const PreferenceList = ({ socket }) => {
 
   return (
     <div className='Pref-Main'>
+      <div className='search-bar'>
+      <Search/>
+      </div>
       <div className="preference-list">
           <div className="tbody">
             {profList.map((prof) => (

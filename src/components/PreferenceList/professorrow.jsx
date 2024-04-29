@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from 'react';
 // import './PreferenceList.css';
 import './professorrow.css'
+import { Fade } from 'react-awesome-reveal';
 const ProfessorRow = ({ professor, isRequested, onRequestProf }) => {
 
     const acceptedGuide = JSON.parse(localStorage.getItem('teamData')).acceptedGuide;
@@ -43,11 +44,13 @@ const ProfessorRow = ({ professor, isRequested, onRequestProf }) => {
                     </div>
                 </div>
                 <div style={{ width: "40%", maxHeight: "100px", overflowY: "auto" }}>
+                        <Fade>
                     <ul className="list-disc pl-5">
                         {professor.domains.map((domain, index) => (
                             <li key={index} className="text-sm text-gray-700 mb-1">{domain}</li>
                         ))}
                     </ul>
+                    </Fade>
                 </div>
             </div>
         </div>

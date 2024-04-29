@@ -1,15 +1,21 @@
 .Pref-Main {
-    background-color: #FEFAF6;
+    background-color: #222831;
     width: 100vw;
     height: 100vh;
-    overflow-x: hidden; 
+    overflow-x: hidden;
+    overflow-y: hidden; 
 }
-
+.search-bar{
+  margin-top: 1vh;
+  margin-left: 2vh;
+}
 .preference-list {
-    margin: 8vh auto;
-    width: calc(100% - 40px);
+    margin:2vh auto;
+    width: calc(100%);
     height: calc(100% - 48px);
     overflow-y: auto;
+    overflow-x: hidden;
+    /* border-top: 2px solid #6C88A1; */
 }
 
   .professor-name{
