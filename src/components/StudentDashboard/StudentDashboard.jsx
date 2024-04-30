@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import TeamMembers from '../TeamMembers/TeamMembers';
 import { Link } from 'react-router-dom';
 import "./StudentDashboard.css"
-import PDFUpload from '../pdfUpload';
+import PDFUpload from '../PDFUpload/pdfUpload';
 import NotificationBox from '../ReqDivs/notification';
 
 const StudentDashboard = ({ socket }) => {
