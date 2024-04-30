@@ -3,7 +3,7 @@ import TeamMembers from '../TeamMembers/TeamMembers';
 import { Link } from 'react-router-dom';
 import "./StudentDashboard.css"
 import PDFUpload from '../pdfUpload';
-import NotificationBox from '../ReqDivs/requests';
+import NotificationBox from '../ReqDivs/notification';
 
 const StudentDashboard = ({ socket }) => {
 
@@ -35,12 +35,12 @@ const StudentDashboard = ({ socket }) => {
 
   return (
     <div className="student-dash-main overflow-x-hidden">
-      <svg className="absolute inset-0 z-0 top-20 overflow-x-hidden" viewBox="0 0 500 200">
-        <path d="M 0 150 C 150 50 300 200 500 120 L 500 200 L 0 200" fill="#176B87"></path>
+      {/* <svg className="absolute inset-0 z-0 top-20 overflow-x-hidden" viewBox="0 0 500 200">
+        <path d="M 0 150 C 150 50 300 200 500 120 L 500 200 L 0 200" fill="#176B87"></path> */}
         {/* <path d="M 0 150 C 150 50 330 230 500 150 L 500 200 L 0 200" fill="#64CCC5" opacity="0.8"></path> */}
         {/* <path d="M 0 150 C 215 50 250 200 500 100 L 500 200 L 0 200" fill="#DAFFFB" opacity="0.5"></path>x */}
 
-      </svg>
+      {/* </svg> */}
       <div className='main-college1'>
         <div className='college1'>
           <div className='college-logo'></div>
@@ -75,24 +75,27 @@ const StudentDashboard = ({ socket }) => {
         </div>
 
       </div>
-      <TeamMembers teamMembers={teamMembers} teamName={teamName} />
-      <div className='guide-expert ml-4'>
-        <div className=''>{teamData.acceptedGuide !== '' ? <p className='mt-5 font-sans font-semibold text-lg uppercase tracking-wider text-white'><span>Guide:</span>{teamData.acceptedGuide}</p> : 'Empty'}</div>
-        <div className=''>{teamData.expertAllocated ? <p className='mt-5 font-sans font-semibold text-lg uppercase tracking-wider text-white'><span>Expert:</span>{teamData.expertAllocated}</p> : 'Empty'}</div>
-      </div>
-      <div className='scrollable-div mt-5' >{teamData.guides.map((guide) => {
+      <div className='flex gap-96 mt-2'>
+        <div>
+          <TeamMembers teamMembers={teamMembers} teamName={teamName} />
+          <div className='guide-expert ml-4'>
+            <div className=''>{teamData.acceptedGuide !== '' ? <p className='mt-5 font-sans font-semibold text-lg uppercase tracking-wider text-white'><span>Guide:</span>{teamData.acceptedGuide}</p> : 'Empty'}</div>
+            <div className=''>{teamData.expertAllocated ? <p className='mt-5 font-sans font-semibold text-lg uppercase tracking-wider text-white'><span>Expert:</span>{teamData.expertAllocated}</p> : 'Empty'}</div>
+          </div>
+        </div>
+        {/* <div className='scrollable-div mt-5' >{teamData.guides.map((guide) => {
         return (
           <div key={guide} className='guide'>
             <p>{guide}</p>
           </div>
         )
       })}
-      </div>
+      </div> */}
 
-      {/* <div className='mt-5'>{teamData.acceptedGuide !== '' ? <p> {teamData.acceptedGuide} has accepted your request</p> : 'Empty'}</div>
+        {/* <div className='mt-5'>{teamData.acceptedGuide !== '' ? <p> {teamData.acceptedGuide} has accepted your request</p> : 'Empty'}</div>
       <div className='mt-5'>{teamData.expertAllocated ? <p> {teamData.expertAllocated} is your expert</p> : 'Empty'}</div> */}
 
-      {/* <div className='my-5'>
+        {/* <div className='my-5'>
         <p>Phase 1</p>
         <p>Marks by Guide : {teamData.phase1 ? <span>{teamData.phase1.marksByGuide}</span> : 'Not Graded'}</p>
         <p>Marks by External : {teamData.phase1 ? <span>{teamData.phase1.marksByExternal}</span> : 'Not Graded'}</p>
@@ -110,10 +113,11 @@ const StudentDashboard = ({ socket }) => {
         <p>Marks by External : {teamData.phase3 ? <span>{teamData.phase3.marksByExternal}</span> : 'Not graded'}</p>
       </div> */}
 
-      {/* <div>
+        {/* <div>
         <PDFUpload />
       </div> */}
-      <div className='relative'><NotificationBox /></div>
+        <div className='relative w-fit float-right'><NotificationBox /></div>
+      </div>
     </div>
   );
 };
