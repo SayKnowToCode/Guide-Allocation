@@ -1,9 +1,39 @@
 /* SubmissionPage.css */
-
+.subpg {
+  background-color: #222831;
+}
+.subhd {
+  text-transform: uppercase;
+  background-image: linear-gradient(
+    -225deg,
+    #00ffca 0%,
+    #05bfdb 29%,
+    #088395 67%,
+    #0a4d68 100%
+  );
+  background-size: auto auto;
+  background-clip: border-box;
+  background-size: 200% auto;
+  color: #fff;
+  background-clip: text;
+  text-fill-color: transparent;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: textclip 2s linear infinite;
+  display: inline-block;
+  font-size: 60px;
+}
+@keyframes textclip {
+  to {
+    background-position: 200% center;
+  }
+}
 .submission-page {
-  max-width: 800px;
+  max-width: 950px;
+
   margin: 0 auto;
   padding: 20px;
+  background-color: #222831;
 }
 
 /* Style for the main title */
@@ -12,14 +42,24 @@
   margin-bottom: 20px;
   color: #333; /* Dark grey color */
 }
+h2 {
+  color: black;
+  font-size: 25px;
+  font-weight: 900;
+}
+h3 {
+  color: black;
+  font-size: 22px;
+}
 
 /* Style for each container */
 .submi-container {
-  background-color: peachpuff;
+  background-color: #f8f9fa; /* Light grey background */
   border: 1px solid #ddd;
   border-radius: 8px;
   padding: 20px;
   margin-bottom: 20px;
+  width: 100%;
 }
 
 /* Style for the table and file input container */
@@ -33,6 +73,7 @@
 .phase-table {
   flex: 1;
   margin-right: 20px;
+  max-width: fit-content;
 }
 
 /* Style for file input */
@@ -42,16 +83,16 @@
 
 /* Style for submit button */
 .submit-button {
-  display: block;
-  margin-top: 20px;
+  margin-top: 10px; /* Adjusted margin */
   padding: 10px 20px;
-  background-color: #007bff;
+  background-color: rgb(239 68 68);
   color: #fff;
   border: none;
   border-radius: 4px;
   cursor: pointer;
+  transition: background-color 0.3s ease; /* Smooth transition */
 }
 
 .submit-button:hover {
-  background-color: #0056b3;
+  background-color: #0056b3; /* Darker blue on hover */
 }
