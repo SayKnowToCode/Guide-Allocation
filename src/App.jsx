@@ -11,6 +11,7 @@ import UserRegisteration from './components/RegisterPage/UserRegisteration/UserR
 import EvaluationForm from './components/EvaluationForm/EvaluationForm';
 import Admin from './components/Admin/Admin';
 import Eval from './components/Eval/Eval';
+import Eval1 from './components/Eval1/Eval1';
 // import PDF from './components/pdfUpload';
 import RevealBento from './components/StudentDashboard/UI-Student-Dash/Block';
 import io from 'socket.io-client';
@@ -24,7 +25,7 @@ const App = () => {
 
   return (
     <Routes>
-      
+
 
       <Route path='/' element={<LoginPage />} />
       {/* <Route path='/' element={<RevealBento />} /> */}
@@ -43,6 +44,7 @@ const App = () => {
       <Route path='/submission' element={<Submission socket={socket} />} />
       <Route path='/admin' element={<Admin />} />
       <Route path='/eval' element={<Eval socket={socket} />} />
+      <Route path='/eval1' element={<Eval1 socket={socket} />} />
 
     </Routes>
   );

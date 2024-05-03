@@ -19,7 +19,11 @@ const Rubric = () => {
         const savedTotalMarks = localStorage.getItem('totalMarks');
         if (storedTeamName) setTeamName(storedTeamName);
         if (storedTeamDescription) setTeamDescription(storedTeamDescription);
-        if (savedTotalMarks) setTotalMarks(parseFloat(savedTotalMarks));
+        if (savedTotalMarks) { setTotalMarks(parseFloat(savedTotalMarks)) }
+        else {
+            // Set total marks to 0 if not present in local storage
+            setTotalMarks(0);
+        };
     }, []);
 
     // Function to handle faculty allocation
@@ -27,7 +31,7 @@ const Rubric = () => {
         setSelectedFaculty(selectedFaculty);
     };
 
-    const handleSubmit = () => {
+    const handleSubmitE = () => {
         setIsSubmitted(true);
     };
     const handleSubmissionChange = (event) => {
@@ -79,9 +83,9 @@ const Rubric = () => {
 
     return (
         <div className="rubric-container">
-            <div className="team-info-box">
+            <div className="team-info-box1">
                 <h2>Team Information</h2>
-                <div className="team-info">
+                <div className="team-info1">
                     <div className="td">
                         <h3>Dev Wiz</h3>
                         <h4>Shreya</h4>
@@ -96,9 +100,12 @@ const Rubric = () => {
 
                     <h3>{teamName}</h3>
                     <p>{teamDescription}</p>
+                    <div className="tsub">
+                        <p>submissions</p>
+                    </div>
                 </div>
             </div>
-            <div className="faculty-allocation">
+            <div className="faculty-allocation1">
                 <select value={selectedFaculty} onChange={(e) => setSelectedFaculty(e.target.value)}>
                     <option value="">Allocate Team to Expert</option>
                     {facultyOptions.map((faculty, index) => (
@@ -107,26 +114,38 @@ const Rubric = () => {
                         </option>
                     ))}
                 </select>
-                <button onClick={handleSubmit}>Submit</button>
-                {isSubmitted && selectedFaculty && <p className='exp'>Team allocated to: {selectedFaculty}</p>}
+                <button className='me' onClick={handleSubmitE}>Submit</button>
+                {isSubmitted && selectedFaculty && <p className='exp1'>Team allocated to: {selectedFaculty}</p>}
             </div>
 
-            <div className="phase-boxes">
-                <div className="phase-box" onClick={() => setActivePhase('Phase 1')}>
-                    <h3>Phase 1</h3>
+            <div className="phase-boxes1">
+                <div className="us">
+                    <div className="phase-box1" onClick={() => setActivePhase('Phase 1')}>
+                        <h3>Phase 1</h3>
+                    </div>
+                    <p>Pdf</p>
                 </div>
-                <div className="phase-box" onClick={() => setActivePhase('Phase 2')}>
-                    <h3>Phase 2</h3>
+                <div className="us1">
+                    <div className="phase-box1" onClick={() => setActivePhase('Phase 2')}>
+                        <h3>Phase 2</h3>
+                    </div>
+                    <p>Pdf</p>
                 </div>
-                <div className="phase-box" onClick={() => setActivePhase('Phase 3')}>
-                    <h3>Phase 3</h3>
+                <div className="us2">
+                    <div className="phase-box1" onClick={() => setActivePhase('Phase 3')}>
+                        <h3>Phase 3</h3>
+                    </div>
+                    <p>Pdf</p>
                 </div>
-                <div className="phase-box" onClick={() => setActivePhase('Phase 4')}>
-                    <h3>Phase 4</h3>
+                <div className="us3">
+                    <div className="phase-box1" onClick={() => setActivePhase('Phase 4')}>
+                        <h3>Phase 4</h3>
+                    </div>
+                    <p>Pdf</p>
                 </div>
             </div>
             {activePhase && (
-                <div className='rubric'>
+                <div className='rubric1'>
                     <h1>Grade Rubric</h1>
                     <table>
                         <thead>
@@ -194,7 +213,7 @@ const Rubric = () => {
                             </tr>
                         </tbody>
                     </table>
-                    <button onClick={handleSubmitR}>Submit</button>
+                    <button className='me' onClick={handleSubmitR}>Submit</button>
                     <div className='mark'>
                         {totalMarks !== 0 && <p>Total Marks: {totalMarks}</p>}
                     </div>

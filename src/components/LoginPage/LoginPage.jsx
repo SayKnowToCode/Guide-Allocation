@@ -151,7 +151,7 @@ const LoginForm = () => {
                             </div>
                         </div>
                         <div>
-                            <button type="submit" className="sign">Log in</button>
+                            <button type="submit" className="sign1">Log in</button>
                         </div>
                         <p className="signup">
                             Don't have an account?

@@ -3,76 +3,103 @@
   margin: 0 auto;
 }
 
-.team-info-box {
+.team-info-box1 {
+  margin-left: -70px;
   margin-bottom: 20px;
+  width: 900px;
 }
 
-.team-info {
+.team-info1 {
   background-color: #f2f2f2;
   padding: 10px;
   border-radius: 5px;
   display: flex;
 }
+.tsub {
+  justify-content: center;
+  background-color: rgb(168, 168, 168);
+  width: 33%;
+}
 .td {
-  width: 50%;
+  width: 33%;
   margin-bottom: 10px;
 }
 .tm {
   align-items: center;
   color: black;
   margin-top: 25px;
+  width: 35%;
 }
 .dropdown {
   margin-bottom: 20px;
 }
 
-.phase-boxes {
+.phase-boxes1 {
   display: flex;
   justify-content: space-between;
   margin-bottom: 20px;
   margin-top: 30px;
 }
 
-.phase-box {
-  width: 23%;
+.phase-box1 {
+  width: 75%;
   background-color: #f2f2f2;
   padding: 10px;
   border-radius: 5px;
   cursor: pointer;
 }
+.us {
+  width: 400px;
+  justify-content: space-around;
+  height: 200px;
+}
+.us1 {
+  width: 400px;
+  justify-content: space-around;
+  height: 200px;
+}
+.us2 {
+  width: 400px;
+  justify-content: space-around;
+  height: 200px;
+}
+.us3 {
+  width: 400px;
+  justify-content: space-around;
+  height: 200px;
+}
 
-.phase-box:hover {
+.phase-box1:hover {
   background-color: #e0e0e0;
 }
 
-.rubric table {
+.rubric1 table {
   width: 100%;
   border-collapse: collapse;
 }
 
-.rubric th,
-.rubric td {
+.rubric1 th,
+.rubric1 td {
   border: 1px solid #ddd;
   padding: 8px;
   text-align: center;
   color: black;
 }
 
-.rubric th {
+.rubric1 th {
   background-color: #f2f2f2;
 }
 
-.rubric input[type="radio"] {
+.rubric1 input[type="radio"] {
   margin: 0 auto;
 }
-.exp {
+.exp1 {
   margin-bottom: 10px;
   color: black;
 }
-.mks {
+
+.me {
   color: black;
-}
-button {
   display: block;
   margin-top: 10px;
   background-color: aqua;

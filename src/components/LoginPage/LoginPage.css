@@ -5,33 +5,33 @@
   font-weight: 300;
 }
 body {
-  font-family: 'Source Sans Pro', sans-serif;
+  font-family: "Source Sans Pro", sans-serif;
   color: black;
   font-weight: 300;
 }
 body ::-webkit-input-placeholder {
   /* WebKit browsers */
-  font-family: 'Source Sans Pro', sans-serif;
+  font-family: "Source Sans Pro", sans-serif;
   color: white;
   font-weight: 300;
 }
 body :-moz-placeholder {
   /* Mozilla Firefox 4 to 18 */
-  font-family: 'Source Sans Pro', sans-serif;
+  font-family: "Source Sans Pro", sans-serif;
   color: white;
   opacity: 1;
   font-weight: 300;
 }
 body ::-moz-placeholder {
   /* Mozilla Firefox 19+ */
-  font-family: 'Source Sans Pro', sans-serif;
+  font-family: "Source Sans Pro", sans-serif;
   color: white;
   opacity: 1;
   font-weight: 300;
 }
 body :-ms-input-placeholder {
   /* Internet Explorer 10+ */
-  font-family: 'Source Sans Pro', sans-serif;
+  font-family: "Source Sans Pro", sans-serif;
   color: white;
   font-weight: 300;
 }
@@ -58,7 +58,7 @@ body :-ms-input-placeholder {
 .container h1 {
   font-size: 40px;
   transition-duration: 1s;
-  transition-timing-function: ease-in-     put;
+  transition-timing-function: ease-in- put;
   font-weight: 200;
 }
 .form {
@@ -67,7 +67,7 @@ body :-ms-input-placeholder {
   z-index: 2;
 }
 .form input {
-          appearance: none;
+  appearance: none;
   outline: 0;
   border: 1px solid rgba(255, 255, 255, 0.4);
   background-color: rgba(255, 255, 255, 0.2);
@@ -80,7 +80,7 @@ body :-ms-input-placeholder {
   font-size: 18px;
   color: white;
   -webkit-transition-duration: 0.25s;
-          transition-duration: 0.25s;
+  transition-duration: 0.25s;
   font-weight: 300;
 }
 .form input:hover {
@@ -91,42 +91,41 @@ body :-ms-input-placeholder {
   width: 300px;
   color: #53e3a6;
 }
-.sign {
+.sign1 {
   appearance: none;
-outline: 0;
-background-color: white;
-border: 0;
-padding: 10px 15px;
-color: #8678d7;
-border-radius: 3px;
-width: 250px;
-cursor: pointer;
-font-size: 18px;
-transition-duration: 0.25s;
-
+  outline: 0;
+  background-color: white;
+  border: 0;
+  padding: 10px 15px;
+  color: #8678d7;
+  border-radius: 3px;
+  width: 250px;
+  cursor: pointer;
+  font-size: 18px;
+  transition-duration: 0.25s;
 }
 .sign:hover {
-background-color: #f5f7f9;
+  background-color: #f5f7f9;
 }
-.option{
+.option {
   display: flex;
   width: 250px;
   justify-content: center;
-  margin:auto;
-  gap:2vw;
-  margin-bottom:3vh;
+  margin: auto;
+  gap: 2vw;
+  margin-bottom: 3vh;
 }
-.option button{
+.option button {
   appearance: none;
-outline: 0;
-border: 0;
-padding: 10px 15px;
-color: #86a7d8;
-border-radius: 3px;
-cursor: pointer;
-font-size: 18px;  
-transition-duration: 0.25s;
-flex-wrap: nowrap;
+  outline: 0;
+  border: 0;
+  padding: 10px 15px;
+  color: #86a7d8;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 18px;
+  transition-duration: 0.25s;
+  flex-wrap: nowrap;
 }
 .bg-bubbles {
   position: absolute;
@@ -144,7 +143,7 @@ flex-wrap: nowrap;
   height: 40px;
   background-color: rgba(255, 255, 255, 0.15);
   bottom: -160px;
-  animation: square 25s infinite; 
+  animation: square 25s infinite;
   transition-timing-function: linear;
 }
 .bg-bubbles li:nth-child(1) {
@@ -160,7 +159,6 @@ flex-wrap: nowrap;
 .bg-bubbles li:nth-child(3) {
   left: 25%;
   animation-delay: 4s;
-  
 }
 .bg-bubbles li:nth-child(4) {
   left: 40%;
@@ -204,7 +202,7 @@ flex-wrap: nowrap;
   left: 90%;
   width: 160px;
   height: 160px;
-  animation-delay: 11s;        
+  animation-delay: 11s;
 }
 @keyframes square {
   0% {
@@ -216,10 +214,10 @@ flex-wrap: nowrap;
 }
 @keyframes square {
   0% {
-            transform: translateY(0);
+    transform: translateY(0);
   }
   100% {
-            transform: translateY(-700px) rotate(600deg);
+    transform: translateY(-700px) rotate(600deg);
   }
 }
 .btn {
@@ -227,7 +225,7 @@ flex-wrap: nowrap;
   height: 60px;
   cursor: pointer;
   background: transparent;
-  border: 1px solid #91C9FF;
+  border: 1px solid #91c9ff;
   outline: none;
   transition: 1s ease-in-out;
 }
