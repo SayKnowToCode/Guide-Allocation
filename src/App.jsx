@@ -10,6 +10,7 @@ import TeamRegisteration from './components/RegisterPage/TeamRegisteration/TeamR
 import UserRegisteration from './components/RegisterPage/UserRegisteration/UserRegisteration';
 import EvaluationForm from './components/EvaluationForm/EvaluationForm';
 import Admin from './components/Admin/Admin';
+import AnimatedPage from './components/Landing/landing';
 // import PDF from './components/pdfUpload';
 
 import io from 'socket.io-client';
@@ -23,6 +24,7 @@ const App = () => {
 
   return (
     <Routes>
+      
 
       <Route path='/' element={<LoginPage />} />
 

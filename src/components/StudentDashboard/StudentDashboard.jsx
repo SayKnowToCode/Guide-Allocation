@@ -2,8 +2,10 @@ import React, { useEffect, useState } from 'react';
 import TeamMembers from '../TeamMembers/TeamMembers';
 import { Link } from 'react-router-dom';
 import "./StudentDashboard.css"
+import WaterDropGrid from '../Landing/landing';
 import PDFUpload from '../PDFUpload/pdfUpload';
 import NotificationBox from '../ReqDivs/notification';
+import Events from '../ReqDivs/Events';
 
 const StudentDashboard = ({ socket }) => {
 
@@ -75,14 +77,11 @@ const StudentDashboard = ({ socket }) => {
         </div>
 
       </div>
-      <div className='flex gap-96 mt-2'>
-        <div>
-          <TeamMembers teamMembers={teamMembers} teamName={teamName} />
-          <div className='guide-expert ml-4'>
-            <div className=''>{teamData.acceptedGuide !== '' ? <p className='mt-5 font-sans font-semibold text-lg uppercase tracking-wider text-white'><span>Guide:</span>{teamData.acceptedGuide}</p> : 'Empty'}</div>
-            <div className=''>{teamData.expertAllocated ? <p className='mt-5 font-sans font-semibold text-lg uppercase tracking-wider text-white'><span>Expert:</span>{teamData.expertAllocated}</p> : 'Empty'}</div>
+          <div className='w-fit'><TeamMembers teamMembers={teamMembers} teamName={teamName} /></div>
+          <div className='guide-expert'>
+            <div className=''>{teamData.acceptedGuide !== '' ? <p className='mt-5 font-sans font-semibold text-lg uppercase tracking-wider'><span className='c1'>Guide: </span>{teamData.acceptedGuide}</p> : 'Empty'}</div>
+            <div className=''>{teamData.expertAllocated ? <p className='mt-5 font-sans font-semibold text-lg uppercase tracking-wider'><span className='c1'>Expert: </span>{teamData.expertAllocated}</p> : 'Empty'}</div>
           </div>
-        </div>
         {/* <div className='scrollable-div mt-5' >{teamData.guides.map((guide) => {
         return (
           <div key={guide} className='guide'>
@@ -113,12 +112,15 @@ const StudentDashboard = ({ socket }) => {
         <p>Marks by External : {teamData.phase3 ? <span>{teamData.phase3.marksByExternal}</span> : 'Not graded'}</p>
       </div> */}
 
+
         {/* <div>
         <PDFUpload />
       </div> */}
         <div className='relative w-fit float-right'><NotificationBox /></div>
+        <div className='relative w-fit float-right'><Events/></div>
+
+        {/* <div className='absolute inset-0 ml-96 mt-14 overflow-x-hidden'><WaterDropGrid/></div> */}
       </div>
-    </div>
   );
 };
 

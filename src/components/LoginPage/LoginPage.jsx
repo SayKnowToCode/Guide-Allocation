@@ -56,7 +56,7 @@ const LoginForm = () => {
     }
 
     return (
-        <div className={`wrapper ${formSuccess ? 'form-success' : ''}`}>
+        <div className={`wrapper ${formSuccess ? 'form-success' : ''} text-white`}>
             <div className="container">
                 {/* <p className='h2'>Login</p> */}
                 <h1>Welcome</h1>

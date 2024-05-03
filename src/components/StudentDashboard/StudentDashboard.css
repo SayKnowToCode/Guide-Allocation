@@ -1,10 +1,12 @@
+@import url('https://fonts.cdnfonts.com/css/tt-fors-trial');
 .student-dash-main {
   width: 100vw;
   height: 100vh;
   /* background-image: url("./image.png");
   background-repeat: no-repeat;*/
   background-size: 100% 100%;
-  background-image: radial-gradient(circle at top left, #000000  0%, #000000 100%);
+  /* background-image: radial-gradient(circle at top left, #000000  0%, #000000 100%); */
+  background-color: #111111;
   color: rgb(243, 243, 243);  
 }
 
@@ -33,8 +35,8 @@
   /* position: fixed; */
     opacity: 0.8; 
     /* background-color:#0E46A3; */
-    background: linear-gradient(to top , #025464 0% , #45577d 50%); 
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    /* background: linear-gradient(to top , #025464 0% , #45577d 50%);  */
+    /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); */
  
 }
 
@@ -78,7 +80,7 @@
 }
 
 .logo-nav1 span {
-  color: #ff4a44;
+  color: #12FF9D;
 }
 
 .menu4 {
@@ -119,7 +121,7 @@
 }
 
 .menu5 p:hover,.active {
-  color: #ff4a44;
+  color: #12FF9D
 }
 
 .menu5 div p:after {
@@ -127,7 +129,7 @@
   position: absolute;
   width: 0%;
   height: 2px;
-  background: #ff4a44;
+  background: #12FF9D;
   bottom: 0px;
   left: 0;
   transition: all 0.5s;
@@ -139,9 +141,13 @@
 
 .menu5 p:hover,
 .menu5.active {
-    color: #ff4a44;
+    color: #12FF9D;
 }
 .guide-expert{
   margin-left: 11vw;
   width: fit-content;
+}
+.c1{
+  color: #dd6268;
+  font-weight: 600;
 }

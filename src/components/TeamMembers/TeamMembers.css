@@ -1,30 +1,36 @@
-.team-members{
-    margin-top: 6vw;
-    margin-left: 11vw;
+.team-members {
+	margin-top: 6vw;
+	margin-left: 11vw;
 	width: fit-content;
 	text-wrap: nowrap;
 }
-.team-members-list{
-    position: relative;
-    /* margin-left: 6%; */
-    margin-top: 2% ;
-    padding:0 1%;
-   
+
+.team-members-list {
+	position: relative;
+	/* margin-left: 6%; */
+	margin-top: 5%;
+	padding: 0 1%;
+
 }
-.member-name{
-    font-family: Gill Sans, Verdana;
+
+.member-name {
+	font-family: Gill Sans, Verdana;
 	font-size: 16px;
 	line-height: 14px;
 	text-transform: uppercase;
 	letter-spacing: 2px;
 	font-weight: bold;
-    color: #f2f4f5   ;
+	color: #12FF9D;
 }
-.member-info{
-    padding: 6px 0px;
+
+.member-info {
+	padding: 6px 0px;
 }
-.team-members-heading{
-    font-family: times, Times New Roman, times-roman, georgia, serif;
+
+.team-members-heading {
+	font-family: 'TT Fors Trial', sans-serif;
+	/* font-family: 'TT Fors Trial Variable', sans-serif; */
+	font-family: 'TT Fors', sans-serif;
 	color: #dae3e9;
 	margin: 0;
 	padding: 0px 0px 6px 0px;
