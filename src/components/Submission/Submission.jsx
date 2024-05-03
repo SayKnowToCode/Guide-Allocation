@@ -67,7 +67,28 @@ const Submission = () => {
                 <h1 >Submission Page</h1>
             </div>
             <div className="submission-page">
+                {/* Weekly Report Container */}
+                <div className="submi-container">
+                    <h2>Abstract</h2>
+                    <div className="subone">
+                        <div className="subinfo">
+                            <p className='text-justify'>
+                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+                                when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently
+                            </p>
 
+                        </div>
+                        <div className="sub-container">
+                            <table className="phase-table file-table">
+                                {/* Table content */}
+                            </table>
+                            <div>
+                                <input className="file-input" type="file" accept=".pdf" onChange={(e) => handleFileUpload(e, 'weeklyReport')} />
+                                <button className="submit-button" onClick={handleSubmit}>Submit</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
                 {/* Weekly Report Container */}
                 <div className="submi-container">
@@ -84,48 +105,48 @@ const Submission = () => {
                 </div>
 
                 {/* Phase Tables Container */}
-                <div className="submi-container">
-                    <h2>Phase Tables</h2>
-                    <div className="sub-container">
-                        <div className="phase-table">
-                            <h3>Phase 1</h3>
-                            <div className="sub-container">
-                                <table className="file-table">
-                                    {/* Table content */}
-                                </table>
-                                <div>
-                                    <input className="file-input" type="file" accept=".pdf" onChange={(e) => handleFileUpload(e, 'phaseOne')} />
-                                    <button className="submit-button" onClick={handleSubmit}>Submit</button>
-                                </div>
+                {/* <div className="submi-container"> */}
+                <h2>Phase Tables</h2>
+                <div className="sub-container">
+                    <div className="phase-table">
+                        <h3>Phase 1</h3>
+                        <div className="sub-container">
+                            <table className="file-table">
+                                {/* Table content */}
+                            </table>
+                            <div>
+                                <input className="file-input" type="file" accept=".pdf" onChange={(e) => handleFileUpload(e, 'phaseOne')} />
+                                <button className="submit-button" onClick={handleSubmit}>Submit</button>
                             </div>
                         </div>
-                        {/* Repeat similar structure for other phases */}
-                        <div className="phase-table">
-                            <h3>Phase 2</h3>
-                            <div className="sub-container">
-                                <table className="file-table">
-                                    {/* Table content */}
-                                </table>
-                                <div>
-                                    <input className="file-input" type="file" accept=".pdf" onChange={(e) => handleFileUpload(e, 'phaseOne')} />
-                                    <button className="submit-button" onClick={handleSubmit}>Submit</button>
-                                </div>
+                    </div>
+                    {/* Repeat similar structure for other phases */}
+                    <div className="phase-table">
+                        <h3>Phase 2</h3>
+                        <div className="sub-container">
+                            <table className="file-table">
+                                {/* Table content */}
+                            </table>
+                            <div>
+                                <input className="file-input" type="file" accept=".pdf" onChange={(e) => handleFileUpload(e, 'phaseOne')} />
+                                <button className="submit-button" onClick={handleSubmit}>Submit</button>
                             </div>
                         </div>
-                        <div className="phase-table">
-                            <h3>Phase 3</h3>
-                            <div className="sub-container">
-                                <table className="file-table">
-                                    {/* Table content */}
-                                </table>
-                                <div>
-                                    <input className="file-input" type="file" accept=".pdf" onChange={(e) => handleFileUpload(e, 'phaseOne')} />
-                                    <button className="submit-button" onClick={handleSubmit}>Submit</button>
-                                </div>
+                    </div>
+                    <div className="phase-table">
+                        <h3>Phase 3</h3>
+                        <div className="sub-container">
+                            <table className="file-table">
+                                {/* Table content */}
+                            </table>
+                            <div>
+                                <input className="file-input" type="file" accept=".pdf" onChange={(e) => handleFileUpload(e, 'phaseOne')} />
+                                <button className="submit-button" onClick={handleSubmit}>Submit</button>
                             </div>
                         </div>
                     </div>
                 </div>
+                {/* </div> */}
                 {/* Repeat similar structure for other containers */}
                 {/* Case Study Container */}
                 <div className="submi-container">

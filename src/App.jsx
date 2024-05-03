@@ -10,6 +10,7 @@ import TeamRegisteration from './components/RegisterPage/TeamRegisteration/TeamR
 import UserRegisteration from './components/RegisterPage/UserRegisteration/UserRegisteration';
 import EvaluationForm from './components/EvaluationForm/EvaluationForm';
 import Admin from './components/Admin/Admin';
+import Eval from './components/Eval/Eval';
 // import PDF from './components/pdfUpload';
 
 import io from 'socket.io-client';
@@ -39,6 +40,7 @@ const App = () => {
       <Route path='/preference' element={<PreferenceList socket={socket} />} />
       <Route path='/submission' element={<Submission socket={socket} />} />
       <Route path='/admin' element={<Admin />} />
+      <Route path='/eval' element={<Eval socket={socket} />} />
 
     </Routes>
   );

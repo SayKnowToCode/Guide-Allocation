@@ -1,27 +1,81 @@
-.app {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  margin: 20px;
-  color: rgb(2, 2, 45);
+.rubric-container {
+  max-width: 800px;
+  margin: 0 auto;
 }
 
-.marks-box {
-  background-color: rgb(238, 226, 238);
-  border: 1px solid #ddd;
+.team-info-box {
+  margin-bottom: 20px;
+}
+
+.team-info {
+  background-color: #f2f2f2;
   padding: 10px;
-  margin: 10px;
   border-radius: 5px;
-  text-align: center;
+  display: flex;
+}
+.td {
+  width: 50%;
+  margin-bottom: 10px;
+}
+.tm {
+  align-items: center;
+  color: black;
+  margin-top: 25px;
+}
+.dropdown {
+  margin-bottom: 20px;
 }
 
-h2 {
+.phase-boxes {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  margin-top: 30px;
+}
+
+.phase-box {
+  width: 23%;
+  background-color: #f2f2f2;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.phase-box:hover {
+  background-color: #e0e0e0;
+}
+
+.rubric table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.rubric th,
+.rubric td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: center;
+  color: black;
+}
+
+.rubric th {
+  background-color: #f2f2f2;
+}
+
+.rubric input[type="radio"] {
+  margin: 0 auto;
+}
+.exp {
   margin-bottom: 10px;
   color: black;
 }
-
-strong {
-  display: block;
-  margin-bottom: 5px;
+.mks {
   color: black;
+}
+button {
+  display: block;
+  margin-top: 10px;
+  background-color: aqua;
+  border-radius: 5px;
+  width: 90px;
 }

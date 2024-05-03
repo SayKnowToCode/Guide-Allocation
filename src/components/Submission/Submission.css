@@ -28,6 +28,14 @@
     background-position: 200% center;
   }
 }
+.subinfo {
+  color: black;
+  font-size: 12px;
+  width: 50%;
+}
+.subone {
+  display: flex;
+}
 .submission-page {
   max-width: 950px;
 
@@ -72,8 +80,11 @@ h3 {
 /* Style for each phase table */
 .phase-table {
   flex: 1;
-  margin-right: 20px;
+  margin-right: 10px;
+  margin-bottom: 20px;
   max-width: fit-content;
+  background-color: white;
+  border-radius: 8px;
 }
 
 /* Style for file input */
