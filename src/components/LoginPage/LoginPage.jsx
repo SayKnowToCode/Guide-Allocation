@@ -19,6 +19,25 @@ const LoginForm = () => {
         e.preventDefault();
         // Handle form submission logic here
         try {
+            const date = await axios.get('http://localhost:3500/getDate');
+            console.log(date.data);
+
+            date.data.forEach((date) => {
+                if (date.topic === 'Phase 1') {
+                    localStorage.setItem('phase1StartDate', new Date(date.startDate))
+                    localStorage.setItem('phase1EndDate', new Date(date.endDate))
+                }
+                if (date.topic === 'Phase 2') {
+                    localStorage.setItem('phase2StartDate', new Date(date.startDate))
+                    localStorage.setItem('phase2EndDate', new Date(date.endDate))
+                }
+
+                if (date.topic === 'Phase 3') {
+                    localStorage.setItem('phase3StartDate', new Date(date.startDate))
+                    localStorage.setItem('phase3EndDate', new Date(date.endDate))
+                }
+            })
+
             const response = await axios.get('http://localhost:3500/login', {
                 params: {
                     teamName: teamName,
@@ -56,7 +75,7 @@ const LoginForm = () => {
     }
 
     return (
-        <div className={`wrapper ${formSuccess ? 'form-success' : ''}`}>
+        <div className={`wrapper ${formSuccess ? 'form-success' : ''} text-white`}>
             <div className="container">
                 {/* <p className='h2'>Login</p> */}
                 <h1>Welcome</h1>

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import './FacultyDashboard.css';
-
+import NotificationBox from '../ReqDivs/notification'
 const FacultyDashboard = ({ socket }) => {
 
     const [facultyData, setFacultyData] = useState(JSON.parse(localStorage.getItem('facultyData')));
@@ -174,7 +174,7 @@ const FacultyDashboard = ({ socket }) => {
 
             <br /> */}
 
-            {facultyData.teams && facultyData.teams.length > 0 && (facultyData.teams).map((team) => {
+            {/* {facultyData.teams && facultyData.teams.length > 0 && (facultyData.teams).map((team) => {
                 return (
                     <div key={team}>
                         <p>{team}
@@ -244,7 +244,12 @@ const FacultyDashboard = ({ socket }) => {
                     </div>
                 )
             })
-            }
+            } */}
+            <div className='flex'>
+                <div className="faculty-columns"><NotificationBox/></div>
+                <div className="faculty-columns"><NotificationBox/></div>
+                <div className="faculty-columns"><NotificationBox/></div>
+            </div>
         </div>
     )
 }

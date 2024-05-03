@@ -12,7 +12,7 @@ import EvaluationForm from './components/EvaluationForm/EvaluationForm';
 import Admin from './components/Admin/Admin';
 import Eval from './components/Eval/Eval';
 // import PDF from './components/pdfUpload';
-
+import RevealBento from './components/StudentDashboard/UI-Student-Dash/Block';
 import io from 'socket.io-client';
 
 const socket = io.connect("http://localhost:3500");
@@ -24,8 +24,10 @@ const App = () => {
 
   return (
     <Routes>
+      
 
       <Route path='/' element={<LoginPage />} />
+      {/* <Route path='/' element={<RevealBento />} /> */}
 
       <Route path='/register'>
         <Route index element={<RegisterPage />} />
