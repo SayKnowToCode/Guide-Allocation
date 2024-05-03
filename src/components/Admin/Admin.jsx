@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { format } from 'date-fns'; // Import the format function from date-fns
+import { FaFilePdf } from 'react-icons/fa';
 
 const Admin = () => {
     const [phase1StartDate, setPhase1StartDate] = useState('');
@@ -9,7 +10,65 @@ const Admin = () => {
     const [phase2EndDate, setPhase2EndDate] = useState('');
     const [phase3StartDate, setPhase3StartDate] = useState('');
     const [phase3EndDate, setPhase3EndDate] = useState('');
-    const [randomDate, setRandomDate] = useState(new Date());
+    const [filename, setFilename] = useState('');
+    const [file, setFile] = useState(null);
+    const [submissions, setSubmissions] = useState([]);
+
+    useEffect(() => {
+        const fetchSubmissions = async () => {
+            try {
+                const response = await axios.get(`http://localhost:3500/fetchSubmissions`, {
+                    params: {
+                        teamName: 'Dev Wiz',
+                        facultyName: 'Dr. Kailas Devadkar'
+                    }
+                });
+                console.log(response.data);
+                setSubmissions(response.data);
+
+            } catch (error) {
+                console.error('Error fetching submissions:', error);
+            }
+        };
+        fetchSubmissions();
+    }, []);
+
+    const openPDF = (pdfData) => {
+        // Create a Blob from the PDF data
+        const buffer = new Uint8Array(pdfData);
+        const blob = new Blob([buffer], { type: 'application/pdf' });
+        // Create a URL for the Blob
+        const url = URL.createObjectURL(blob);
+        // Open the PDF in a new window
+        window.open(url, '_blank');
+    };
+
+
+    const InstructionDownload = () => {
+
+        const downloadInstruction = () => {
+            axios({
+                url: 'http://localhost:3500/download/instruction',
+                method: 'GET',
+                responseType: 'blob', // Important
+            }).then(response => {
+                const url = window.URL.createObjectURL(new Blob([response.data]));
+                const link = document.createElement('a');
+                link.href = url;
+                link.setAttribute('download', 'instruction.pdf'); // Set the filename for download
+                document.body.appendChild(link);
+                link.click();
+            });
+        };
+
+        return (
+            <div>
+                <button className="flex" onClick={downloadInstruction}>
+                    <FaFilePdf /> <span>Title Form</span>
+                </button>
+            </div>
+        );
+    };
 
     const handleSubmit = async (topic, startDate, endDate) => {
         try {
@@ -36,10 +95,30 @@ const Admin = () => {
 
             console.log(start1Date < new Date())
             console.log(end1Date < new Date())
-            setRandomDate(start1Date);
 
         } catch (error) {
             console.error('Error submitting dates:', error.message);
+        }
+    };
+    const handleFileChange = (e) => {
+        setFile(e.target.files[0]);
+    };
+
+    const handleFormSubmit = async () => {
+        const formData = new FormData();
+        formData.append('file', file);
+        formData.append('teamName', 'Dev Wiz');
+        formData.append('facultyName', 'Dr. Kailas Devadkar');
+        formData.append('fileName', filename); // Add filename to formData
+        try {
+            await axios.post('http://localhost:3500/submissions', formData, {
+                headers: {
+                    'Content-Type': 'multipart/form-data'
+                }
+            });
+            alert('Submission successful!');
+        } catch (error) {
+            console.error('Error submitting file:', error);
         }
     };
 
@@ -98,8 +177,30 @@ const Admin = () => {
                 <button onClick={() => handleSubmit(3, phase3StartDate, phase3EndDate)}>Submit</button>
             </div>
 
-            {randomDate >= new Date() ? <p>{randomDate.getHours() + ':' + randomDate.getMinutes()}</p> : <p>Phase 2</p>}
+            <InstructionDownload />
 
+            <div>
+
+                <label>Filename:</label> {/* Add input field for filename */}
+                <input type="text" value={filename} onChange={(e) => setFilename(e.target.value)} />
+                <br />
+                <input type="file" onChange={handleFileChange} />
+                <button onClick={handleFormSubmit}>Submit</button>
+            </div>
+
+            <div>
+                <h2>Your Submissions</h2>
+                <ul>
+                    {submissions && submissions.map((submission, index) => (
+                        <li key={index}>
+                            {/* <a href={`http://localhost:3500/${submission.filePath}`} target="_blank" rel="noopener noreferrer">{submission.fileName}</a> */}
+                            <button onClick={() => openPDF(submission.fileData.data)} >{submission.fileName}</button>
+
+
+                        </li>
+                    ))}
+                </ul>
+            </div>
         </div>
     );
 };
