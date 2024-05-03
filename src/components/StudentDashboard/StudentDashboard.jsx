@@ -6,6 +6,7 @@ import WaterDropGrid from '../Landing/landing';
 import PDFUpload from '../PDFUpload/pdfUpload';
 import NotificationBox from '../ReqDivs/notification';
 import Events from '../ReqDivs/Events';
+import RevealBento from './UI-Student-Dash/Block';
 
 const StudentDashboard = ({ socket }) => {
 
@@ -77,11 +78,11 @@ const StudentDashboard = ({ socket }) => {
         </div>
 
       </div>
-          <div className='w-fit'><TeamMembers teamMembers={teamMembers} teamName={teamName} /></div>
+          {/* <div className='w-fit'><TeamMembers teamMembers={teamMembers} teamName={teamName} /></div>
           <div className='guide-expert'>
             <div className=''>{teamData.acceptedGuide !== '' ? <p className='mt-5 font-sans font-semibold text-lg uppercase tracking-wider'><span className='c1'>Guide: </span>{teamData.acceptedGuide}</p> : 'Empty'}</div>
             <div className=''>{teamData.expertAllocated ? <p className='mt-5 font-sans font-semibold text-lg uppercase tracking-wider'><span className='c1'>Expert: </span>{teamData.expertAllocated}</p> : 'Empty'}</div>
-          </div>
+          </div> */}
         {/* <div className='scrollable-div mt-5' >{teamData.guides.map((guide) => {
         return (
           <div key={guide} className='guide'>
@@ -116,10 +117,11 @@ const StudentDashboard = ({ socket }) => {
         {/* <div>
         <PDFUpload />
       </div> */}
-        <div className='relative w-fit float-right'><NotificationBox /></div>
-        <div className='relative w-fit float-right'><Events/></div>
+        {/* <div className='relative w-fit float-right'><NotificationBox /></div>
+        <div className='relative w-fit float-right'><Events/></div> */}
 
         {/* <div className='absolute inset-0 ml-96 mt-14 overflow-x-hidden'><WaterDropGrid/></div> */}
+        <RevealBento teamMembers={teamMembers} teamName={teamName} acceptedGuide={teamData.acceptedGuide} expertAllocated={teamData.expertAllocated}/>
       </div>
   );
 };
