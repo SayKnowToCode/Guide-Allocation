@@ -1,76 +1,49 @@
-/* .faculty-name {
-    font-family: 'Merriweather', serif;
-    font-size: 24px;
+.accepted-heading {
+    font-family: 'TT Fors Trial', sans-serif;
+    font-family: 'TT Fors', sans-serif;
+    color: #000000;
+    margin: 0;
+    padding: 4px;
+    font-size: 30px;
+    line-height: 44px;
     font-weight: 700;
-    margin-top: 20px;
+
+    text-wrap: nowrap;
 }
 
-.faculty-info {
-    font-family: 'Merriweather', serif;
+.accepted-container {
+    height: 40vh;
+    width: 30vw;
+    background-color: #f2f2f2;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    padding: 1vw 2vw;
+}
+
+.accepted-name {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: 18px;
-    margin-top: 10px;
-}
-.team-container {
-    margin-top: 20px;
-}
-
-.team {
-    margin-bottom: 10px;
+    line-height: 14px;
+    font-weight: 800;
+    color: #272c2a;
+    list-style-type: disc;
+    margin-left: 3vw;
 }
 
-.team-name {
-    font-family: 'Merriweather', serif;
-    font-size: 18px;
-    font-weight: 600;
-    margin-bottom: 5px;
-}
 
-.team-buttons {
-    display: flex;
-    gap: 10px;
+.requests-container {
+    width: 75%;
+    height: 42%;
+    padding: 2vw;
+    margin: 0 auto;
+    margin-top: 70px;
+    background-color: #f2f2f2;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow-y: scroll;
 }
-
-.team-buttons button {
-    padding: 8px 15px;
-    font-family: 'Merriweather', serif;
-    font-size: 16px;
-    font-weight: 600;
-    border: none;
-    cursor: pointer;
+.requests-container1{
+    background-color: #afa7a7;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
 }
-
-.team-buttons button.accept {
-    background-color: #28a745;
-    color: white;
-}
-
-.team-buttons button.reject {
-    background-color: #dc3545;
-    color: white;
-}
-.accepted-teams-container {
-    margin-top: 20px;
-}
-
-.accepted-team {
-    margin-bottom: 10px;
-}
-
-.accepted-team-name {
-    font-family: 'Merriweather', serif;
-    font-size: 18px;
-    font-weight: 600;
-}
-.allocated-teams-container {
-    margin-top: 20px;
-}
-
-.allocated-team {   
-    margin-bottom: 10px;
-}
-
-.allocated-team-name {
-    font-family: 'Merriweather', serif;
-    font-size: 18px;
-    font-weight: 600;
-} */

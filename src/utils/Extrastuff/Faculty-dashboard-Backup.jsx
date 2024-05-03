@@ -4,7 +4,6 @@ import axios from 'axios';
 import './FacultyDashboard.css';
 import './FaculyDashboard1.css';
 import Events from '../ReqDivs/Events1';
-
 const FacultyDashboard = ({ socket }) => {
 
     const [facultyData, setFacultyData] = useState(JSON.parse(localStorage.getItem('facultyData')));
@@ -32,37 +31,37 @@ const FacultyDashboard = ({ socket }) => {
     };
 
     useEffect(() => {
-        setFacultyData(JSON.parse(localStorage.getItem('facultyData')));
-    }, []);
+        setFacultyData(JSON.parse(localStorage.getItem('facultyData')))
+    }, [])
 
     useEffect(() => {
         fetchTeamDataForAllTeams();
-    }, [facultyData]);
+    }, [facultyData])
 
     useEffect(() => {
         socket.on(`RequestFor${facultyData.name}`, (data) => {
             setFacultyData(data.guide);
-            localStorage.setItem('facultyData', JSON.stringify(data));
+            localStorage.setItem('facultyData', JSON.stringify(data))
             setTeamData([...teamData, data.team]);
-        });
+        })
 
         socket.on(`expertGuideFor${facultyData.name}`, (data) => {
             setFacultyData(data);
-            localStorage.setItem('facultyData', JSON.stringify(data));
-        });
+            localStorage.setItem('facultyData', JSON.stringify(data))
+        })
 
         socket.on(`fileUploadedFor${facultyData.name}`, (data) => {
             console.log(data.fileName);
             setFilename(data.fileName);
-        });
+        })
 
         socket.on(`TeamAcceptedFor${facultyData.name}`, (data) => {
             console.log("Here");
             console.log(data);
             setFacultyData(data);
-            localStorage.setItem('facultyData', JSON.stringify(data));
-        });
-    }, [facultyData.name, socket]);
+            localStorage.setItem('facultyData', JSON.stringify(data))
+        })
+    }, [facultyData.name, socket])
 
     const handleViewFile = () => {
         window.open(`http://localhost:3500/uploads/${filename}`, '_blank');
@@ -73,26 +72,27 @@ const FacultyDashboard = ({ socket }) => {
             const response = await axios.post('http://localhost:3500/acceptByGuide', {
                 teamName,
                 facultyName: facultyData.name
-            });
-            localStorage.setItem('facultyData', JSON.stringify(response.data));
-            setFacultyData(response.data);
+            })
+            localStorage.setItem('facultyData', JSON.stringify(response.data))
+            setFacultyData(response.data)
+
         } catch (error) {
             console.log(error.message);
         }
-    };
+    }
 
     const handleReject = async (teamName) => {
         try {
             const response = await axios.post('http://localhost:3500/rejectByGuide', {
                 teamName,
                 facultyName: facultyData.name
-            });
-            localStorage.setItem('facultyData', JSON.stringify(response.data));
-            setFacultyData(response.data);
+            })
+            localStorage.setItem('facultyData', JSON.stringify(response.data))
+            setFacultyData(response.data)
         } catch (error) {
             console.log(error.response.data);
         }
-    };
+    }
 
     return (
         <div className="Faculty-Dashboard overflow-x-hidden">
@@ -133,11 +133,7 @@ const FacultyDashboard = ({ socket }) => {
                 </div>
 
             </div>
-            <div className='faculty-name'>
-                <div>{facultyData.name}</div>
-                <p>({facultyData.designation})</p>
-                <p>({facultyData.department})</p>
-            </div>
+            <div className='faculty-name'><div>{facultyData.name}</div><p>({facultyData.designation})</p><p>    {facultyData.department})</p></div>
             <div className=' flex gap-40 mt-12 justify-center'>
                 <div className='w-fit accepted-container'>
                     <div className='accepted-heading h-fit '>My Teams</div>
@@ -183,17 +179,78 @@ const FacultyDashboard = ({ socket }) => {
                                         <div>{member.UID}</div>
                                     </div>
                                 )
-                            })}
+                            }
+                            )}
                             <div className='flex gap-2'>
                                 <button>Accept</button>
                                 <button>Reject</button>
                             </div>
                         </div>
-                    )
-                })}
+                
             </div>
-        </div>
-    );
-}
+            )
+    })
+    }
+            {/* {facultyData.teams && facultyData.teams.length > 0 && (facultyData.teams).map((team) => {
+                return (
+                    <div key={team}>
+                        <p>{team}
+                            <button onClick={() => handleAccept(team)}>Accept</button>
+                            <button onClick={() => handleReject(team)}>Reject</button>
+                        </p>
+                    </div>
+                )
+            })}
 
-export default FacultyDashboard;
+            <br />
+
+            
+            <br />
+
+            {facultyData.teamsAllocatedByMe && facultyData.teamsAllocatedByMe.length > 0 && (facultyData.teamsAllocatedByMe).map((team) => {
+                return (
+                    <div key={team.teamName}>
+                        <p>{team.teamName} allocated to {team.allocatedTo} </p>
+                    </div>
+                )
+            })}
+            <br />
+
+            
+            <br />
+            {filename && (
+                <div>
+                    <button onClick={handleViewFile}>View File</button>
+                    <p>Filename: {filename}</p>
+                </div>
+            )}
+            {teamData && teamData.length > 0 && teamData.map((team) => {
+                return (
+                    <div key={team.teamName}>
+                        <p>Hello</p>
+                        <p>{team.teamName}</p>
+                        {team.membersList.map((member) => {
+                            return (
+                                <div key={member}>
+                                    <span>{member.name}  </span>
+                                    <span>{member.email} </span>
+                                    <span>{member.branch} </span>
+                                    <span>{member.UID} </span>
+                                    {member.isTeamLeader && <span>Team Leader</span>}
+                                </div>
+                            )
+                        }
+                        )}
+                        <p>
+                            <button onClick={() => handleAccept(team.teamName)}>Accept</button>
+                            <button onClick={() => handleReject(team.teamName)}>Reject</button>
+                        </p>
+                    </div>
+                )
+            })
+            } */}
+        </div>
+    )}
+
+
+export default FacultyDashboard

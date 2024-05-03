@@ -1,5 +1,5 @@
 import React from 'react';
-// import './requests.css';
+import './Events1.css';
 import { IoIosNotifications } from "react-icons/io";
 const Events = () => {
     const phase1StartDate = localStorage.getItem('phase1StartDate') || '';
@@ -10,7 +10,7 @@ const Events = () => {
     const phase3EndDate = localStorage.getItem('phase3EndDate') || '';
     const currentDate = new Date();
     return (
-        <div className="notification-container w-96 mx-auto h-44 bg-white rounded-lg shadow-md overflow-hidden">
+        <div className="notification-container overflow-hidden">
             <div className="p-4 flex items-center justify-center text-black border-b-2">
                 <span className="material-icons-outlined text-2xl"><IoIosNotifications /></span>
                 <h2 className="ml-2 font-semibold text-lg">Events</h2>
