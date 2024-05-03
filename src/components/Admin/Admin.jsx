@@ -9,7 +9,7 @@ const Admin = () => {
     const [phase2EndDate, setPhase2EndDate] = useState('');
     const [phase3StartDate, setPhase3StartDate] = useState('');
     const [phase3EndDate, setPhase3EndDate] = useState('');
-    const [randomDate, setRandomDate] = useState('');
+    const [randomDate, setRandomDate] = useState(new Date());
 
     const handleSubmit = async (topic, startDate, endDate) => {
         try {
@@ -98,7 +98,7 @@ const Admin = () => {
                 <button onClick={() => handleSubmit(3, phase3StartDate, phase3EndDate)}>Submit</button>
             </div>
 
-            {randomDate < new Date() ? <p>Some Other Phase</p> : <p>Phase 2</p>}
+            {randomDate >= new Date() ? <p>{randomDate.getHours() + ':' + randomDate.getMinutes()}</p> : <p>Phase 2</p>}
 
         </div>
     );

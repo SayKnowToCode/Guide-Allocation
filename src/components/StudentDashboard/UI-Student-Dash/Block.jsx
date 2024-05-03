@@ -18,7 +18,7 @@ const RevealBento = ({ teamMembers, teamName, acceptedGuide, expertAllocated }) 
                 }}
                 className="mx-auto grid max-w-4xl grid-flow-dense grid-cols-12 gap-12"
             >
-                <HeaderBlock teamMembers={teamMembers} teamName={teamName} acceptedGuide={acceptedGuide} expertAllocated={expertAllocated}/>
+                <HeaderBlock teamMembers={teamMembers} teamName={teamName} acceptedGuide={acceptedGuide} expertAllocated={expertAllocated} />
                 <SocialsBlock />
             </motion.div>
         </div>
