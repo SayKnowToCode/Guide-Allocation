@@ -39,7 +39,7 @@ const App = () => {
 
       <Route path='/studentDashboard' element={<StudentDashboard socket={socket} />} />
       <Route path='/facultyDashboard' element={<FacultyDashboard socket={socket} />} />
-      <Route path='/evaluation/:teamName/:role' element={<EvaluationForm socket={socket} />} />
+      <Route path='/evaluation/:teamName/:role' element={<Eval socket={socket} />} />
       <Route path='/preference' element={<PreferenceList socket={socket} />} />
       <Route path='/submission' element={<Submission socket={socket} />} />
       <Route path='/admin' element={<Admin />} />

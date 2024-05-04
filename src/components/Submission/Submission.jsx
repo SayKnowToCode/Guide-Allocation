@@ -66,7 +66,7 @@ const Submission = () => {
             {/* <div className="subhd">
                 <h1 >Submission Page</h1>
             </div> */}
-            
+
             <div className="submission-page">
                 {/* Weekly Report Container */}
                 <div className="submi-container">

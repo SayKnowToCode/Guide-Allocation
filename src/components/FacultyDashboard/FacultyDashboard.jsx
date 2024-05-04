@@ -24,8 +24,10 @@ const FacultyDashboard = ({ socket }) => {
             });
             // Wait for all promises to resolve
             const teamDataArray = await Promise.all(promises);
-            const unwrappedTeamDataArray = teamDataArray.flat();
-            setTeamData(unwrappedTeamDataArray);
+            console.log(teamDataArray);
+            // const unwrappedTeamDataArray = teamDataArray.flat();
+            // console.log(unwrappedTeamDataArray);
+            setTeamData(teamDataArray);
         } catch (error) {
             console.log(error.message);
         }
@@ -43,7 +45,8 @@ const FacultyDashboard = ({ socket }) => {
         socket.on(`RequestFor${facultyData.name}`, (data) => {
             setFacultyData(data.guide);
             localStorage.setItem('facultyData', JSON.stringify(data));
-            setTeamData([...teamData, data.team]);
+            // setTeamData([...teamData, data.team]);
+            // setTeamData(teamData.push(data.team));
         });
 
         socket.on(`expertGuideFor${facultyData.name}`, (data) => {
@@ -76,6 +79,7 @@ const FacultyDashboard = ({ socket }) => {
             });
             localStorage.setItem('facultyData', JSON.stringify(response.data));
             setFacultyData(response.data);
+            setTeamData(teamData.filter((team) => team.teamName !== teamName));
         } catch (error) {
             console.log(error.message);
         }
@@ -89,6 +93,7 @@ const FacultyDashboard = ({ socket }) => {
             });
             localStorage.setItem('facultyData', JSON.stringify(response.data));
             setFacultyData(response.data);
+            setTeamData(teamData.filter((team) => team.teamName !== teamName));
         } catch (error) {
             console.log(error.response.data);
         }
@@ -172,7 +177,7 @@ const FacultyDashboard = ({ socket }) => {
             <div className="requests-container overflow-x-hidden">
                 {teamData && teamData.length > 0 && teamData.map((team) => {
                     return (
-                        <div className='requests-container1 p-3 mt-2' key={team.teamName}>
+                        <div className='requests-container1 p-3 mt-2' key={team._id}>
                             <div className='flex gap-5'><h1 className='requests-teamname text-xl font-semibold mb-4 text-black whitespace-nowrap'>{team.teamName}</h1><p style={{ marginTop: '1px' }}>(Project-Title)</p></div>
                             {team.membersList.map((member) => {
                                 return (
@@ -185,8 +190,8 @@ const FacultyDashboard = ({ socket }) => {
                                 )
                             })}
                             <div className='flex gap-2'>
-                                <button>Accept</button>
-                                <button>Reject</button>
+                                <button onClick={() => handleAccept(team.teamName)}>Accept</button>
+                                <button onClick={() => handleReject(team.teamName)}>Reject</button>
                             </div>
                         </div>
                     )

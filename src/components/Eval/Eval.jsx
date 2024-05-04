@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 import './Eval.css';
+import axios from 'axios';
+
 const Rubric = () => {
-    const [teamName, setTeamName] = useState('');
-    const [teamDescription, setTeamDescription] = useState('');
+    const { teamName, role } = useParams();
+    const [teamData, setTeamData] = useState({});
     const [selectedDocument, setSelectedDocument] = useState('');
     const [marks, setMarks] = useState({ performance: 0, submission: 0 });
     const [selectedFaculty, setSelectedFaculty] = useState('');
@@ -12,44 +15,10 @@ const Rubric = () => {
     const [isSubmitted, setIsSubmitted] = useState(false);
     const [totalMarks, setTotalMarks] = useState(0);
 
-    // Fetch team name and description from local storage
-    useEffect(() => {
-        const storedTeamName = localStorage.getItem('teamName');
-        const storedTeamDescription = localStorage.getItem('teamDescription');
-        const savedTotalMarks = localStorage.getItem('totalMarks');
-        if (storedTeamName) setTeamName(storedTeamName);
-        if (storedTeamDescription) setTeamDescription(storedTeamDescription);
-        if (savedTotalMarks) { setTotalMarks(parseFloat(savedTotalMarks)) }
-        else {
-            // Set total marks to 0 if not present in local storage
-            setTotalMarks(0);
-        };
-    }, []);
-
-    // Function to handle faculty allocation
-    const handleFacultyAllocation = (selectedFaculty) => {
-        setSelectedFaculty(selectedFaculty);
-    };
-
-    const handleSubmitE = () => {
-        setIsSubmitted(true);
-    };
-    const handleSubmissionChange = (event) => {
-        setSubmissionMarks(parseFloat(event.target.value));
-    };
-
-    const handlePerformanceChange = (event) => {
-        setPerformanceMarks(parseFloat(event.target.value));
-    };
-
-    const handleSubmitR = () => {
-        const total = submissionMarks + performanceMarks;
-        setTotalMarks(total);
-        localStorage.setItem('totalMarks', total); // Save total marks to local storage
-    };
-
-    // Options for dropdown menu
-    const facultyOptions = [
+    const facultyName = JSON.parse(localStorage.getItem('facultyData')).name;
+    const [teamsAllocatedByMe, setTeamsAllocatedByMe] = useState(JSON.parse(localStorage.getItem('facultyData')).teamsAllocatedByMe);
+    const teamNames = teamsAllocatedByMe.map(team => team.teamName);
+    const facultyList = [
         "Dr. Prasenjit Bhavathankar",
         "Prof. Pramod Bide",
         "Dr. Kailas Devadkar",
@@ -79,7 +48,67 @@ const Rubric = () => {
         "Prof. Sakina Shaikh"
     ];
 
+    const filteredFacultyList = facultyList.filter(faculty => faculty !== facultyName);
 
+
+    // Fetch team name and description from local storage
+    useEffect(() => {
+        const fetchTeamData = async () => {
+            try {
+                const response = await axios.get(`http://localhost:3500/getTeam`, {
+                    params: {
+                        teamName
+                    }
+                });
+                setTeamData(response.data);
+            } catch (error) {
+                console.error(error);
+            }
+        };
+        fetchTeamData();
+
+    }, []);
+
+    // Function to handle faculty allocation
+    const handleFacultyAllocation = (selectedFaculty) => {
+        setSelectedFaculty(selectedFaculty);
+    };
+
+
+    const handleSubmitFaculty = async (e) => {
+        e.preventDefault();
+
+        try {
+            const response = await axios.post('http://localhost:3500/externalGuide', {
+                teamName,
+                facultyName,
+                selectedFaculty
+            })
+            console.log(response.data);
+            setTeamsAllocatedByMe(response.data.teamsAllocatedByMe);
+            const something = teamData
+            something.expertAllocated = selectedFaculty;
+            setTeamData(something);
+            localStorage.setItem('facultyData', JSON.stringify(response.data));
+        } catch (error) {
+            console.log(error.message);
+        }
+
+    };
+
+    const handleSubmissionChange = (event) => {
+        setSubmissionMarks(parseFloat(event.target.value));
+    };
+
+    const handlePerformanceChange = (event) => {
+        setPerformanceMarks(parseFloat(event.target.value));
+    };
+
+    const handleSubmitR = () => {
+        const total = submissionMarks + performanceMarks;
+        setTotalMarks(total);
+        localStorage.setItem('totalMarks', total); // Save total marks to local storage
+    };
 
     return (
         <div className="rubric-container">
@@ -87,36 +116,36 @@ const Rubric = () => {
                 <h2>Team Information</h2>
                 <div className="team-info1">
                     <div className="td">
-                        <h3>Dev Wiz</h3>
-                        <h4>Shreya</h4>
-                        <h4>Ninad Maadhavi</h4>
-                        <h4>Atharva Khabale</h4>
+                        <h3>{teamData.teamName}</h3>
+                        {teamData && teamData.membersList && teamData.membersList.length > 0 && teamData.membersList.map((member) => (
+                            <h4 key={member.name}>{member.name}</h4>
+                        ))}
+
                     </div>
                     <div className="tm">
-                        <h4>shreya.mehta22@spit.ac.in</h4>
-                        <h4>ninad.maadhavi22@spit.ac.in</h4>
-                        <h4>atharva.khabale22@spit.ac.in</h4>
+                        {teamData && teamData.membersList && teamData.membersList.length > 0 && teamData.membersList.map((member) => (
+                            <h4 key={member.email}>{member.email}</h4>
+                        ))}
                     </div>
 
-                    <h3>{teamName}</h3>
-                    <p>{teamDescription}</p>
+
                     <div className="tsub">
-                        <p>submissions</p>
+                        <p>Submissions</p>
                     </div>
                 </div>
             </div>
-            <div className="faculty-allocation1">
+            {role === 'guide' && <div className="faculty-allocation1">
                 <select value={selectedFaculty} onChange={(e) => setSelectedFaculty(e.target.value)}>
                     <option value="">Allocate Team to Expert</option>
-                    {facultyOptions.map((faculty, index) => (
+                    {filteredFacultyList.map((faculty, index) => (
                         <option key={index} value={faculty}>
                             {faculty}
                         </option>
                     ))}
                 </select>
-                <button className='me' onClick={handleSubmitE}>Submit</button>
-                {isSubmitted && selectedFaculty && <p className='exp1'>Team allocated to: {selectedFaculty}</p>}
-            </div>
+                <button className='me' onClick={handleSubmitFaculty}>Submit</button>
+                {teamData && teamData.expertAllocated && teamData.expertAllocated.length > 0 && <p className='exp1'>Team allocated to : {teamData.expertAllocated}</p>}
+            </div>}
 
             <div className="phase-boxes1">
                 <div className="us">
