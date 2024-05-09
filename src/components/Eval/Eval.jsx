@@ -18,6 +18,27 @@ const Rubric = () => {
     const facultyName = JSON.parse(localStorage.getItem('facultyData')).name;
     const [teamsAllocatedByMe, setTeamsAllocatedByMe] = useState(JSON.parse(localStorage.getItem('facultyData')).teamsAllocatedByMe);
     const teamNames = teamsAllocatedByMe.map(team => team.teamName);
+    const [submissions, setSubmissions] = useState([]);
+
+    useEffect(() => {
+        const fetchSubmissions = async () => {
+            try {
+                const response = await axios.get(`http://localhost:3500/fetchSubmissions`, {
+                    params: {
+                        teamName: teamName,
+                        facultyName: facultyName
+                    }
+                });
+                console.log(response.data);
+                setSubmissions(response.data);
+
+            } catch (error) {
+                console.error('Error fetching submissions:', error);
+            }
+        };
+        fetchSubmissions();
+    }, []);
+
     const facultyList = [
         "Dr. Prasenjit Bhavathankar",
         "Prof. Pramod Bide",
@@ -73,7 +94,19 @@ const Rubric = () => {
     const handleFacultyAllocation = (selectedFaculty) => {
         setSelectedFaculty(selectedFaculty);
     };
-
+    const openPDF = (pdfData) => {
+        // Create a Blob from the PDF data
+        const buffer = new Uint8Array(pdfData);
+        const blob = new Blob([buffer], { type: 'application/pdf' });
+        // Create a URL for the Blob
+        const url = URL.createObjectURL(blob);
+        // Open the PDF in a new window
+        window.open(url, '_blank');
+    };
+    const downloadFunc = async (fileName) => {
+        const response = await axios.get(`http://localhost:3500/download/${fileName}`)
+        openPDF(response.data.fileData.data);
+    };
 
     const handleSubmitFaculty = async (e) => {
         e.preventDefault();
@@ -129,8 +162,18 @@ const Rubric = () => {
                     </div>
 
 
-                    <div className="tsub">
-                        <p>Submissions</p>
+                    <div>
+                        <h2>Submissions</h2>
+                        <ul>
+                            {submissions && submissions.map((submission, index) => (
+                                <li key={index}>
+                                    {/* <a href={`http://localhost:3500/${submission.filePath}`} target="_blank" rel="noopener noreferrer">{submission.fileName}</a> */}
+                                    <button onClick={() => openPDF(submission.fileData.data)} >{submission.fileName}</button>
+
+
+                                </li>
+                            ))}
+                        </ul>
                     </div>
                 </div>
             </div>
